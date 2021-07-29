@@ -1,6 +1,6 @@
 <?php 
     include 'init.php';
-    include $tbl . 'header.php';
+    include $tpl . 'header.php';
     include $lang . 'english.php';
 ?>
 
@@ -8,4 +8,4 @@
         echo lang('message') . ' ' . lang('name')
     ?>
 
-<?php include $tbl . 'footer.php';?>
+<?php include $tpl . 'footer.php';?>
