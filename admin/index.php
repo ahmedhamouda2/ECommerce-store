@@ -1,10 +1,11 @@
 <?php 
-    include 'includes/templates/header.php';
-    include 'includes/languages/english.php';
+    include 'init.php';
+    include $tbl . 'header.php';
+    include $lang . 'english.php';
 ?>
 
     <?php   
         echo lang('message') . ' ' . lang('name')
     ?>
 
-<?php include 'includes/templates/footer.php';?>
+<?php include $tbl . 'footer.php';?>
