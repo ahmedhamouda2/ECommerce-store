@@ -2,6 +2,8 @@
 
 // This file is to organize the project and when needed to change the name of folders or whatever. Access is faster and become projects more dynamic, it will make the difference in big projects.
 
+include 'connect.php';
+
 // Routes 
 
 $tpl = 'includes/templates/';       // templates directory
