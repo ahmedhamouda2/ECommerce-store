@@ -1,6 +1,6 @@
 <?php 
 
-// This file is an organization project and when needed to change the name of folders and whatever.Access is faster and projects more  dynamic, it will make the difference in big projects.
+// This file is to organize the project and when needed to change the name of folders or whatever. Access is faster and become projects more dynamic, it will make the difference in big projects.
 
 // Routes 
 
