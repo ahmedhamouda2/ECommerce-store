@@ -4,8 +4,5 @@
     include $lang . 'english.php';
 ?>
 
-    <?php   
-        echo lang('message') . ' ' . lang('name')
-    ?>
 
 <?php include $tpl . 'footer.php';?>
