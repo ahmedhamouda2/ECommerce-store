@@ -6,8 +6,14 @@
 
 <form class="login">
     <h4 class="text-center">Admin Login</h4>
-    <input class="form-control" type="text" name="user" placeholder="Username" autocomplete="off" />
-    <input class="form-control" type="password" name="pass" placeholder="Password" autocomplete="new-password" />
+    <div class="custom-input">
+        <input class="form-control" type="text" name="user" autocomplete="off">
+        <label>Username</label>
+    </div>
+    <div class="custom-input">
+        <input class="form-control" type="password" name="pass" autocomplete="new-password">
+        <label>Password</label>
+    </div>
     <input class="btn btn-primary btn-block" type="submit" value="Login" />
 </form>
 
