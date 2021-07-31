@@ -13,12 +13,12 @@
                 <li class="nav-item"><a class="nav-link" href="#"><?php echo lang('STATISTICS') ?></a></li>
                 <li class="nav-item"><a class="nav-link" href="#"><?php echo lang('LOGS') ?></a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ahmed </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo lang('DROPDOWN_Name') ?></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Edit Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#"><?php echo lang('EDIT_PROFILE') ?></a>
+                        <a class="dropdown-item" href="#"><?php echo lang('SETTINGS') ?></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="#"><?php echo lang('LOGOUT') ?></a>
                     </div>
                 </li>
             </ul>
