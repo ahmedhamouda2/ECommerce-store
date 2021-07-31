@@ -1,4 +1,8 @@
-<?php 
+<?php
+    session_start();
+    if(isset($_SESSION['Username'])){
+        header('location:dashboard.php');       // Redirect To Dashboard Page
+    }
     include 'init.php';
     include $tpl . 'header.php';
     include $lang . 'english.php';
@@ -17,7 +21,9 @@
 
         // if count > 0 this mean the database contains a record about this username
         if($count > 0) {
-            echo 'welcome ' . $username;
+            $_SESSION['Username'] = $username;      // Register seesion name
+            header('location:dashboard.php');       // Redirect To Dashboard Page
+            exit();
         }
     }
 ?>
