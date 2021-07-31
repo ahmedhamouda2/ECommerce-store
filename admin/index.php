@@ -2,9 +2,17 @@
     include 'init.php';
     include $tpl . 'header.php';
     include $lang . 'english.php';
+
+    // check if user coming form HTTP Post Request
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $username = $_POST['user'];
+        $password = $_POST['pass'];
+        $hashedPass = sha1($password);          // password encryption
+        echo $username . ' ' . $hashedPass;
+    }
 ?>
 
-<form class="login">
+<form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
     <h4 class="text-center">Admin Login</h4>
     <div class="custom-input">
         <input class="form-control" type="text" name="user" autocomplete="off">
