@@ -23,11 +23,12 @@ body {
     font-size: 10px;
     color: #999;
     transition: 0.35s ease-in-out;
+    z-index: -1;
 }
 .custom-input input[type="text"] , 
 .custom-input input[type="password"] {
     height: 30px;
-    background-color: #eee;
+    background-color: transparent;
     border: 1px solid #dfdfdf;
 }
 .custom-input input[type="text"]:focus + label , 
