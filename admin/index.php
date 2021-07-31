@@ -8,7 +8,17 @@
         $username = $_POST['user'];
         $password = $_POST['pass'];
         $hashedPass = sha1($password);          // password encryption
-        echo $username . ' ' . $hashedPass;
+        
+        // check if user exist in database
+        $stmt = $con->prepare("SELECT Username , Password FROM users WHERE Username = ? AND Password = ?");
+        $stmt->execute(array($username ,$hashedPass));
+        $count = $stmt->rowCount();
+        // echo $count;
+
+        // if count > 0 this mean the database contains a record about this username
+        if($count > 0) {
+            echo 'welcome ' . $username;
+        }
     }
 ?>
 
