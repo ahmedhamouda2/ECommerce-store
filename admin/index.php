@@ -4,8 +4,6 @@
         header('location:dashboard.php');       // Redirect To Dashboard Page
     }
     include 'init.php';
-    include $tpl . 'header.php';
-    include $lang . 'english.php';
 
     // check if user coming form HTTP Post Request
     if($_SERVER['REQUEST_METHOD'] == 'POST'){

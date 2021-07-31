@@ -10,3 +10,8 @@ $tpl = 'includes/templates/';       // templates directory
 $css = 'layout/css/';               // css directory
 $js = 'layout/js/';                 // js directory
 $lang 	= 'includes/languages/';    // Language Directory
+
+//include the important files
+
+include $lang . 'english.php';
+include $tpl . 'header.php';
