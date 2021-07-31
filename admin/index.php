@@ -10,7 +10,7 @@
         $hashedPass = sha1($password);          // password encryption
         
         // check if user exist in database
-        $stmt = $con->prepare("SELECT Username , Password FROM users WHERE Username = ? AND Password = ?");
+        $stmt = $con->prepare("SELECT Username , Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
         $stmt->execute(array($username ,$hashedPass));
         $count = $stmt->rowCount();
         // echo $count;
