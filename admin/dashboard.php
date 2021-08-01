@@ -3,7 +3,7 @@
     if(isset($_SESSION['Username'])){
         $pageTitle = 'Dashboard';
         include 'init.php';
-        echo ' welcome';
+        print_r($_SESSION);
         include $tpl . 'footer.php';
     } else {
         header('location:index.php');
