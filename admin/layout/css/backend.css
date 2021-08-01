@@ -52,3 +52,22 @@ body {
     margin: auto;
 }
 /* End Login Form */
+
+/* start  Bootstrap edits*/
+.navbar {
+    padding: 0;
+}
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link , .navbar-nav .dropdown-menu , 
+.dropdown-item {
+    background-color: #3498db;
+}
+.dropdown-menu , .dropdown-divider {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+.dropdown-item {
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+}
+/* end  Bootstrap edits*/
