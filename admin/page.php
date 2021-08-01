@@ -2,12 +2,7 @@
 
 	/*Categories => [ Manage | Edit | Update | Add | Insert | Delete | Stats ] */
 
-    $do = '';
-    if(isset($_GET['do']) ){
-        $do = $_GET['do'];
-    } else {
-        $do = 'Manage';
-    }
+    $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 
 	// If The Page Is Main Page
 
