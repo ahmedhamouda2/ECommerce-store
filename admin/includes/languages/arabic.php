@@ -13,7 +13,9 @@
             'DROPDOWN_Name' => 'أحمد',
             'EDIT_PROFILE'  => 'تعديل الملف الشخصي',
             'SETTINGS'      => 'إعدادات',
-            'LOGOUT'        => 'تسجيل خروج'
+            'LOGOUT'        => 'تسجيل خروج',
+
+            'Admin_Login'   => 'تسجيل دخول المشرف',
         );
         return $lang[$phrase];
     }

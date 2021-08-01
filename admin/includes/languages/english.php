@@ -13,7 +13,9 @@
             'DROPDOWN_Name' => 'Ahmed',
             'EDIT_PROFILE'  => 'Edit Profile',
             'SETTINGS'      => 'Settings',
-            'LOGOUT'        => 'Logout'
+            'LOGOUT'        => 'Logout',
+
+            'Admin_Login'   => 'Admin Login' 
         );
         return $lang[$phrase];
     }

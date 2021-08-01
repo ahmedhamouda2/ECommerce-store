@@ -29,7 +29,7 @@
 ?>
 
 <form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-    <h4 class="text-center">Admin Login</h4>
+    <h4 class="text-center"><?php echo lang('Admin_Login') ?></h4>
     <div class="custom-input">
         <input class="form-control" type="text" name="user" autocomplete="off">
         <label>Username</label>
