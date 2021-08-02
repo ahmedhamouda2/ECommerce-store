@@ -88,12 +88,7 @@ if (isset($_SESSION['Username'])) {
             $full_name = $_POST['full'];
 
             // password trick 
-            $pass = '';
-            if(empty($_POST['newpassword'])){
-                $pass = $_POST['oldpassword'];
-            } else {
-                $pass = sha1($_POST['newpassword']);
-            }
+            $pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
 
             // Update the database with this info
             $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
