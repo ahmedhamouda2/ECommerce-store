@@ -17,7 +17,7 @@
             // manage page
         } elseif ($do == 'Edit') {
             // Edit page
-            echo 'welcome to edit page';
+            echo 'welcome to edit page , Your id :' .  $_GET['userid'];
         } elseif ($do == 'Insert') {
             // Insert page
         } else {

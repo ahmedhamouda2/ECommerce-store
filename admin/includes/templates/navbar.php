@@ -15,7 +15,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo lang('DROPDOWN_Name') ?></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="members.php?do=Edit"><?php echo lang('EDIT_PROFILE') ?></a>
+                        <a class="dropdown-item" href="members.php?do=Edit&userid=<?php echo $_SESSION['ID'] ?>"><?php echo lang('EDIT_PROFILE') ?></a>
                         <a class="dropdown-item" href="#"><?php echo lang('SETTINGS') ?></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php"><?php echo lang('LOGOUT') ?></a>
