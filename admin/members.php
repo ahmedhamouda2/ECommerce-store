@@ -17,6 +17,11 @@ if (isset($_SESSION['Username'])) {
     if ($do == 'Manage') {
         // manage page
     } elseif ($do == 'Edit') {  // Edit page 
+        if(isset($_GET['userid']) && is_numeric($_GET['userid'])) {
+            echo intval($_GET['userid']);
+        } else {
+            echo 0;
+        }
 ?>
 
         <h2 class="text-center">Edit Member</h2>
