@@ -29,6 +29,7 @@ if (isset($_SESSION['Username'])) {
             <h2 class="text-center">Edit Member</h2>
             <div class="container">
                     <form action="?do=Update" method="POST">
+                        <input type="hidden" name="userid" value="<?php echo $userid ?>">
                         <!-- start username field -->
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
@@ -57,7 +58,7 @@ if (isset($_SESSION['Username'])) {
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="text" name="fullname" class="form-control"  value="<?php echo $row['FullName'] ?>">
+                                <input type="text" name="full" class="form-control"  value="<?php echo $row['FullName'] ?>">
                             </div>
                         </div>
                         <!-- end fullname field -->
@@ -79,6 +80,13 @@ if (isset($_SESSION['Username'])) {
     } elseif ($do == 'Update') { // Update page
         echo "<h2 class='text-center'>Update Member</h2>";
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            // get variables from the Form [names in form]
+            $id         = $_POST['userid'];
+            $user       = $_POST['username'];
+            $email      = $_POST['email'];
+            $full_name = $_POST['full'];
+
+            echo $id . $user . $email . $full_name; 
 
         } else {
             echo 'Sorry you cant browse this page directly';
