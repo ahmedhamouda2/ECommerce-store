@@ -90,6 +90,17 @@ if (isset($_SESSION['Username'])) {
             // password trick 
             $pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
 
+            // validate the Form 
+            
+            if(empty($user)){
+                echo 'User cant be empty';
+            }
+            if(empty($full_name)){
+                echo 'Name cant be empty';
+            }
+            if(empty($email)){
+                echo 'Email cant be empty';
+            }
             // Update the database with this info
             $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
             $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
