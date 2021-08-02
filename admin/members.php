@@ -86,7 +86,9 @@ if (isset($_SESSION['Username'])) {
             $email      = $_POST['email'];
             $full_name = $_POST['full'];
 
-            echo $id . $user . $email . $full_name; 
+            // Update the database with this info
+            $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? WHERE UserID = ?");
+            $stmt->execute(array($user , $email , $full_name , $id));
 
         } else {
             echo 'Sorry you cant browse this page directly';
