@@ -95,6 +95,12 @@ if (isset($_SESSION['Username'])) {
             if(empty($user)){
                 $formErrors[] = 'User cant be empty';
             }
+            if(strlen($user) < 4 ){
+                $formErrors[] = 'Username cant be less than 4 characters';
+            }
+            if(strlen($user) > 20 ){
+                $formErrors[] = 'Username cant be more than 20 characters';
+            }
             if(empty($full_name)){
                 $formErrors[] = 'Full Name cant be empty';
             }
