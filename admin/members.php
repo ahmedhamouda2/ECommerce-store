@@ -90,6 +90,9 @@ if (isset($_SESSION['Username'])) {
             $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? WHERE UserID = ?");
             $stmt->execute(array($user , $email , $full_name , $id));
 
+            // echo success message 
+            echo  $stmt->rowCount() . ' Record Updated';
+
         } else {
             echo 'Sorry you cant browse this page directly';
         }
