@@ -73,3 +73,12 @@ body {
     padding: 0.5rem 1.5rem;
 }
 /* end  Bootstrap edits*/
+
+/* start members page */
+h2 {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 40px 0;
+    color: #666;
+}
+/* End members page */
