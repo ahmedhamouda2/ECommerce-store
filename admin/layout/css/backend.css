@@ -2,6 +2,10 @@
 body {
 	background-color: #F4F4F4;
 }
+.form-control::placeholder {
+    color: #cacaca;
+    font-size: 14px;
+}
 /* End Main Rules */
 
 /* Start Login Form */

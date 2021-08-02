@@ -43,7 +43,7 @@ if (isset($_SESSION['Username'])) {
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
                             <div class="col-sm-10 col-md-6">
                                 <input type="hidden" name="oldpassword" value="<?php echo $row['Password'] ?>">
-                                <input type="password" name="newpassword" class="form-control" autocomplete="new-password">
+                                <input type="password" name="newpassword" class="form-control" autocomplete="new-password" placeholder="Leave Blank If You Don't Want To Change">
                             </div>
                         </div>
                         <!-- end password field -->
