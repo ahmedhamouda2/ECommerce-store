@@ -24,62 +24,62 @@ if (isset($_SESSION['Username'])) {
         $row = $stmt->fetch();
         $count = $stmt->rowCount();
 
-        if($count > 0) {
-            echo 'good, there is an ID';
-        } else {
-            echo 'bad, no such ID';
-        }
-?>
+        if($count > 0) { ?>
 
-        <h2 class="text-center">Edit Member</h2>
-        <div class="container">
-                <form>
-                    <!-- start username field -->
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
-                        <div class="col-sm-10 col-md-6">
-                            <input type="username" name="username" class="form-control" autocomplete="off">
+            <h2 class="text-center">Edit Member</h2>
+            <div class="container">
+                    <form>
+                        <!-- start username field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="username" name="username" class="form-control" value="<?php echo $row['Username'] ?>" autocomplete="off">
+                            </div>
                         </div>
-                    </div>
-                    <!-- End username field -->
-                    <!-- start password field -->
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
-                        <div class="col-sm-10 col-md-6">
-                            <input type="password" name="password" class="form-control" autocomplete="new-password">
+                        <!-- End username field -->
+                        <!-- start password field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="password" name="password" class="form-control" autocomplete="new-password">
+                            </div>
                         </div>
-                    </div>
-                    <!-- end password field -->
-                    <!-- start Email field -->
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
-                        <div class="col-sm-10 col-md-6">
-                            <input type="email" name="email" class="form-control">
+                        <!-- end password field -->
+                        <!-- start Email field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="email" name="email" class="form-control" value="<?php echo $row['Email'] ?>">
+                            </div>
                         </div>
-                    </div>
-                    <!-- end Email field -->
-                    <!-- start fullname field -->
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
-                        <div class="col-sm-10 col-md-6">
-                            <input type="text" name="fullname" class="form-control">
+                        <!-- end Email field -->
+                        <!-- start fullname field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="text" name="fullname" class="form-control"  value="<?php echo $row['FullName'] ?>">
+                            </div>
                         </div>
-                    </div>
-                    <!-- end fullname field -->
-                    <!-- start submit -->
-                    <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" value="save" class="btn btn-primary btn-lg">
+                        <!-- end fullname field -->
+                        <!-- start submit -->
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                                <input type="submit" value="save" class="btn btn-primary btn-lg">
+                            </div>
                         </div>
-                    </div>
-                    <!-- end submit -->
+                        <!-- end submit -->
+                    </form>
                 </form>
-            </form>
-        </div>
+            </div>
 
-<?php  } elseif ($do == 'Insert') {
+    <?php
+        }else {
+            echo 'There\'s No such ID';
+        }
+    } elseif ($do == 'Insert') {
         // Insert page
     } else {
+        
     }
 
     include $tpl . 'footer.php';
