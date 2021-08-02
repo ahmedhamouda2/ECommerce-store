@@ -18,7 +18,17 @@ if (isset($_SESSION['Username'])) {
         // manage page
     } elseif ($do == 'Edit') {  // Edit page 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
-        echo $userid;
+        // check if user exist in database
+        $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
+        $stmt->execute(array($userid));
+        $row = $stmt->fetch();
+        $count = $stmt->rowCount();
+
+        if($count > 0) {
+            echo 'good, there is an ID';
+        } else {
+            echo 'bad, no such ID';
+        }
 ?>
 
         <h2 class="text-center">Edit Member</h2>
