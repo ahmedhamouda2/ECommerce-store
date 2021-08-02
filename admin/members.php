@@ -80,6 +80,7 @@ if (isset($_SESSION['Username'])) {
         }
     } elseif ($do == 'Update') { // Update page
         echo "<h2 class='text-center'>Update Member</h2>";
+        echo "<div class='container'>";
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // get variables from the Form [names in form]
             $id         = $_POST['userid'];
@@ -108,7 +109,7 @@ if (isset($_SESSION['Username'])) {
                 $formErrors[] = 'Email cant be empty';
             }
             foreach($formErrors as $error){
-                echo $error . '<br>';
+                echo '<div class="alert alert-danger" role="alert">' . $error . '</div>' . '<br>';
             }
             // Update the database with this info
             // $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
@@ -121,7 +122,7 @@ if (isset($_SESSION['Username'])) {
             echo 'Sorry you cant browse this page directly';
         }
     } 
-
+    echo "</div>";
     include $tpl . 'footer.php';
 } else {
     header('location:index.php');
