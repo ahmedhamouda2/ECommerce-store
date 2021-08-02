@@ -28,7 +28,7 @@ if (isset($_SESSION['Username'])) {
 
             <h2 class="text-center">Edit Member</h2>
             <div class="container">
-                    <form>
+                    <form action="?do=Update" method="POST">
                         <!-- start username field -->
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
@@ -78,6 +78,11 @@ if (isset($_SESSION['Username'])) {
         }
     } elseif ($do == 'Update') { // Update page
         echo "<h2 class='text-center'>Update Member</h2>";
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        } else {
+            echo 'Sorry you cant browse this page directly';
+        }
     } 
 
     include $tpl . 'footer.php';
