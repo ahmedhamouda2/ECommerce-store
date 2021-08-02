@@ -109,7 +109,7 @@ if (isset($_SESSION['Username'])) {
                 $formErrors[] = '<div class="alert alert-danger" role="alert">Email cant be <strong>empty.</strong></div>';
             }
             foreach($formErrors as $error){
-                echo  $error . '<br>';
+                echo  $error;
             }
             // Update the database with this info
             // $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
