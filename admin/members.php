@@ -94,22 +94,22 @@ if (isset($_SESSION['Username'])) {
             // validate the Form 
             $formErrors = array();
             if(empty($user)){
-                $formErrors[] = 'User cant be empty';
+                $formErrors[] = '<div class="alert alert-danger" role="alert">User cant be <strong>empty.</strong></div>';
             }
             if(strlen($user) < 4 ){
-                $formErrors[] = 'Username cant be less than 4 characters';
+                $formErrors[] = '<div class="alert alert-danger" role="alert">Username cant be less than <strong>4 characters.</strong></div>';
             }
             if(strlen($user) > 20 ){
-                $formErrors[] = 'Username cant be more than 20 characters';
+                $formErrors[] = '<div class="alert alert-danger" role="alert">Username cant be more than <strong>20 characters.</strong></div>';
             }
             if(empty($full_name)){
-                $formErrors[] = 'Full Name cant be empty';
+                $formErrors[] = '<div class="alert alert-danger" role="alert">Full Name cant be <strong>empty.</strong></div>';
             }
             if(empty($email)){
-                $formErrors[] = 'Email cant be empty';
+                $formErrors[] = '<div class="alert alert-danger" role="alert">Email cant be <strong>empty.</strong></div>';
             }
             foreach($formErrors as $error){
-                echo '<div class="alert alert-danger" role="alert">' . $error . '</div>' . '<br>';
+                echo  $error . '<br>';
             }
             // Update the database with this info
             // $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
