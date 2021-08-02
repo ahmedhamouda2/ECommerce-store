@@ -94,23 +94,23 @@ if (isset($_SESSION['Username'])) {
             // validate the Form 
             $formErrors = array();
             if(empty($user)){
-                $formErrors[] = '<div class="alert alert-danger" role="alert">User cant be <strong>empty.</strong></div>';
+                $formErrors[] = 'User cant be <strong>empty.</strong>';
             }
             if(strlen($user) < 4 ){
-                $formErrors[] = '<div class="alert alert-danger" role="alert">Username cant be less than <strong>4 characters.</strong></div>';
+                $formErrors[] = 'Username cant be less than <strong>4 characters.</strong>';
             }
             if(strlen($user) > 20 ){
-                $formErrors[] = '<div class="alert alert-danger" role="alert">Username cant be more than <strong>20 characters.</strong></div>';
+                $formErrors[] = 'Username cant be more than <strong>20 characters.</strong>';
             }
             if(empty($full_name)){
-                $formErrors[] = '<div class="alert alert-danger" role="alert">Full Name cant be <strong>empty.</strong></div>';
+                $formErrors[] = 'Full Name cant be <strong>empty.</strong>';
             }
             if(empty($email)){
-                $formErrors[] = '<div class="alert alert-danger" role="alert">Email cant be <strong>empty.</strong></div>';
+                $formErrors[] = 'Email cant be <strong>empty.</strong>';
             }
             // loop into errors array and echo it 
             foreach($formErrors as $error){
-                echo  $error;
+                echo  '<div class="alert alert-danger" role="alert">' . $error . '</div>';
             }
 
             // check if there no error proceed the update operation
