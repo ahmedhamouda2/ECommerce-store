@@ -108,15 +108,20 @@ if (isset($_SESSION['Username'])) {
             if(empty($email)){
                 $formErrors[] = '<div class="alert alert-danger" role="alert">Email cant be <strong>empty.</strong></div>';
             }
+            // loop into errors array and echo it 
             foreach($formErrors as $error){
                 echo  $error;
             }
-            // Update the database with this info
-            // $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
-            // $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
 
-            // echo success message 
-            // echo  $stmt->rowCount() . ' Record Updated';
+            // check if there no error proceed the update operation
+                if(empty($formErrors)){
+                    // Update the database with this info
+                    $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
+                    $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
+        
+                    // echo success message 
+                    echo  $stmt->rowCount() . ' Record Updated';
+                }
 
         } else {
             echo 'Sorry you cant browse this page directly';
