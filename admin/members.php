@@ -92,7 +92,7 @@ if (isset($_SESSION['Username'])) {
             if(empty($_POST['newpassword'])){
                 $pass = $_POST['oldpassword'];
             } else {
-                $pass = $_POST['newpassword'];
+                $pass = sha1($_POST['newpassword']);
             }
 
             // Update the database with this info
