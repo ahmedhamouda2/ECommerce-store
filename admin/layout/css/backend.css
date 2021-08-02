@@ -6,6 +6,14 @@ body {
     color: #cacaca;
     font-size: 14px;
 }
+.asterisk {
+    position: absolute;
+    right: 25px;
+    top: 2px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #D20707;
+}
 /* End Main Rules */
 
 /* Start Login Form */
