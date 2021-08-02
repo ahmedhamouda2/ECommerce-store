@@ -91,22 +91,25 @@ if (isset($_SESSION['Username'])) {
             $pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
 
             // validate the Form 
-            
+            $formErrors = array();
             if(empty($user)){
-                echo 'User cant be empty';
+                $formErrors[] = 'User cant be empty';
             }
             if(empty($full_name)){
-                echo 'Name cant be empty';
+                $formErrors[] = 'Full Name cant be empty';
             }
             if(empty($email)){
-                echo 'Email cant be empty';
+                $formErrors[] = 'Email cant be empty';
+            }
+            foreach($formErrors as $error){
+                echo $error . '<br>';
             }
             // Update the database with this info
-            $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
-            $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
+            // $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
+            // $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
 
             // echo success message 
-            echo  $stmt->rowCount() . ' Record Updated';
+            // echo  $stmt->rowCount() . ' Record Updated';
 
         } else {
             echo 'Sorry you cant browse this page directly';
