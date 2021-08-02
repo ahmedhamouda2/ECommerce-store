@@ -120,7 +120,7 @@ if (isset($_SESSION['Username'])) {
                     $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
         
                     // echo success message 
-                    echo  $stmt->rowCount() . ' Record Updated';
+                    echo '<div class="alert alert-success" role="alert">' . $stmt->rowCount() . ' Record Updated</div>';
                 }
 
         } else {
