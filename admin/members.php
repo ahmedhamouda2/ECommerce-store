@@ -76,11 +76,9 @@ if (isset($_SESSION['Username'])) {
         }else {
             echo 'There\'s No such ID';
         }
-    } elseif ($do == 'Insert') {
-        // Insert page
-    } else {
-        
-    }
+    } elseif ($do == 'Update') { // Update page
+        echo "<h2 class='text-center'>Update Member</h2>";
+    } 
 
     include $tpl . 'footer.php';
 } else {
