@@ -42,7 +42,8 @@ if (isset($_SESSION['Username'])) {
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="password" name="password" class="form-control" autocomplete="new-password">
+                                <input type="hidden" name="oldpassword" value="<?php echo $row['Password'] ?>">
+                                <input type="password" name="newpassword" class="form-control" autocomplete="new-password">
                             </div>
                         </div>
                         <!-- end password field -->
@@ -86,9 +87,17 @@ if (isset($_SESSION['Username'])) {
             $email      = $_POST['email'];
             $full_name = $_POST['full'];
 
+            // password trick 
+            $pass = '';
+            if(empty($_POST['newpassword'])){
+                $pass = $_POST['oldpassword'];
+            } else {
+                $pass = $_POST['newpassword'];
+            }
+
             // Update the database with this info
-            $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? WHERE UserID = ?");
-            $stmt->execute(array($user , $email , $full_name , $id));
+            $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
+            $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
 
             // echo success message 
             echo  $stmt->rowCount() . ' Record Updated';
