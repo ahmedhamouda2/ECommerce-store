@@ -37,7 +37,7 @@ if (isset($_SESSION['Username'])) {
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
                             <div class="col-sm-10 col-md-6">
                                 <input type="password" name="password" class="password form-control" autocomplete="new-password" required placeholder="Password must be Hard & Complex">
-                                <i class="show-pass fas fa-eye fa-2x"></i>
+                                <i class="show-pass fas fa-eye fa-2x" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
                             </div>
                         </div>
                         <!-- end password field -->
