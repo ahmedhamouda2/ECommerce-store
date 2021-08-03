@@ -46,8 +46,8 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td>' . $row['FullName'] . '</td>';
                                     echo'<td>' . $row['Date'] . '</td>';
                                     echo'<td>
-                                            <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success">Edit</a>
-                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm">Delete</a>
+                                            <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>
                                         </td>';
                                 echo '</tr>';
                             }
@@ -55,7 +55,7 @@ if (isset($_SESSION['Username'])) {
 
                     </table>
                 </div>
-                <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Mebmer</a>
+                <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Mebmer</a>
             </div>
     <?php } elseif ($do == 'Add') { 
         // add members page

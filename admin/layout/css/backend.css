@@ -98,10 +98,21 @@ h2 {
     top: 6px;
     right: -30px;
 }
-
-.main-table tr:first-child td { /* you can use Thead */
+.main-table {
+	box-shadow: 0 3px 10px #CCC;
+}
+.main-table td {
+	background-color: #FFF;
+	vertical-align: middle !important;
+}
+.main-table tr:first-child td { /* You Can Use Thead */
 	background-color: #333;
 	color: #FFF;
 }
-
+.main-table .btn {
+	padding: 3px 10px;
+}
+.activate {
+	margin-left: 5px;
+}
 /* End members page */
