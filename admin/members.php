@@ -282,7 +282,23 @@ if (isset($_SESSION['Username'])) {
         echo "</div>";
     }   elseif ($do == 'Delete')  {
         // Delete member page
-        echo 'welcome to delete page';
+
+        // Check if eet request userid Is Numeric & Get its integer value   
+        $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
+        // check if user exist in database
+        $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
+        $stmt->execute(array($userid));
+        $count = $stmt->rowCount();
+
+        if($count > 0) {
+            echo 'good this id is exist';
+            $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
+            $stmt->bindParam(":zuser", $userid);
+            $stmt->execute();
+            echo "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Deleted</div>';
+        } else {
+            echo 'this id is not exist';
+        }
     }
     include $tpl . 'footer.php';
 } else {
