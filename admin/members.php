@@ -47,7 +47,7 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td></td>';
                                     echo'<td>
                                             <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success">Edit</a>
-                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger">Delete</a>
+                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm">Delete</a>
                                         </td>';
                                 echo '</tr>';
                             }

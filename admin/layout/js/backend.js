@@ -30,3 +30,8 @@ function showPassword(){
 function hidePassword(){
     inputpass.type ='password';
 }
+
+// Confirmation Message On Button
+$('.confirm').click(function () {
+    return confirm('Are You Sure?');
+});
