@@ -109,7 +109,8 @@ if (isset($_SESSION['Username'])) {
 
     <?php
     } elseif ($do == 'Insert') {  // Insert member page
-        
+        echo "<div class='container'>";
+        echo  "<h2 class='text-center'>Insert Member</h2>";
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo "<h2 class='text-center'>Update Member</h2>";
             echo "<div class='container'>";
@@ -163,7 +164,8 @@ if (isset($_SESSION['Username'])) {
                 }
 
         } else {
-            echo 'Sorry you cant browse this page directly';
+            $errorMsg = 'Sorry you cant browse this page directly';
+            redirectHome($errorMsg);
         }
         echo "</div>";
 
@@ -277,7 +279,8 @@ if (isset($_SESSION['Username'])) {
                 }
 
         } else {
-            echo 'Sorry you cant browse this page directly';
+            $errorMsg = 'Sorry you cant browse this page directly';
+            redirectHome($errorMsg);
         }
         echo "</div>";
     }   elseif ($do == 'Delete')  {
