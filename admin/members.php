@@ -16,6 +16,58 @@ if (isset($_SESSION['Username'])) {
     // start manage page
     if ($do == 'Manage') {
         // manage page
+        echo 'welcome to Manage page';
+        echo '<a href="members.php?do=Add"> Add New Mebmer</a>';
+    } elseif ($do == 'Add') { 
+        // add members page
+        ?>
+            <h2 class="text-center">Add New Member</h2>
+            <div class="container">
+                    <form action="?do=Insert" method="POST">
+                        <!-- start username field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="username" name="username" class="form-control" autocomplete="off" required  placeholder="Username to login into Shop">
+                            </div>
+                        </div>
+                        <!-- End username field -->
+                        <!-- start password field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="password" name="password" class="form-control" autocomplete="new-password" required placeholder="Password must be Hard & Complex">
+                            </div>
+                        </div>
+                        <!-- end password field -->
+                        <!-- start Email field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="email" name="email" class="form-control" required  placeholder="Email must be valid">
+                            </div>
+                        </div>
+                        <!-- end Email field -->
+                        <!-- start fullname field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="text" name="full" class="form-control" required  placeholder="Full name Appear in your profile page">
+                            </div>
+                        </div>
+                        <!-- end fullname field -->
+                        <!-- start submit -->
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                                <input type="submit" value="Add Member" class="btn btn-primary btn-lg">
+                            </div>
+                        </div>
+                        <!-- end submit -->
+                    </form>
+                </form>
+            </div>
+
+    <?php
     } elseif ($do == 'Edit') {  // Edit page 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
         // check if user exist in database
