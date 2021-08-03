@@ -69,8 +69,58 @@ if (isset($_SESSION['Username'])) {
 
     <?php
     } elseif ($do == 'Insert') {  // Insert member page
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            echo "<h2 class='text-center'>Update Member</h2>";
+            echo "<div class='container'>";
 
-        echo $_POST['username'] . $_POST['password'] . $_POST['email'] . $_POST['full'];
+            // get variables from the Form [names in form]
+            $user       = $_POST['username'];
+            $pass       = $_POST['password'];
+            $email      = $_POST['email'];
+            $full_name = $_POST['full'];
+
+            $hashPass = sha1($_POST['password']);
+
+            // validate the Form 
+            $formErrors = array();
+            if(empty($user)){
+                $formErrors[] = 'User cant be <strong>empty.</strong>';
+            }
+            if(strlen($user) < 4 ){
+                $formErrors[] = 'Username cant be less than <strong>4 characters.</strong>';
+            }
+            if(strlen($user) > 20 ){
+                $formErrors[] = 'Username cant be more than <strong>20 characters.</strong>';
+            }
+            if(empty($pass)){
+                $formErrors[] = 'Password cant be <strong>empty.</strong>';
+            }
+            if(empty($full_name)){
+                $formErrors[] = 'Full Name cant be <strong>empty.</strong>';
+            }
+            if(empty($email)){
+                $formErrors[] = 'Email cant be <strong>empty.</strong>';
+            }
+            // loop into errors array and echo it 
+            foreach($formErrors as $error){
+                echo  '<div class="alert alert-danger" role="alert">' . $error . '</div>';
+            }
+
+            // check if there no error proceed the update operation
+                if(empty($formErrors)){
+                    // Insert user info in database
+                    
+                    // echo success message 
+                    echo '<div class="alert alert-success" role="alert">' . $stmt->rowCount() . ' Record Inserted</div>';
+                }
+
+        } else {
+            echo 'Sorry you cant browse this page directly';
+        }
+        echo "</div>";
+
+
             
     } elseif ($do == 'Edit') {  // Edit page 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
@@ -182,8 +232,8 @@ if (isset($_SESSION['Username'])) {
         } else {
             echo 'Sorry you cant browse this page directly';
         }
+        echo "</div>";
     } 
-    echo "</div>";
     include $tpl . 'footer.php';
 } else {
     header('location:index.php');
