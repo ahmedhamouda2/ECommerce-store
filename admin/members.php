@@ -282,23 +282,24 @@ if (isset($_SESSION['Username'])) {
         echo "</div>";
     }   elseif ($do == 'Delete')  {
         // Delete member page
+        echo "<h2 class='text-center'>Delete Member</h2>";
+        echo "<div class='container'>";
+            // Check if eet request userid Is Numeric & Get its integer value   
+            $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
+            // check if user exist in database
+            $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
+            $stmt->execute(array($userid));
+            $count = $stmt->rowCount();
 
-        // Check if eet request userid Is Numeric & Get its integer value   
-        $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
-        // check if user exist in database
-        $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
-        $stmt->execute(array($userid));
-        $count = $stmt->rowCount();
-
-        if($count > 0) {
-            echo 'good this id is exist';
-            $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
-            $stmt->bindParam(":zuser", $userid);
-            $stmt->execute();
-            echo "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Deleted</div>';
-        } else {
-            echo 'this id is not exist';
-        }
+            if($count > 0) {
+                $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
+                $stmt->bindParam(":zuser", $userid);
+                $stmt->execute();
+                echo "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Deleted</div>';
+            } else {
+                echo 'This id is not exist';
+            }
+        echo "</div>";
     }
     include $tpl . 'footer.php';
 } else {
