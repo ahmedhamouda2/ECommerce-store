@@ -47,7 +47,7 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td></td>';
                                     echo'<td>
                                             <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger">Delete</a>
                                         </td>';
                                 echo '</tr>';
                             }
@@ -280,7 +280,10 @@ if (isset($_SESSION['Username'])) {
             echo 'Sorry you cant browse this page directly';
         }
         echo "</div>";
-    } 
+    }   elseif ($do == 'Delete')  {
+        // Delete member page
+        echo 'welcome to delete page';
+    }
     include $tpl . 'footer.php';
 } else {
     header('location:index.php');
