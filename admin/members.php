@@ -31,65 +31,27 @@ if (isset($_SESSION['Username'])) {
                     <table class="main-table text-center table table-bordered">
                         <tr>
                             <td>#ID</td>
-                            <td>Avatar</td>
                             <td>Username</td>
                             <td>Email</td>
                             <td>Full Name</td>
                             <td>Registered Date</td>
                             <td>Control</td>
                         </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                        <?php 
+                            foreach ($rows as $row) {
+                                echo '<tr>';
+                                    echo'<td>' . $row['UserID'] . '</td>';
+                                    echo'<td>' . $row['Username'] . '</td>';
+                                    echo'<td>' . $row['Email'] . '</td>';
+                                    echo'<td>' . $row['FullName'] . '</td>';
+                                    echo'<td></td>';
+                                    echo'<td>
+                                            <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success">Edit</a>
+                                            <a href="#" class="btn btn-danger">Delete</a>
+                                        </td>';
+                                echo '</tr>';
+                            }
+                        ?>
 
                     </table>
                 </div>
