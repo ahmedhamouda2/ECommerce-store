@@ -68,6 +68,10 @@ if (isset($_SESSION['Username'])) {
             </div>
 
     <?php
+    } elseif ($do == 'Insert') {  // Insert member page
+
+        echo $_POST['username'] . $_POST['password'] . $_POST['email'] . $_POST['full'];
+            
     } elseif ($do == 'Edit') {  // Edit page 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
         // check if user exist in database
