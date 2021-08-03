@@ -98,4 +98,10 @@ h2 {
     top: 6px;
     right: -30px;
 }
+
+.main-table tr:first-child td { /* you can use Thead */
+	background-color: #333;
+	color: #FFF;
+}
+
 /* End members page */

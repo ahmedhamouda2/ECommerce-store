@@ -18,60 +18,72 @@ if (isset($_SESSION['Username'])) {
             <h2 class="text-center">Manage Member</h2>
             <div class="container">
                 <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                        <td>#ID</td>
-                        <td>Avatar</td>
-                        <td>Username</td>
-                        <td>Email</td>
-                        <td>Full Name</td>
-                        <td>Registered Date</td>
-                        <td>Control</td>
-                    </tr>
+                    <table class="main-table text-center table table-bordered">
+                        <tr>
+                            <td>#ID</td>
+                            <td>Avatar</td>
+                            <td>Username</td>
+                            <td>Email</td>
+                            <td>Full Name</td>
+                            <td>Registered Date</td>
+                            <td>Control</td>
+                        </tr>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="btn btn-success">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="btn btn-success">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="btn btn-success">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="btn btn-success">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
 
-                </table>
+                    </table>
                 </div>
-                <a href="members.php?do=Add"> Add New Mebmer</a>
+                <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Mebmer</a>
             </div>
     <?php } elseif ($do == 'Add') { 
         // add members page
