@@ -14,7 +14,17 @@ if (isset($_SESSION['Username'])) {
 
     $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
     // start manage page
-    if ($do == 'Manage') { // manage member page ?>
+    if ($do == 'Manage') { // manage member page
+
+        // select all users except Admin
+        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID != 1 ");
+        $stmt->execute();
+
+        // assign to varible
+        $rows = $stmt->fetchAll();
+
+
+    ?>
             <h2 class="text-center">Manage Member</h2>
             <div class="container">
                 <div class="table-responsive">
