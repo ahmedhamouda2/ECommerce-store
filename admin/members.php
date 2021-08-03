@@ -52,7 +52,6 @@ if (isset($_SESSION['Username'])) {
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
                             <div class="col-sm-10 col-md-6">
                                 <input type="email" name="email" class="form-control" value="<?php echo $row['Email'] ?>" required>
-                                <!-- <span class="asterisk">*</span> -->
                             </div>
                         </div>
                         <!-- end Email field -->
@@ -61,7 +60,6 @@ if (isset($_SESSION['Username'])) {
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
                             <div class="col-sm-10 col-md-6">
                                 <input type="text" name="full" class="form-control"  value="<?php echo $row['FullName'] ?>" required>
-                                <!-- <span class="asterisk">*</span> -->
                             </div>
                         </div>
                         <!-- end fullname field -->
