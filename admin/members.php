@@ -14,11 +14,66 @@ if (isset($_SESSION['Username'])) {
 
     $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
     // start manage page
-    if ($do == 'Manage') {
-        // manage page
-        echo 'welcome to Manage page';
-        echo '<a href="members.php?do=Add"> Add New Mebmer</a>';
-    } elseif ($do == 'Add') { 
+    if ($do == 'Manage') { // manage member page ?>
+            <h2 class="text-center">Manage Member</h2>
+            <div class="container">
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>#ID</td>
+                        <td>Avatar</td>
+                        <td>Username</td>
+                        <td>Email</td>
+                        <td>Full Name</td>
+                        <td>Registered Date</td>
+                        <td>Control</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+                </div>
+                <a href="members.php?do=Add"> Add New Mebmer</a>
+            </div>
+    <?php } elseif ($do == 'Add') { 
         // add members page
         ?>
             <h2 class="text-center">Add New Member</h2>
