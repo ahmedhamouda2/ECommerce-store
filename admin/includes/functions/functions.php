@@ -53,7 +53,7 @@
 	/*
 	** Count number of items function
 	** Function to count number of items rows
-	** $item = The ttem to count
+	** $item = The item to count
 	** $table = The table to choose from
 	*/
 
