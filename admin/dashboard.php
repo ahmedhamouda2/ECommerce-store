@@ -23,7 +23,7 @@
                     <div class="stat stat-pending d-flex flex-row justify-content-around">
                         <div>
                             Pending Members 
-                            <span><a href="#">20</a></span>
+                            <span><a href="members.php?do=Manage&page=Pending">20</a></span>
                         </div>
                         <div><i class="fas fa-user-clock fa-5x"></i></i></div>
                     </div>

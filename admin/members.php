@@ -16,8 +16,13 @@ if (isset($_SESSION['Username'])) {
     // start manage page
     if ($do == 'Manage') { // manage member page
 
+        $query = '';
+        if(isset($_GET['page']) && $_GET['page']=='Pending'){
+            $query = 'AND RegStatus = 0';
+        }
+
         // select all users except Admin
-        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID != 1 ");
+        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID != 1 $query");
         $stmt->execute();
 
         // assign to varible
