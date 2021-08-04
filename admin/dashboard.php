@@ -25,7 +25,7 @@
                             Pending Members 
                             <span><a href="#">20</a></span>
                         </div>
-                        <div><i class="fas fa-user-edit fa-5x"></i></div>
+                        <div><i class="fas fa-user-clock fa-5x"></i></i></div>
                     </div>
                 </div>
                 <div class="col-md-3">
