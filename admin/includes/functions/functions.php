@@ -22,11 +22,13 @@
 	function redirectHome($theMsg , $url=null, $seconds = 3) {
 		if($url == null){
 			$url= 'index.php';
+			$link = 'HomePage';
 		} else {
-			$url= $_SERVER['HTTP_REFERER'];
+			$url = $_SERVER['HTTP_REFERER'];
+			$link = 'Previous page';
 		}
 		echo $theMsg;
-		echo "<div class='alert alert-info' role='alert'>You Will Be Redirected to After $seconds Seconds.</div>";
+		echo "<div class='alert alert-info' role='alert'>You Will Be Redirected to $link After $seconds Seconds.</div>";
 		header("refresh:$seconds;url=$url");
 		exit();
 	}
