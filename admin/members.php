@@ -55,7 +55,7 @@ if (isset($_SESSION['Username'])) {
                                             
                                             <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
                                             if($row['RegStatus'] == 0){
-                                                echo '<a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-info activate"><i class="fas fa-times"></i> Activate</a>';
+                                                echo '<a href="members.php?do=Activate&userid=' . $row['UserID'] . '" class="btn btn-info activate"><i class="fas fa-times"></i> Activate</a>';
                                             }
 
                                         echo '</td>';
@@ -326,6 +326,8 @@ if (isset($_SESSION['Username'])) {
                 redirectHome($theMsg);
             }
         echo "</div>";
+    } elseif($do== 'Activate'){
+        echo 'Activate';
     }
     include $tpl . 'footer.php';
 } else {
