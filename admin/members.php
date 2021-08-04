@@ -150,17 +150,24 @@ if (isset($_SESSION['Username'])) {
 
             // check if there no error proceed the update operation
                 if(empty($formErrors)){
-                    // Insert user info in database
-                    $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName , Date) VALUES(:zuser , :zpass , :zmail , :zname , now())");
-                    $stmt->execute(array(
-                        'zuser' => $user,
-                        'zpass' => $hashPass,
-                        'zmail' => $email,
-                        'zname' => $full_name
-                    ));
 
-                    // echo success message 
-                    echo '<div class="alert alert-success" role="alert">' . $stmt->rowCount() . ' Record Inserted</div>';
+                    // check if user exist to database
+                    $check = checkItem("Username", "users", $user);
+                    if($check == 1) {
+                        echo 'This user is exist';
+                    } else {
+                        // Insert user info in database
+                        $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName , Date) VALUES(:zuser , :zpass , :zmail , :zname , now())");
+                        $stmt->execute(array(
+                            'zuser' => $user,
+                            'zpass' => $hashPass,
+                            'zmail' => $email,
+                            'zname' => $full_name
+                        ));
+    
+                        // echo success message 
+                        echo '<div class="alert alert-success" role="alert">' . $stmt->rowCount() . ' Record Inserted</div>';
+                    }
                 }
 
         } else {
