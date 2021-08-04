@@ -312,7 +312,7 @@ if (isset($_SESSION['Username'])) {
                 $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
                 redirectHome($theMsg);
             } else {
-                $theMsg = "<div class='alert alert-danger' role='alert'>This id is not exist</div>";
+                $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
                 redirectHome($theMsg);
             }
         echo "</div>";
