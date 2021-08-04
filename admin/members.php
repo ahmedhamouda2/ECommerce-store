@@ -238,7 +238,10 @@ if (isset($_SESSION['Username'])) {
 
     <?php
         }else {
-            echo 'There\'s No such ID';
+            echo '<div class="container">';
+            $theMsg = '<div class="alert alert-danger" role="alert">There\'s No such ID</div>';
+            redirectHome($theMsg);
+            echo '</div>';
         }
     } elseif ($do == 'Update') { // Update page
         echo "<h2 class='text-center'>Update Member</h2>";
@@ -306,9 +309,11 @@ if (isset($_SESSION['Username'])) {
                 $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
                 $stmt->bindParam(":zuser", $userid);
                 $stmt->execute();
-                echo "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
+                $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
+                redirectHome($theMsg);
             } else {
-                echo 'This id is not exist';
+                $theMsg = "<div class='alert alert-danager' role='alert'>This id is not exist</div>";
+                redirectHome($theMsg);
             }
         echo "</div>";
     }
