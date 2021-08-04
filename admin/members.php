@@ -327,7 +327,26 @@ if (isset($_SESSION['Username'])) {
             }
         echo "</div>";
     } elseif($do== 'Activate'){
-        echo 'Activate';
+        // Activate member page
+        echo "<h2 class='text-center'>Activate Member</h2>";
+        echo "<div class='container'>";
+            // Check if eet request userid Is Numeric & Get its integer value   
+            $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
+            // check if user exist in database
+            $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
+            // select all data depend on this ID 
+            $check = checkItem("userid", "users", $userid);
+
+            if($check > 0) {
+                $stmt = $con->prepare("UPDATE users SET RegStatus = 1 WHERE UserID = ?");
+                $stmt->execute(array($userid));
+                $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Activated</div>';
+                redirectHome($theMsg);
+            } else {
+                $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
+                redirectHome($theMsg);
+            }
+        echo "</div>";
     }
     include $tpl . 'footer.php';
 } else {
