@@ -12,16 +12,17 @@
 	}
 
 	/*
-	** Home Redirect Function
-	** This Function Accept Parameters
-	** $errorMsg = Echo The Error Message 
-	** $seconds = Seconds Before Redirecting
+	** Home Redirect Function  v2.0
+	** This function accept parameters
+	** $theMsg = Echo the message [Error , success , warning]
+	** $url = the link you want to redirect 
+	** $seconds = Seconds before Redirecting
 	*/
 
-	function redirectHome($errorMsg, $seconds = 3) {
-		echo  "<div class='alert alert-danger' role='alert'>$errorMsg</div>";
+	function redirectHome($theMsg , $url, $seconds = 3) {
+		echo $theMsg;
 		echo "<div class='alert alert-info' role='alert'>You Will Be Redirected to After $seconds Seconds.</div>";
-		header("refresh:$seconds;url=index.php");
+		header("refresh:$seconds;url=$url");
 		exit();
 	}
 

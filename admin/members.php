@@ -170,8 +170,8 @@ if (isset($_SESSION['Username'])) {
                 }
 
         } else {
-            $errorMsg = 'Sorry you cant browse this page directly';
-            redirectHome($errorMsg);
+            $errorMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
+            redirectHome($errorMsg , 'index.php');
         }
         echo "</div>";
 
@@ -285,8 +285,8 @@ if (isset($_SESSION['Username'])) {
                 }
 
         } else {
-            $errorMsg = 'Sorry you cant browse this page directly';
-            redirectHome($errorMsg);
+            $errorMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
+            redirectHome($errorMsg , 'index.php');
         }
         echo "</div>";
     }   elseif ($do == 'Delete')  {
