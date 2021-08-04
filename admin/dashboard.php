@@ -11,16 +11,40 @@
             <h2>Dashbord</h2>
             <div class="row">
                 <div class="col-md-3">
-                    <div class="stat">Total Members <span><?php echo countItems('UserID', 'users') ?></span></div>
+                    <div class="stat stat-member d-flex flex-row justify-content-around">
+                        <div>
+                            Total Members 
+                            <span><a href="members.php"><?php echo countItems('UserID', 'users') ?></a></span>
+                        </div>
+                        <div><i class="fas fa-user fa-5x"></i></div>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat">Pindding Members <span>20</span></div>
+                    <div class="stat stat-pending d-flex flex-row justify-content-around">
+                        <div>
+                            Pending Members 
+                            <span><a href="#">20</a></span>
+                        </div>
+                        <div><i class="fas fa-user-edit fa-5x"></i></div>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat">Total Items <span>1500</span></div>
+                    <div class="stat stat-items d-flex flex-row justify-content-around">
+                        <div>
+                            Total Items 
+                            <span><a href="#">1500</a></span>
+                        </div>
+                        <div><i class="fas fa-file-alt fa-5x"></i></div>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat">Total Comments <span>3001</span></div>
+                    <div class="stat stat-comments d-flex flex-row justify-content-around">
+                        <div>
+                            Total Comments 
+                            <span><a href="#">3001</a></span>
+                        </div>
+                        <div><i class="fas fa-comment fa-5x"></i></div>
+                    </div>
                 </div>
             </div>
         </section>

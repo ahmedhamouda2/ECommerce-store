@@ -88,14 +88,30 @@ body {
 
 /* start dashbord page */
 .home-stats .stat {
-    background-color: #EEE;
-    border: 1px solid #ccc;
     padding: 20px;
     font-size: 15px;
+    color: #FFF;
+    border-radius: 10px;
+}
+.home-stats .stat a {
+    color: #FFF;
+    text-decoration: none;
 }
 .home-stats .stat span {
     display: block;
     font-size: 50px;
+}
+.home-stats .stat-member {
+    background-color: #3498db;
+}
+.home-stats .stat-pending {
+    background-color: #D45052;
+}
+.home-stats .stat-items {
+    background-color: #03A158;
+}
+.home-stats .stat-comments {
+    background-color: #8e44ad;
 }
 .latest {
     margin-top: 30px;
