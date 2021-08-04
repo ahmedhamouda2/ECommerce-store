@@ -47,8 +47,13 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td>' . $row['Date'] . '</td>';
                                     echo'<td>
                                             <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>
-                                        </td>';
+                                            
+                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                            if($row['RegStatus'] == 0){
+                                                echo '<a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-info activate"><i class="fas fa-times"></i> Activate</a>';
+                                            }
+
+                                        echo '</td>';
                                 echo '</tr>';
                             }
                         ?>
