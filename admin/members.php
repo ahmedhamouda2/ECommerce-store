@@ -282,7 +282,7 @@ if (isset($_SESSION['Username'])) {
                     $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
         
                     // echo success message 
-                    $theMsg = "<div class='alert alert-success'>  role='alert'" . $stmt->rowCount() . ' Record Updated</div>';
+                    $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
                     redirectHome($theMsg, 'back');
                 }
 
@@ -306,7 +306,7 @@ if (isset($_SESSION['Username'])) {
                 $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
                 $stmt->bindParam(":zuser", $userid);
                 $stmt->execute();
-                echo "<div class='alert alert-success'>  role='alert'" . $stmt->rowCount() . ' Record Deleted</div>';
+                echo "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
             } else {
                 echo 'This id is not exist';
             }
