@@ -165,13 +165,14 @@ if (isset($_SESSION['Username'])) {
                         ));
     
                         // echo success message 
-                        echo '<div class="alert alert-success" role="alert">' . $stmt->rowCount() . ' Record Inserted</div>';
+                        $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Inserted</div>';
+						redirectHome($theMsg, 'back');
                     }
                 }
 
         } else {
-            $errorMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
-            redirectHome($errorMsg , 'index.php');
+            $theMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
+            redirectHome($theMsg);
         }
         echo "</div>";
 
@@ -281,12 +282,13 @@ if (isset($_SESSION['Username'])) {
                     $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
         
                     // echo success message 
-                    echo '<div class="alert alert-success" role="alert">' . $stmt->rowCount() . ' Record Updated</div>';
+                    $theMsg = "<div class='alert alert-success'>  role='alert'" . $stmt->rowCount() . ' Record Updated</div>';
+                    redirectHome($theMsg, 'back');
                 }
 
         } else {
-            $errorMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
-            redirectHome($errorMsg , 'index.php');
+            $theMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
+            redirectHome($theMsg);
         }
         echo "</div>";
     }   elseif ($do == 'Delete')  {
@@ -304,7 +306,7 @@ if (isset($_SESSION['Username'])) {
                 $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
                 $stmt->bindParam(":zuser", $userid);
                 $stmt->execute();
-                echo "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Deleted</div>';
+                echo "<div class='alert alert-success'>  role='alert'" . $stmt->rowCount() . ' Record Deleted</div>';
             } else {
                 echo 'This id is not exist';
             }

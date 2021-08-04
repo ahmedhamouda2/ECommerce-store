@@ -19,7 +19,12 @@
 	** $seconds = Seconds before Redirecting
 	*/
 
-	function redirectHome($theMsg , $url, $seconds = 3) {
+	function redirectHome($theMsg , $url=null, $seconds = 3) {
+		if($url == null){
+			$url= 'index.php';
+		} else {
+			$url= $_SERVER['HTTP_REFERER'];
+		}
 		echo $theMsg;
 		echo "<div class='alert alert-info' role='alert'>You Will Be Redirected to After $seconds Seconds.</div>";
 		header("refresh:$seconds;url=$url");
