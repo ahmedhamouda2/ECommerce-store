@@ -153,7 +153,7 @@ if (isset($_SESSION['Username'])) {
                     // check if user exist to database
                     $check = checkItem("Username", "users", $user);
                     if($check == 1) {
-                        echo 'This user is exist';
+                        echo  '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
                     } else {
                         // Insert user info in database
                         $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName , Date) VALUES(:zuser , :zpass , :zmail , :zname , now())");
