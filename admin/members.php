@@ -110,7 +110,6 @@ if (isset($_SESSION['Username'])) {
     <?php
     } elseif ($do == 'Insert') {  // Insert member page
         echo "<div class='container'>";
-        echo  "<h2 class='text-center'>Insert Member</h2>";
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo "<h2 class='text-center'>Update Member</h2>";
             echo "<div class='container'>";
