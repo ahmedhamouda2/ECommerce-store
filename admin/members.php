@@ -153,7 +153,8 @@ if (isset($_SESSION['Username'])) {
                     // check if user exist to database
                     $check = checkItem("Username", "users", $user);
                     if($check == 1) {
-                        echo  '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
+                        $theMsg = '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
+                        redirectHome($theMsg , 'back');
                     } else {
                         // Insert user info in database
                         $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName , Date) VALUES(:zuser , :zpass , :zmail , :zname , now())");
@@ -302,17 +303,16 @@ if (isset($_SESSION['Username'])) {
             $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
             // check if user exist in database
             $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
-            $stmt->execute(array($userid));
-            $count = $stmt->rowCount();
+            $check = checkItem("userid", "users", $userid);
 
-            if($count > 0) {
+            if($check > 0) {
                 $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
                 $stmt->bindParam(":zuser", $userid);
                 $stmt->execute();
                 $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
                 redirectHome($theMsg);
             } else {
-                $theMsg = "<div class='alert alert-danager' role='alert'>This id is not exist</div>";
+                $theMsg = "<div class='alert alert-danger' role='alert'>This id is not exist</div>";
                 redirectHome($theMsg);
             }
         echo "</div>";
