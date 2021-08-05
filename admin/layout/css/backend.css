@@ -172,6 +172,22 @@ h2 {
 .categories .cat h3 {
     margin: 0 0 10px;
 }
+.categories .card-body {
+    padding: 0;
+}
+.categories .cat {
+    position: relative;
+    padding: 15px;
+}
+.categories .cat .hidden-buttons {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+.categories .cat .hidden-buttons a {
+    margin-right: 5px;
+    padding: .2rem .6rem;
+}
 .categories .cat:last-of-type ~ hr {
     display: none;
 }
