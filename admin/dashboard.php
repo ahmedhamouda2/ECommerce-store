@@ -4,8 +4,9 @@
         $pageTitle = 'Dashboard';
         include 'init.php';
 
-        // start dashbord 
-
+        // start dashbord
+        $latestUser = 5;  // number of latest users
+        $theLatest = getLatest('*' , 'users' , 'UserID' , $latestUser); // latest user array
         ?>
         
         <section class="container home-stats text-center">
@@ -55,15 +56,13 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-users"></i> Latest Registered Users
+                            <i class="fa fa-users"></i> Latest <?php echo $latestUser ?> Registered Users
                         </div>
                         <div class="card-body">
                             <?php 
-                            $theLatest = getLatest('*' , 'users' , 'UserID' , 5);
-
-                            foreach($theLatest as $user){
-                                echo $user['Username'] . '<br>';
-                            }
+                                foreach($theLatest as $user){
+                                    echo $user['Username'] . '<br>';
+                                }
                             ?>
                         </div>
                     </div>
