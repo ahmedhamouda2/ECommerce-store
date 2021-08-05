@@ -63,3 +63,21 @@
 		$stmt2->execute();
 		return $stmt2->fetchColumn();
 	}
+
+
+	/*
+	** Get Latest Records Function
+	** Function to get latest items from database [ Users, Items, Comments ]
+	** $select = field to select
+	** $table = The table to choose from
+	** $order = The Desc ordering
+	** $limit = Number of records to get
+	*/
+
+	function getLatest() {
+		global $con;
+		$getStmt = $con->prepare("SELECT * FROM users LIMIT 5");
+		$getStmt->execute();
+		$rows = $getStmt->fetchAll();
+		return $rows;
+	}

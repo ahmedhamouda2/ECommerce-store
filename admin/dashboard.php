@@ -5,6 +5,9 @@
         include 'init.php';
 
         // start dashbord 
+        echo '<pre>';
+        print_r(getLatest());
+        echo '</pre>';
         ?>
         
         <section class="container home-stats text-center">
