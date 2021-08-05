@@ -7,7 +7,7 @@
 	*/
 
 	session_start();
-	$pageTitle = 'categories';
+	$pageTitle = 'Categories';
 	if (isset($_SESSION['Username'])) {
 		include 'init.php';
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
@@ -78,11 +78,11 @@
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Allow Ads</label>
                         <div class="col-sm-10 col-md-6">
                             <div>
-                                <input id="ads-yes" type="radio" name="Ads" value="0" checked>
+                                <input id="ads-yes" type="radio" name="ads" value="0" checked>
                                 <label for="ads-yes">Yes</label>
                             </div>
                             <div>
-                                <input id="ads-no" type="radio" name="Ads" value="1">
+                                <input id="ads-no" type="radio" name="ads" value="1">
                                 <label for="ads-no">No</label>
                             </div>
                         </div>
@@ -101,6 +101,46 @@
             <?php 
 		} elseif ($do == 'Insert') {
 
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            echo "<h2 class='text-center'>Insert Category</h2>";
+            echo "<div class='container'>";
+
+            // get variables from the Form
+            $name       = $_POST['name'];
+            $desc       = $_POST['description'];
+            $order      = $_POST['ordering'];
+            $visible    = $_POST['visibility'];
+            $comment    = $_POST['commenting'];
+            $ads        = $_POST['ads'];
+            // check if Category exist to database
+            $check = checkItem("Name", "categories", $name);
+            if($check == 1) {
+                $theMsg = '<div class="alert alert-danger" role="alert"> Sorry , This Category is <strong>exist</strong></div>';
+                redirectHome($theMsg , 'back');
+            } else {
+                // Insert Category info in database
+                $stmt = $con->prepare("INSERT INTO categories(Name, Description, Ordering, Visibility, Allow_Comment, Allow_Ads) VALUES(:zname, :zdesc, :zorder, :zvisible, :zcomment, :zads)");
+                $stmt->execute(array(
+                    'zname' 	=> $name,
+                    'zdesc' 	=> $desc,
+                    'zorder' 	=> $order,
+                    'zvisible' 	=> $visible,
+                    'zcomment' 	=> $comment,
+                    'zads'		=> $ads
+                ));
+
+                // echo success message 
+                $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Inserted</div>';
+                redirectHome($theMsg, 'back');
+            }
+
+        } else {
+            echo "<div class='container'>";
+            $theMsg = '<div class="alert alert-danger">Sorry You Cant Browse This Page Directly</div>';
+            redirectHome($theMsg, 'back');
+            echo "</div>";
+        }
+        echo "</div>";
 
 		} elseif ($do == 'Edit') {
 
