@@ -178,11 +178,16 @@ h2 {
 .categories .cat {
     position: relative;
     padding: 15px;
+    overflow: hidden;
+}
+.categories .cat:hover .hidden-buttons{
+    right: 10px;
 }
 .categories .cat .hidden-buttons {
     position: absolute;
     top: 15px;
-    right: 10px;
+    right: -165px;
+    transition: all 0.5s ease-in-out;
 }
 .categories .cat .hidden-buttons a {
     margin-right: 5px;
