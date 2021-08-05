@@ -31,7 +31,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="description" class="form-control" placeholder="Describe the category">
+                            <textarea name="description" class="form-control" placeholder="Describe the category"></textarea>
                         </div>
                     </div>
                     <!-- end Description field -->
