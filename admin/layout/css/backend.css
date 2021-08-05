@@ -172,6 +172,9 @@ h2 {
 .categories .cat h3 {
     margin: 0 0 10px;
 }
+.categories hr {
+    margin: 0.5rem 0;
+}
 .categories .card-body {
     padding: 0;
 }
@@ -179,6 +182,9 @@ h2 {
     position: relative;
     padding: 15px;
     overflow: hidden;
+}
+.categories .cat:hover{
+    background-color: #EEE;
 }
 .categories .cat:hover .hidden-buttons{
     right: 10px;
