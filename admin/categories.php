@@ -13,6 +13,29 @@
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 		if ($do == 'Manage') {
 
+            $stmt2 = $con->prepare('SELECT * FROM categories');
+            $stmt2->execute();
+            $cats = $stmt2->fetchAll(); ?>
+
+                <h2 class="text-center">Manage Categories</h2>
+                <div class="container categories">
+                    <div class="card">
+                        <div class="card-header">Manage Categories</div>
+                        <div class="card-body">
+                            <?php 
+                                foreach($cats as $cat) {
+                                    echo $cat['Name'] . '<br>';
+                                    echo $cat['Description'] . '<br>';
+                                    echo 'Ordering is: ' . $cat['Ordering'] . '<br>';
+                                    echo 'Visibility is: ' . $cat['Visibility'] . '<br>';
+                                    echo 'Allow Comment is: ' . $cat['Allow_comment'] . '<br>';
+                                    echo 'Allow Ads is: ' . $cat['Allow_Ads'] . '<br>';
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            <?php
 
 		} elseif ($do == 'Add') { ?>
 
