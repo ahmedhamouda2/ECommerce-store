@@ -5,9 +5,7 @@
         include 'init.php';
 
         // start dashbord 
-        echo '<pre>';
-        print_r(getLatest('*' , 'users' , 'UserID' , 5));
-        echo '</pre>';
+
         ?>
         
         <section class="container home-stats text-center">
@@ -60,7 +58,13 @@
                             <i class="fa fa-users"></i> Latest Registered Users
                         </div>
                         <div class="card-body">
-                            Test
+                            <?php 
+                            $theLatest = getLatest('*' , 'users' , 'UserID' , 5);
+
+                            foreach($theLatest as $user){
+                                echo $user['Username'] . '<br>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
