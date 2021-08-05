@@ -24,12 +24,14 @@
                         <div class="card-body">
                             <?php 
                                 foreach($cats as $cat) {
-                                    echo $cat['Name'] . '<br>';
-                                    echo $cat['Description'] . '<br>';
-                                    echo 'Ordering is: ' . $cat['Ordering'] . '<br>';
-                                    echo 'Visibility is: ' . $cat['Visibility'] . '<br>';
-                                    echo 'Allow Comment is: ' . $cat['Allow_comment'] . '<br>';
-                                    echo 'Allow Ads is: ' . $cat['Allow_Ads'] . '<br>';
+                                    echo '<div class="cat">';
+                                        echo '<h3>' . $cat['Name'] . '</h3>';
+                                        echo '<p>' . $cat['Description'] . '</p>';
+                                        echo '<span class="visibility">Visibility is: ' . $cat['Visibility'] . '</span>';
+                                        echo '<span class="commenting">Allow Comment is: ' . $cat['Allow_comment'] . '</span>';
+                                        echo '<span class="advertises">Allow Ads is: ' . $cat['Allow_Ads'] . '</span>';
+                                    echo '</div>';
+                                    echo '<hr>';
                                 }
                             ?>
                         </div>

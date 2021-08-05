@@ -167,3 +167,12 @@ h2 {
 	margin-left: 5px;
 }
 /* End members page */
+
+/* start categories page */
+.categories .cat h3 {
+    margin: 0 0 10px;
+}
+.categories .cat:last-of-type ~ hr {
+    display: none;
+}
+/* end categories page */
