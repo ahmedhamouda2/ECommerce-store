@@ -127,8 +127,13 @@ body {
 .latest-users li:nth-child(odd) {
 	background-color: #EEE;
 }
-.latest-users .btn-success {
+.latest-users .btn-success,
+.latest-users .btn-info {
 	padding: 2px 8px;
+}
+
+.latest-users .btn-info {
+	margin-right: 5px;
 }
 /* end dashbord page */
 

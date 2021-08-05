@@ -67,6 +67,9 @@
                                             echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '">';
                                                 echo '<span class="btn btn-success float-right">';
                                                     echo '<i class="fa fa-edit"></i> Edit';
+                                                    if($user['RegStatus'] == 0){
+                                                        echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right"><i class="fas fa-times"></i> Activate</a>';
+                                                    }
                                                 echo '</span>';
                                             echo '</a>';
                                         echo '</li>';
