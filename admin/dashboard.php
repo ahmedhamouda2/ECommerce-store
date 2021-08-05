@@ -6,7 +6,7 @@
 
         // start dashbord 
         echo '<pre>';
-        print_r(getLatest());
+        print_r(getLatest('*' , 'users' , 'UserID' , 5));
         echo '</pre>';
         ?>
         
