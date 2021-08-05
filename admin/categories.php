@@ -26,7 +26,7 @@
                                 foreach($cats as $cat) {
                                     echo '<div class="cat">';
                                         echo '<h3>' . $cat['Name'] . '</h3>';
-                                        echo '<p>' . $cat['Description'] . '</p>';
+                                        echo "<p>"; if($cat['Description'] == '') { echo 'This category has no description'; } else { echo $cat['Description']; } echo "</p>"; '</p>';
                                         echo '<span class="visibility">Visibility is: ' . $cat['Visibility'] . '</span>';
                                         echo '<span class="commenting">Allow Comment is: ' . $cat['Allow_comment'] . '</span>';
                                         echo '<span class="advertises">Allow Ads is: ' . $cat['Allow_Ads'] . '</span>';
