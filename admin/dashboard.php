@@ -59,11 +59,20 @@
                             <i class="fa fa-users"></i> Latest <?php echo $latestUser ?> Registered Users
                         </div>
                         <div class="card-body">
-                            <?php 
-                                foreach($theLatest as $user){
-                                    echo $user['Username'] . '<br>';
-                                }
-                            ?>
+                            <ul class="list-unstyled latest-users">
+                                <?php 
+                                    foreach($theLatest as $user){
+                                        echo '<li>';
+                                            echo $user['Username'];
+                                            echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '">';
+                                                echo '<span class="btn btn-success float-right">';
+                                                    echo '<i class="fa fa-edit"></i> Edit';
+                                                echo '</span>';
+                                            echo '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
