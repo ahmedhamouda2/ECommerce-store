@@ -12,15 +12,26 @@
 		include 'init.php';
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 		if ($do == 'Manage') {
-
-            $stmt2 = $con->prepare('SELECT * FROM categories');
+            $sort = 'ASC';
+            $sort_array = array('ASC ', 'DESC');
+            if (isset($_GET['sort']) && in_array($_GET['sort'], $sort_array)) {
+				$sort = $_GET['sort'];
+			}
+            $stmt2 = $con->prepare("SELECT * FROM categories ORDER BY Ordering $sort");
             $stmt2->execute();
             $cats = $stmt2->fetchAll(); ?>
 
                 <h2 class="text-center">Manage Categories</h2>
                 <div class="container categories">
                     <div class="card">
-                        <div class="card-header">Manage Categories</div>
+                        <div class="card-header">
+                            Manage Categories
+                            <div class="ordering float-right">
+                                Ordering :
+                                <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC">ASC</a> |
+                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC">DESC</a>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <?php 
                                 foreach($cats as $cat) {

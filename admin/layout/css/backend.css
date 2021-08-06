@@ -169,14 +169,22 @@ h2 {
 /* End members page */
 
 /* start categories page */
+.categories .card-body {
+    padding: 0;
+}
+.categories .ordering a {
+    color: #888;
+    text-decoration: none;
+}
+.categories .ordering a.active {
+    color: #F00;
+    font-weight: bold;
+}
 .categories .cat h3 {
     margin: 0 0 10px;
 }
 .categories hr {
     margin: 0.5rem 0;
-}
-.categories .card-body {
-    padding: 0;
 }
 .categories .cat {
     position: relative;
