@@ -36,7 +36,7 @@
                                 foreach($cats as $cat) {
                                     echo '<div class="cat">';
                                         echo "<div class='hidden-buttons'>";
-                                            echo "<a href='#' class='btn btn-xs btn-primary'><i class='fa fa-edit'></i> Edit</a>";
+                                            echo "<a href='categories.php?do=Edit&catid=" . $cat['ID'] . "' class='btn btn-xs btn-primary'><i class='fa fa-edit'></i> Edit</a>";
                                             echo "<a href='#' class='confirm btn btn-xs btn-danger'><i class='fa fa-times'></i> Delete</a>";
                                         echo "</div>";
 
@@ -88,7 +88,7 @@
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Visibility</label>
                         <div class="col-sm-10 col-md-6">
                             <div>
-                                <input id="vis-yes" type="radio" name="visibility" value="0" checked>
+                                <input id="vis-yes" type="radio" name="visibility" value="0">
                                 <label for="vis-yes">Yes</label>
                             </div>
                             <div>
@@ -183,7 +183,106 @@
         echo "</div>";
 
 		} elseif ($do == 'Edit') {
+            // check if get request catid is numeric & get its integer value
+            $catid = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']): 0;
+            // check if category exist in database
+            $stmt = $con->prepare("SELECT * FROM categories WHERE ID = ?");
+            $stmt->execute(array($catid));
+            $cat = $stmt->fetch();
+            $count = $stmt->rowCount();
 
+            if($count > 0) { ?>
+
+                <h2 class="text-center">Edit Category</h2>
+                <div class="container">
+                    <form action="?do=Update" method="POST">
+                        <input type="hidden" name="catid" value="<?php echo $catid ?>">
+                        <!-- start Name field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="username" name="name" class="form-control" required  placeholder="Name of category" value="<?php echo $cat['Name'] ?>">
+                            </div>
+                        </div>
+                        <!-- End Name field -->
+                        <!-- start Description field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
+                            <div class="col-sm-10 col-md-6">
+                                <textarea name="description" class="form-control" placeholder="Describe the category"><?php echo $cat['Description'] ?></textarea>
+                            </div>
+                        </div>
+                        <!-- end Description field -->
+                        <!-- start Ordering field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Ordering</label>
+                            <div class="col-sm-10 col-md-6">
+                                <input type="text" name="ordering" class="form-control" placeholder="Number to Arrange the categories" value="<?php echo $cat['Ordering'] ?>">
+                            </div>
+                        </div>
+                        <!-- end Ordering field -->
+                        <!-- start Visibility field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Visibility</label>
+                            <div class="col-sm-10 col-md-6">
+                                <div>
+                                    <input id="vis-yes" type="radio" name="visibility" value="0" <?php if($cat['Visibility'] == 0){echo 'checked';}?> >
+                                    <label for="vis-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input id="vis-no" type="radio" name="visibility" value="1" <?php if($cat['Visibility'] == 1){echo 'checked';}?> >
+                                    <label for="vis-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Visibility field -->
+                        <!-- start commenting field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Allow Commenting</label>
+                            <div class="col-sm-10 col-md-6">
+                                <div>
+                                    <input id="com-yes" type="radio" name="commenting" value="0" <?php if($cat['Allow_comment'] == 0){echo 'checked';}?>>
+                                    <label for="com-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input id="com-no" type="radio" name="commenting" value="1" <?php if($cat['Allow_comment'] == 1){echo 'checked';}?>>
+                                    <label for="com-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end commenting field -->
+                        <!-- start Ads field -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Allow Ads</label>
+                            <div class="col-sm-10 col-md-6">
+                                <div>
+                                    <input id="ads-yes" type="radio" name="ads" value="0" value="1" <?php if($cat['Allow_Ads'] == 0){echo 'checked';}?>>
+                                    <label for="ads-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input id="ads-no" type="radio" name="ads" value="1" value="1" <?php if($cat['Allow_Ads'] == 1){echo 'checked';}?>>
+                                    <label for="ads-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Ads field -->
+                        <!-- start submit -->
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                                <input type="submit" value="Save" class="btn btn-primary btn-lg">
+                            </div>
+                        </div>
+                        <!-- end submit -->
+                    </form>
+                </div>
+
+        <?php
+        }else {
+            echo '<div class="container">';
+            $theMsg = '<div class="alert alert-danger" role="alert">There\'s No such ID</div>';
+            redirectHome($theMsg);
+            echo '</div>';
+        }
 
 		} elseif ($do == 'Update') {
 
@@ -201,6 +300,6 @@
 
 		exit();
 	}
-
+    
 
 ?>
