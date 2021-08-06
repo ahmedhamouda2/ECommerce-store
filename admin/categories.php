@@ -26,9 +26,11 @@
                     <div class="card">
                         <div class="card-header">
                             Manage Categories
-                            <div class="ordering float-right">
+                            <div class="option float-right">
                                 <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC"><i class="fas fa-sort-alpha-down fa-lg"></i></a> :
                                 <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC"><i class="fas fa-sort-alpha-down-alt fa-lg"></i></a>
+                                <span class="active" data-view="full">Full</span> |
+                                <span data-view="classic">Classic</span>
                             </div>
                         </div>
                         <div class="card-body">
@@ -41,10 +43,12 @@
                                         echo "</div>";
 
                                         echo '<h3>' . $cat['Name'] . '</h3>';
-                                        echo "<p>"; if($cat['Description'] == '') { echo 'This category has no description'; } else { echo $cat['Description']; } echo "</p>"; '</p>';
-                                        if($cat['Visibility'] == 1) { echo '<span class="visibility cat-span"><i class="fa fa-eye"></i> Hidden</span>'; }
-                                        if($cat['Allow_comment'] == 1) { echo '<span class="commenting cat-span"><i class="fa fa-times"></i> Comment Disabled</span>'; }
-                                        if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times"></i> Ads Disabled</span>';} 
+                                        echo '<div class="full-view">';
+                                            echo "<p>"; if($cat['Description'] == '') { echo 'This category has no description'; } else { echo $cat['Description']; } echo "</p>"; '</p>';
+                                            if($cat['Visibility'] == 1) { echo '<span class="visibility cat-span"><i class="fa fa-eye"></i> Hidden</span>'; }
+                                            if($cat['Allow_comment'] == 1) { echo '<span class="commenting cat-span"><i class="fa fa-times"></i> Comment Disabled</span>'; }
+                                            if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times"></i> Ads Disabled</span>';}
+                                        echo '</div>'; 
                                     echo '</div>';
                                     echo '<hr>';
                                 }
