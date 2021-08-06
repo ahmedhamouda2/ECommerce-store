@@ -51,6 +51,7 @@
                             ?>
                         </div>
                     </div>
+                    <a href="categories.php?do=Add" class="btn btn-primary add-category"><i class="fa fa-plus"></i> New Category</a>
                 </div>
             <?php
 
@@ -323,6 +324,7 @@
             echo "</div>";
 
 		} elseif ($do == 'Delete') {
+
 
 
         }

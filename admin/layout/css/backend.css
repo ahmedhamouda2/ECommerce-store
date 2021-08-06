@@ -187,7 +187,7 @@ h2 {
 }
 .categories .cat {
     position: relative;
-    padding: 15px;
+    padding: 12px;
     overflow: hidden;
 }
 .categories .cat:hover{
@@ -225,5 +225,8 @@ h2 {
 }
 .categories .cat .advertises {
     background-color: #c0392b;
+}
+.categories .add-category {
+    margin: 10px 0;
 }
 /* end categories page */
