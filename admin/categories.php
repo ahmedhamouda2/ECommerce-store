@@ -37,7 +37,7 @@
                                     echo '<div class="cat">';
                                         echo "<div class='hidden-buttons'>";
                                             echo "<a href='categories.php?do=Edit&catid=" . $cat['ID'] . "' class='btn btn-xs btn-primary'><i class='fa fa-edit'></i> Edit</a>";
-                                            echo "<a href='#' class='confirm btn btn-xs btn-danger'><i class='fa fa-times'></i> Delete</a>";
+                                            echo "<a href='categories.php?do=Delete&catid=" . $cat['ID'] . "'  class='confirm btn btn-xs btn-danger'><i class='fa fa-times'></i> Delete</a>";
                                         echo "</div>";
 
                                         echo '<h3>' . $cat['Name'] . '</h3>';
@@ -325,7 +325,26 @@
 
 		} elseif ($do == 'Delete') {
 
+        // Delete Category page
+        echo "<h2 class='text-center'>Delete Category</h2>";
+        echo "<div class='container'>";
+            // Check if get request catid Is Numeric & Get its integer value   
+            $catid = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']): 0;
+            // check if Category exist in database
+            $stmt = $con->prepare("SELECT * FROM categories WHERE ID = ? LIMIT 1");
+            $check = checkItem("ID", "categories", $catid);
 
+            if($check > 0) {
+                $stmt = $con->prepare("DELETE FROM categories WHERE ID = :zid");
+                $stmt->bindParam(":zid", $catid);
+                $stmt->execute();
+                $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
+                redirectHome($theMsg , 'back');
+            } else {
+                $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
+                redirectHome($theMsg);
+            }
+        echo "</div>";
 
         }
 
