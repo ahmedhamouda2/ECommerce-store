@@ -27,9 +27,8 @@
                         <div class="card-header">
                             Manage Categories
                             <div class="ordering float-right">
-                                Ordering :
-                                <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC">ASC</a> |
-                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC">DESC</a>
+                                <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC"><i class="fas fa-sort-alpha-down fa-lg"></i></a> :
+                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC"><i class="fas fa-sort-alpha-down-alt fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="card-body">
