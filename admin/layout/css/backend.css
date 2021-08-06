@@ -169,6 +169,10 @@ h2 {
 /* End members page */
 
 /* start categories page */
+.categories .card-header {
+    color: #959595;
+    font-weight: bold;
+}
 .categories .card-body {
     padding: 0;
 }
@@ -210,9 +214,12 @@ h2 {
 .categories .cat h3 {
     margin: 0;
     cursor: pointer;
+    font-weight: bold;
+    color: #6A6A6A;
 }
 .categories .cat .full-view p {
     margin: 10px 0;
+    color: #707070;
 }
 .categories .cat:last-of-type ~ hr {
     display: none;

@@ -25,12 +25,12 @@
                 <div class="container categories">
                     <div class="card">
                         <div class="card-header">
-                            Manage Categories
+                        <i class="fa fa-edit"></i> Manage Categories
                             <div class="option float-right">
                                 <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC"><i class="fas fa-sort-alpha-down fa-lg"></i></a> :
-                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC"><i class="fas fa-sort-alpha-down-alt fa-lg"></i></a>
-                                <span class="active" data-view="full">Full</span> |
-                                <span data-view="classic">Classic</span>
+                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC"><i class="fas fa-sort-alpha-down-alt fa-lg"></i></a> |
+                                <span class="active" data-view="full"><i class="fas fa-eye"></i></span> :
+                                <span data-view="classic"><i class="fas fa-eye-slash"></i></span>
                             </div>
                         </div>
                         <div class="card-body">
