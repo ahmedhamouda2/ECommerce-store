@@ -49,6 +49,9 @@
                                             <a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
                                             
                                             <a href="Items.php?do=Delete&itemid=' . $item['Item_ID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                            if($item['Approve'] == 0){
+                                                echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approval</a>';
+                                            }
                                         echo '</td>';
                                 echo '</tr>';
                             }
@@ -431,6 +434,24 @@
 
 		} elseif ($do == 'Approve') {
 
+            // Approve Item page
+            echo "<h2 class='text-center'>Approve Item</h2>";
+            echo "<div class='container'>";
+                // Check if eet request itemid Is Numeric & Get its integer value   
+                $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
+                // select all data depend on this ID 
+                $check = checkItem("Item_ID", "items", $itemid);
+
+                if($check > 0) {
+                    $stmt = $con->prepare("UPDATE items SET Approve = 1 WHERE Item_ID = ?");
+                    $stmt->execute(array($itemid));
+                    $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Approved</div>';
+                    redirectHome($theMsg , 'back');
+                } else {
+                    $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
+                    redirectHome($theMsg);
+                }
+            echo "</div>";
 
 		}
 
