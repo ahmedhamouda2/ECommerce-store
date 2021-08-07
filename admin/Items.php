@@ -66,6 +66,42 @@
                         </div>
                     </div>
                     <!-- End status field -->
+                    <!-- start members field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Member</label>
+                        <div class="col-sm-10 col-md-6">
+                            <select name="member">
+                                <option value="0">...</option>
+                                <?php
+                                    $stmt = $con->prepare("SELECT * FROM users");
+                                    $stmt->execute();
+                                    $users=$stmt->fetchAll();
+                                    foreach($users as $user) {
+                                        echo "<option value='" . $user['UserID'] . "'>". $user['Username'] . "</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End members field -->
+                    <!-- start categories field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Category</label>
+                        <div class="col-sm-10 col-md-6">
+                            <select name="category">
+                                <option value="0">...</option>
+                                <?php
+                                    $stmt2 = $con->prepare("SELECT * FROM categories");
+                                    $stmt2->execute();
+                                    $cats=$stmt2->fetchAll();
+                                    foreach($cats as $cat) {
+                                        echo "<option value='" . $cat['ID'] . "'>". $cat['Name'] . "</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End categories field -->
                     <!-- start submit -->
                     <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
