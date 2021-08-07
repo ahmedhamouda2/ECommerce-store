@@ -409,6 +409,25 @@
 
 		} elseif ($do == 'Delete') {
 
+            // Delete Item page
+            echo "<h2 class='text-center'>Delete Item</h2>";
+            echo "<div class='container'>";
+                // Check if eet request itemid Is Numeric & Get its integer value   
+                $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
+                // check if Item exist in database
+                $check = checkItem("Item_ID", "items", $itemid);
+
+                if($check > 0) {
+                    $stmt = $con->prepare("DELETE FROM items WHERE Item_ID = :zid");
+                    $stmt->bindParam(":zid", $itemid);
+                    $stmt->execute();
+                    $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
+                    redirectHome($theMsg , 'back');
+                } else {
+                    $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
+                    redirectHome($theMsg);
+                }
+            echo "</div>";
 
 		} elseif ($do == 'Approve') {
 
