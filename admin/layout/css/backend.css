@@ -163,7 +163,7 @@ h2 {
 .main-table .btn {
 	padding: 3px 10px;
 }
-.activate {
+.activate , .approve {
 	margin-left: 5px;
 }
 /* End members page */
