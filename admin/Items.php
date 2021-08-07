@@ -13,7 +13,46 @@
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 		if ($do == 'Manage') {
 
-            echo 'Welcome to Items page';
+        $stmt = $con->prepare("SELECT * FROM items");
+        $stmt->execute();
+
+        // assign to varible
+        $items = $stmt->fetchAll(); ?>
+
+            <h2 class="text-center">Manage Items</h2>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="main-table text-center table table-bordered">
+                        <tr>
+                            <td>#ID</td>
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Price</td>
+                            <td>Adding Date</td>
+                            <td>Control</td>
+                        </tr>
+                        <?php 
+                            foreach ($items as $item) {
+                                echo '<tr>';
+                                    echo'<td>' . $item['Item_ID'] . '</td>';
+                                    echo'<td>' . $item['Name'] . '</td>';
+                                    echo'<td>' . $item['Description'] . '</td>';
+                                    echo'<td>' . $item['Price'] . '</td>';
+                                    echo'<td>' . $item['Add_Date'] . '</td>';
+                                    echo'<td>
+                                            <a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                            
+                                            <a href="Items.php?do=Delete&itemid=' . $item['Item_ID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                        echo '</td>';
+                                echo '</tr>';
+                            }
+                        ?>
+
+                    </table>
+                </div>
+                <a href="Items.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Item</a>
+            </div>
+    <?php
 
 		} elseif ($do == 'Add') { ?>
 

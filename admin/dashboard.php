@@ -34,7 +34,7 @@
                     <div class="stat stat-items d-flex flex-row justify-content-around">
                         <div>
                             Total Items 
-                            <span><a href="#">1500</a></span>
+                            <span><a href="Items.php"><?php echo countItems('Item_ID', 'items') ?></a></span>
                         </div>
                         <div><i class="fas fa-file-alt fa-5x"></i></div>
                     </div>
