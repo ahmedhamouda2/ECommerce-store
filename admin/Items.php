@@ -13,7 +13,9 @@
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 		if ($do == 'Manage') {
 
-        $stmt = $con->prepare("SELECT * FROM items");
+        $stmt = $con->prepare("SELECT items.* , categories.Name AS catogry_name , users.Username FROM items
+                            INNER JOIN categories ON items.Cat_ID = categories.ID
+                            INNER JOIN users ON items.Member_ID = users.UserID;");
         $stmt->execute();
 
         // assign to varible
@@ -29,6 +31,8 @@
                             <td>Description</td>
                             <td>Price</td>
                             <td>Adding Date</td>
+                            <td>Category</td>
+                            <td>Username</td>
                             <td>Control</td>
                         </tr>
                         <?php 
@@ -39,6 +43,8 @@
                                     echo'<td>' . $item['Description'] . '</td>';
                                     echo'<td>' . $item['Price'] . '</td>';
                                     echo'<td>' . $item['Add_Date'] . '</td>';
+                                    echo'<td>' . $item['catogry_name'] . '</td>';
+                                    echo'<td>' . $item['Username'] . '</td>';
                                     echo'<td>
                                             <a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
                                             
