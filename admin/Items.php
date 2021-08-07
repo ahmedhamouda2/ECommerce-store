@@ -228,6 +228,118 @@
 
 		} elseif ($do == 'Edit') {
 
+        $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
+        // check if user exist in database
+        $stmt = $con->prepare("SELECT * FROM items WHERE Item_ID = ?");
+        $stmt->execute(array($itemid));
+        $item = $stmt->fetch();
+        $count = $stmt->rowCount();
+
+        if($count > 0) { ?>
+
+            <h2 class="text-center">Edit Item</h2>
+            <div class="container">
+                <form action="?do=Update" method="POST">
+                    <!-- start Name field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="username" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item" value="<?php echo $item['Name'] ?>">
+                        </div>
+                    </div>
+                    <!-- End Name field -->
+                    <!-- start Description field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="username" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item" value="<?php echo $item['Description'] ?>">
+                        </div>
+                    </div>
+                    <!-- End Description field -->
+                    <!-- start price field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Price</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="username" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item" value="<?php echo $item['Price'] ?>">
+                        </div>
+                    </div>
+                    <!-- End price field -->
+                    <!-- start country field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="username" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made" value="<?php echo $item['Country_Made'] ?>">
+                        </div>
+                    </div>
+                    <!-- End country field -->
+                    <!-- start status field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Status</label>
+                        <div class="col-sm-10 col-md-6">
+                            <select name="status">
+                                <option value="1" <?php if($item['Status'] == 1){echo 'selected';} ?> >New</option>
+                                <option value="2" <?php if($item['Status'] == 2){echo 'selected';} ?>>Like New</option>
+                                <option value="3" <?php if($item['Status'] == 3){echo 'selected';} ?>>Used</option>
+                                <option value="4" <?php if($item['Status'] == 4){echo 'selected';} ?>>Very Old</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End status field -->
+                    <!-- start members field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Member</label>
+                        <div class="col-sm-10 col-md-6">
+                            <select name="member">
+                                <?php
+                                    $stmt = $con->prepare("SELECT * FROM users");
+                                    $stmt->execute();
+                                    $users=$stmt->fetchAll();
+                                    foreach($users as $user) {
+                                        echo "<option value='" . $user['UserID'] . "'";
+                                        if($item['Member_ID'] == $user['UserID']){echo 'selected';}
+                                        echo ">" . $user['Username'] . "</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End members field -->
+                    <!-- start categories field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Category</label>
+                        <div class="col-sm-10 col-md-6">
+                            <select name="category">
+                                <?php
+                                    $stmt2 = $con->prepare("SELECT * FROM categories");
+                                    $stmt2->execute();
+                                    $cats=$stmt2->fetchAll();
+                                    foreach($cats as $cat) {
+                                        echo "<option value='" . $cat['ID'] . "'";
+                                        if($item['Cat_ID'] == $cat['ID']){echo 'selected';}
+                                        echo ">". $cat['Name'] . "</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End categories field -->
+                    <!-- start submit -->
+                    <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                            <input type="submit" value="Save Item" class="btn btn-primary btn-sm">
+                        </div>
+                    </div>
+                    <!-- end submit -->
+                </form>
+            </div>
+
+    <?php
+        }else {
+            echo '<div class="container">';
+            $theMsg = '<div class="alert alert-danger" role="alert">There\'s No such ID</div>';
+            redirectHome($theMsg);
+            echo '</div>';
+        }
 
 		} elseif ($do == 'Update') {
 
