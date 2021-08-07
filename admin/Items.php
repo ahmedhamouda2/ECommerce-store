@@ -125,6 +125,8 @@
             $price      = $_POST['price'];
             $country    = $_POST['country'];
             $status     = $_POST['status'];
+            $member     = $_POST['member'];
+            $cat     = $_POST['category'];
 
             // validate the Form 
             $formErrors = array();
@@ -143,6 +145,12 @@
             if($status == 0){
                 $formErrors[] = 'You must choose the <strong>Status.</strong>';
             }
+            if($member == 0){
+                $formErrors[] = 'You must choose the <strong>Member.</strong>';
+            }
+            if($cat == 0){
+                $formErrors[] = 'You must choose the <strong>Category.</strong>';
+            }
             // loop into errors array and echo it 
             foreach($formErrors as $error){
                 echo  '<div class="alert alert-danger" role="alert">' . $error . '</div>';
@@ -150,14 +158,16 @@
 
             // check if there no error proceed the update operation
                 if(empty($formErrors)){
-                    // Insert user info in database
-                    $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now())");
+                    // Insert item info in database
+                    $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember)");
                     $stmt->execute(array(
                         'zname' => $name,
                         'zdesc' => $desc,
                         'zprice' => $price,
                         'zcountry' => $country,
                         'zstatus' => $status,
+                        'zmember' => $member,
+                        'zcat' => $cat
                     ));
     
                     // echo success message 
