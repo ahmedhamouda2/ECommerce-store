@@ -48,3 +48,8 @@ $('.option span').click(function () {
         $('.cat .full-view').fadeOut(200);
     }
 });
+
+// Trigger selectboxit
+$("select").selectBoxIt({
+    autoWidth:false
+});
