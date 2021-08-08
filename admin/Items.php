@@ -335,7 +335,58 @@
                     </div>
                     <!-- end submit -->
                 </form>
-            </div>
+                <?php 
+                // select all users except Admin
+                $stmt = $con->prepare("SELECT 
+                                            comments.* , users.Username 
+                                        FROM 
+                                            comments 
+                                        INNER JOIN
+                                            users
+                                        ON
+                                            users.UserID = comments.user_id
+                                        WHERE  Item_id = ?");
+                $stmt->execute(array($itemid));
+
+                // assign to varible
+                $rows = $stmt->fetchAll();
+
+                if(!empty($rows)) {
+
+                ?>
+                    <h2 class="text-center">Manage [ <?php echo $item['Name']  ?> ] Comments</h2>
+                    <div class="container">
+                        <div class="table-responsive">
+                            <table class="main-table text-center table table-bordered">
+                                <tr>
+                                    <td>Comment</td>
+                                    <td>User Name</td>
+                                    <td>Added Date</td>
+                                    <td>Control</td>
+                                </tr>
+                                <?php 
+                                    foreach ($rows as $row) {
+                                        echo '<tr>';
+                                            echo'<td>' . $row['comment'] . '</td>';
+                                            echo'<td>' . $row['Username'] . '</td>';
+                                            echo'<td>' . $row['comment_date'] . '</td>';
+                                            echo'<td>
+                                                    <a href="comments.php?do=Edit&commentid=' . $row['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                                    
+                                                    <a href="comments.php?do=Delete&commentid=' . $row['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                                    if($row['status'] == 0){
+                                                        echo '<a href="comments.php?do=Approve&commentid=' . $row['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
+                                                    }
+
+                                                echo '</td>';
+                                        echo '</tr>';
+                                    }
+                                ?>
+
+                            </table>
+                        </div>
+                        <?php } ?>
+                    </div>
 
     <?php
         }else {
