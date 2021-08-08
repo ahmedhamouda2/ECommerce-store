@@ -142,16 +142,16 @@ body {
     color: #444;
 }
 .latest  .comment-box {
-    margin: 5px 0 10px;
+    margin: 2% 0 4%;
 }
 .latest  .comment-box .user-n {
-    margin-right: 20px;
-    width: 80px;
+    margin-right: 5%;
+    width: 20%;
     text-align: center;
     line-height: 40px;
 }
 .latest  .comment-box .user-c {
-    width: calc(100% - 100px);
+    width: 80% ;
     background-color: #EFEFEF;
     padding: 10px;
     position: relative;
