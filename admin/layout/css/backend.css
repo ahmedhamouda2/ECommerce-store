@@ -131,9 +131,15 @@ body {
 .latest-users .btn-info {
 	padding: 2px 8px;
 }
-
 .latest-users .btn-info {
 	margin-right: 5px;
+}
+.latest .toggle-info {
+    color: #999;
+    cursor: pointer;
+}
+.latest .toggle-info:hover {
+    color: #444;
 }
 /* end dashbord page */
 

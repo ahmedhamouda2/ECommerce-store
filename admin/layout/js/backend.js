@@ -53,3 +53,13 @@ $('.option span').click(function () {
 $("select").selectBoxIt({
     autoWidth:false
 });
+
+// Dashbord 
+$('.toggle-info').click(function(){
+    $(this).toggleClass('selected').parent().next('.card-body').fadeToggle(100);
+    if($(this).hasClass('selected')) {
+        $(this).html('<i class="fa fa-minus"></i>')
+    } else {
+        $(this).html('<i class="fa fa-plus"></i>')
+    }
+});
