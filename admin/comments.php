@@ -150,22 +150,20 @@ if (isset($_SESSION['Username'])) {
                 redirectHome($theMsg);
             }
         echo "</div>";
-    } elseif($do== 'Activate'){
-        // Activate member page
-        echo "<h2 class='text-center'>Activate Member</h2>";
+    } elseif($do== 'Approve'){
+        // Approve comment page
+        echo "<h2 class='text-center'>Approve Comment</h2>";
         echo "<div class='container'>";
-            // Check if eet request userid Is Numeric & Get its integer value   
-            $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
-            // check if user exist in database
-            $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
+            // Check if eet request commentid Is Numeric & Get its integer value   
+            $commentid = isset($_GET['commentid']) && is_numeric($_GET['commentid']) ? intval($_GET['commentid']): 0;
             // select all data depend on this ID 
-            $check = checkItem("userid", "users", $userid);
+            $check = checkItem("c_id", "comments", $commentid);
 
             if($check > 0) {
-                $stmt = $con->prepare("UPDATE users SET RegStatus = 1 WHERE UserID = ?");
-                $stmt->execute(array($userid));
-                $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Activated</div>';
-                redirectHome($theMsg);
+                $stmt = $con->prepare("UPDATE comments SET status = 1 WHERE c_id = ?");
+                $stmt->execute(array($commentid));
+                $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Comment Approved</div>';
+                redirectHome($theMsg , 'back');
             } else {
                 $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
                 redirectHome($theMsg);
