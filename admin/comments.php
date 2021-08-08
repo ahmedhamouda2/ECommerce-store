@@ -131,21 +131,20 @@ if (isset($_SESSION['Username'])) {
         }
         echo "</div>";
     }   elseif ($do == 'Delete')  {
-        // Delete member page
-        echo "<h2 class='text-center'>Delete Member</h2>";
+        // Delete comment page
+        echo "<h2 class='text-center'>Delete Comment</h2>";
         echo "<div class='container'>";
-            // Check if eet request userid Is Numeric & Get its integer value   
-            $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
-            // check if user exist in database
-            $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
-            $check = checkItem("userid", "users", $userid);
+            // Check if get request commentid Is Numeric & Get its integer value   
+            $commentid = isset($_GET['commentid']) && is_numeric($_GET['commentid']) ? intval($_GET['commentid']): 0;
+            // check if comment exist in database
+            $check = checkItem("c_id", "comments", $commentid);
 
             if($check > 0) {
-                $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
-                $stmt->bindParam(":zuser", $userid);
+                $stmt = $con->prepare("DELETE FROM comments WHERE c_id = :zid");
+                $stmt->bindParam(":zid", $commentid);
                 $stmt->execute();
                 $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Deleted</div>';
-                redirectHome($theMsg);
+                redirectHome($theMsg , 'back');
             } else {
                 $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
                 redirectHome($theMsg);
