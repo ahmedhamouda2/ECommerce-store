@@ -110,50 +110,20 @@ if (isset($_SESSION['Username'])) {
                 echo '</div>';
             }
     } elseif ($do == 'Update') { // Update page
-        echo "<h2 class='text-center'>Update Member</h2>";
+        echo "<h2 class='text-center'>Update Comment</h2>";
         echo "<div class='container'>";
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // get variables from the Form [names in form]
-            $id         = $_POST['userid'];
-            $user       = $_POST['username'];
-            $email      = $_POST['email'];
-            $full_name = $_POST['full'];
+            $commentid   = $_POST['commentid'];
+            $comment     = $_POST['comment'];
+            
+            // Update the database with this info
+            $stmt = $con->prepare("UPDATE comments SET comment = ? WHERE c_id = ?");
+            $stmt->execute(array($comment , $commentid));
 
-            // password trick 
-            $pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
-
-            // validate the Form 
-            $formErrors = array();
-            if(empty($user)){
-                $formErrors[] = 'User cant be <strong>empty.</strong>';
-            }
-            if(strlen($user) < 4 ){
-                $formErrors[] = 'Username cant be less than <strong>4 characters.</strong>';
-            }
-            if(strlen($user) > 20 ){
-                $formErrors[] = 'Username cant be more than <strong>20 characters.</strong>';
-            }
-            if(empty($full_name)){
-                $formErrors[] = 'Full Name cant be <strong>empty.</strong>';
-            }
-            if(empty($email)){
-                $formErrors[] = 'Email cant be <strong>empty.</strong>';
-            }
-            // loop into errors array and echo it 
-            foreach($formErrors as $error){
-                echo  '<div class="alert alert-danger" role="alert">' . $error . '</div>';
-            }
-
-            // check if there no error proceed the update operation
-                if(empty($formErrors)){
-                    // Update the database with this info
-                    $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
-                    $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
-        
-                    // echo success message 
-                    $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
-                    redirectHome($theMsg, 'back');
-                }
+            // echo success message 
+            $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
+            redirectHome($theMsg, 'back');
 
         } else {
             $theMsg = "<div class='alert alert-danger' role='alert'>Sorry you cant browse this page directly</div>";
