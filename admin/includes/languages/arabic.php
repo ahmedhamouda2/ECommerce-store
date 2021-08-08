@@ -8,6 +8,7 @@
             'CATEGORIES'    => 'الأقسام' ,
             'ITEMS'         => 'العناصر' ,
             'MEMBERS'       => 'أعضاء' ,
+            'COMMENTS'       => 'التعليقات' ,
             'STATISTICS'    => 'إحصائيات' ,
             'LOGS'          => 'السجلات',
             'DROPDOWN_Name' => 'أحمد',
