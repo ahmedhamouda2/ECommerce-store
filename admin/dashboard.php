@@ -20,7 +20,7 @@
                             Total Members 
                             <span><a href="members.php"><?php echo countItems('UserID', 'users') ?></a></span>
                         </div>
-                        <div><i class="fas fa-user fa-5x"></i></div>
+                        <div><i class="fas fa-users fa-5x"></i></div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -38,7 +38,7 @@
                             Total Items 
                             <span><a href="Items.php"><?php echo countItems('Item_ID', 'items') ?></a></span>
                         </div>
-                        <div><i class="fas fa-file-alt fa-5x"></i></div>
+                        <div><i class="fas fa-tags fa-5x"></i></div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -47,7 +47,7 @@
                             Total Comments 
                             <span><a href="#">3001</a></span>
                         </div>
-                        <div><i class="fas fa-comment fa-5x"></i></div>
+                        <div><i class="fas fa-comments fa-5x"></i></div>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,10 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-users"></i> Latest <?php echo $latestNumUsers ?> Registered Users
+                            <i class="fa fa-users"></i> Latest <?php echo $latestNumUsers ?> Registered Users 
+                            <span class="float-right toggle-info">
+                                <i class="fa fa-plus"></i>
+                            </span>
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled latest-users">
@@ -85,6 +88,9 @@
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-tag"></i> Latest Items
+                            <span class="float-right toggle-info">
+                                <i class="fa fa-plus"></i>
+                            </span>
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled latest-users">
