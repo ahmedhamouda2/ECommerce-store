@@ -72,52 +72,26 @@ if (isset($_SESSION['Username'])) {
                 </div>
             </div>
     <?php } elseif ($do == 'Edit') {  // Edit page 
-            $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
-            // check if user exist in database
-            $stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
-            $stmt->execute(array($userid));
+            $commentid = isset($_GET['commentid']) && is_numeric($_GET['commentid']) ? intval($_GET['commentid']): 0;
+            // check if comment exist in database
+            $stmt = $con->prepare("SELECT * FROM comments WHERE c_id = ? LIMIT 1");
+            $stmt->execute(array($commentid));
             $row = $stmt->fetch();
             $count = $stmt->rowCount();
 
             if($count > 0) { ?>
-
-                <h2 class="text-center">Edit Member</h2>
+                <h2 class="text-center">Edit Comment</h2>
                 <div class="container">
                         <form action="?do=Update" method="POST">
-                            <input type="hidden" name="userid" value="<?php echo $userid ?>">
-                            <!-- start username field -->
+                            <input type="hidden" name="commentid" value="<?php echo $commentid ?>">
+                            <!-- start comment field -->
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
+                                <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Comment</label>
                                 <div class="col-sm-10 col-md-6">
-                                    <input type="username" name="username" class="form-control" value="<?php echo $row['Username'] ?>" autocomplete="off" required>
+                                    <textarea name="comment" class="form-control"><?php echo $row['comment'] ?></textarea>
                                 </div>
                             </div>
-                            <!-- End username field -->
-                            <!-- start password field -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
-                                <div class="col-sm-10 col-md-6">
-                                    <input type="hidden" name="oldpassword" value="<?php echo $row['Password'] ?>">
-                                    <input type="password" name="newpassword" class="form-control" autocomplete="new-password" placeholder="Leave Blank If You Don't Want To Change">
-                                </div>
-                            </div>
-                            <!-- end password field -->
-                            <!-- start Email field -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
-                                <div class="col-sm-10 col-md-6">
-                                    <input type="email" name="email" class="form-control" value="<?php echo $row['Email'] ?>" required>
-                                </div>
-                            </div>
-                            <!-- end Email field -->
-                            <!-- start fullname field -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
-                                <div class="col-sm-10 col-md-6">
-                                    <input type="text" name="full" class="form-control"  value="<?php echo $row['FullName'] ?>" required>
-                                </div>
-                            </div>
-                            <!-- end fullname field -->
+                            <!-- End comment field -->
                             <!-- start submit -->
                             <div class="form-group row">
                                 <div class="offset-sm-2 col-sm-10">
@@ -128,7 +102,6 @@ if (isset($_SESSION['Username'])) {
                         </form>
                     </form>
                 </div>
-
         <?php
             }else {
                 echo '<div class="container">';
