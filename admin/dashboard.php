@@ -70,7 +70,7 @@
                                                 echo '<span class="btn btn-success float-right">';
                                                     echo '<i class="fa fa-edit"></i> Edit';
                                                     if($user['RegStatus'] == 0){
-                                                        echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right"><i class="fas fa-times"></i> Activate</a>';
+                                                        echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right"><i class="fas fa-user-check"></i> Activate</a>';
                                                     }
                                                 echo '</span>';
                                             echo '</a>';
@@ -96,7 +96,7 @@
                                                 echo '<span class="btn btn-success float-right">';
                                                     echo '<i class="fa fa-edit"></i> Edit';
                                                     if($item['Approve'] == 0){
-                                                        echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right"><i class="fas fa-times"></i> Approve</a>';
+                                                        echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right"><i class="fas fa-check"></i> Approve</a>';
                                                     }
                                                 echo '</span>';
                                             echo '</a>';
