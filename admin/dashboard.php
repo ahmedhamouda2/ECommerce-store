@@ -114,6 +114,42 @@
                     </div>
                 </div>
             </div>
+            <!-- start latest comment -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-comments"></i> Latest Comments 
+                            <span class="float-right toggle-info">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <?php 
+                                // select all users except Admin
+                                $stmt = $con->prepare("SELECT 
+                                                            comments.* , users.Username 
+                                                        FROM 
+                                                            comments 
+                                                        INNER JOIN
+                                                            users
+                                                        ON
+                                                            users.UserID = comments.user_id");
+                                $stmt->execute();
+                                $comments = $stmt->fetchAll();
+
+                                foreach($comments as $comment) {
+                                    echo '<div class="comment-box d-flex">';
+                                        echo '<span class="user-n">' . $comment['Username'] . '</span>';
+                                        echo '<p class="user-c">' . $comment['comment'] . '</p>';
+                                    echo '</div>';
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End latest comment -->
         </section>
 
         <?php 

@@ -141,6 +141,33 @@ body {
 .latest .toggle-info:hover {
     color: #444;
 }
+.latest  .comment-box {
+    margin: 5px 0 10px;
+}
+.latest  .comment-box .user-n {
+    margin-right: 20px;
+    width: 80px;
+    text-align: center;
+    line-height: 40px;
+}
+.latest  .comment-box .user-c {
+    width: calc(100% - 100px);
+    background-color: #EFEFEF;
+    padding: 10px;
+    position: relative;
+}
+.latest  .comment-box .user-c::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent #adadad transparent transparent;
+    border-width: 15px;
+}
 /* end dashbord page */
 
 /* start members page */
