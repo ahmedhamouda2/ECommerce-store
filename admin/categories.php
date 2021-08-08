@@ -335,7 +335,6 @@
             // Check if get request catid Is Numeric & Get its integer value   
             $catid = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']): 0;
             // check if Category exist in database
-            $stmt = $con->prepare("SELECT * FROM categories WHERE ID = ? LIMIT 1");
             $check = checkItem("ID", "categories", $catid);
 
             if($check > 0) {
