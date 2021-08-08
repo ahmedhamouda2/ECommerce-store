@@ -5,8 +5,10 @@
         include 'init.php';
 
         // start dashbord
-        $latestUser = 5;  // number of latest users
-        $theLatest = getLatest('*' , 'users' , 'UserID' , $latestUser); // latest user array
+        $latestNumUsers = 5;  // number of latest users
+        $theLatestUsers = getLatest('*' , 'users' , 'UserID' , $latestNumUsers); // latest user array
+        $latestNumItems = 5;  // number of latest items
+        $theLatestItems = getLatest('*' , 'items' , 'Item_ID' , $latestNumItems); // latest item array
         ?>
         
         <section class="container home-stats text-center">
@@ -56,12 +58,12 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-users"></i> Latest <?php echo $latestUser ?> Registered Users
+                            <i class="fa fa-users"></i> Latest <?php echo $latestNumUsers ?> Registered Users
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled latest-users">
                                 <?php 
-                                    foreach($theLatest as $user){
+                                    foreach($theLatestUsers as $user){
                                         echo '<li>';
                                             echo $user['Username'];
                                             echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '">';
@@ -85,7 +87,23 @@
                             <i class="fa fa-tag"></i> Latest Items
                         </div>
                         <div class="card-body">
-                            Test
+                            <ul class="list-unstyled latest-users">
+                                <?php 
+                                    foreach($theLatestItems as $item){
+                                        echo '<li>';
+                                            echo $item['Name'];
+                                            echo '<a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '">';
+                                                echo '<span class="btn btn-success float-right">';
+                                                    echo '<i class="fa fa-edit"></i> Edit';
+                                                    if($item['Approve'] == 0){
+                                                        echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right"><i class="fas fa-times"></i> Approve</a>';
+                                                    }
+                                                echo '</span>';
+                                            echo '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
