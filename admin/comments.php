@@ -101,7 +101,7 @@ if (isset($_SESSION['Username'])) {
                             <!-- start submit -->
                             <div class="form-group row">
                                 <div class="offset-sm-2 col-sm-10">
-                                    <input type="submit" value="save" class="btn btn-primary btn-lg">
+                                    <input type="submit" value="save" class="btn btn-primary btn-sm">
                                 </div>
                             </div>
                             <!-- end submit -->

@@ -56,7 +56,7 @@
                             ?>
                         </div>
                     </div>
-                    <a href="categories.php?do=Add" class="btn btn-primary add-category"><i class="fa fa-plus"></i> New Category</a>
+                    <a href="categories.php?do=Add" class="btn btn-primary btn-sm add-category"><i class="fa fa-plus"></i> New Category</a>
                 </div>
             <?php } else {
                         echo '<div class="container">';
@@ -101,7 +101,7 @@
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Visibility</label>
                         <div class="col-sm-10 col-md-6">
                             <div>
-                                <input id="vis-yes" type="radio" name="visibility" value="0">
+                                <input id="vis-yes" type="radio" name="visibility" value="0" checked>
                                 <label for="vis-yes">Yes</label>
                             </div>
                             <div>
@@ -144,7 +144,7 @@
                     <!-- start submit -->
                     <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" value="Add Category" class="btn btn-primary btn-lg">
+                            <input type="submit" value="Add Category" class="btn btn-primary btn-sm">
                         </div>
                     </div>
                     <!-- end submit -->
@@ -282,7 +282,7 @@
                         <!-- start submit -->
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <input type="submit" value="Save" class="btn btn-primary btn-lg">
+                                <input type="submit" value="Save" class="btn btn-primary btn-sm>
                             </div>
                         </div>
                         <!-- end submit -->
