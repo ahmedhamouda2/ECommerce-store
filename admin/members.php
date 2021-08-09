@@ -65,12 +65,12 @@ if (isset($_SESSION['Username'])) {
 
                     </table>
                 </div>
-                <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Mebmer</a>
+                <a href="members.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Mebmer</a>
             </div>
             <?php } else {
                 echo '<div class="container">';
                     echo '<div class="alert alert-info">There\'s No Mebmer to show</div>';
-                    echo '<a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Mebmer</a>';
+                    echo '<a href="members.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Mebmer</a>';
                 echo '</div>';
         } ?>
     <?php } elseif ($do == 'Add') { 
