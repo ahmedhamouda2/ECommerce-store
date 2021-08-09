@@ -296,13 +296,29 @@ if (isset($_SESSION['Username'])) {
 
             // check if there no error proceed the update operation
                 if(empty($formErrors)){
-                    // Update the database with this info
-                    $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
-                    $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
-        
-                    // echo success message 
-                    $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
-                    redirectHome($theMsg, 'back');
+
+                    $stmt2 = $con->prepare("SELECT 
+                                                * 
+                                            FROM 
+                                                users 
+                                            WHERE 
+                                                Username = ? 
+                                            AND 
+                                                UserID = ?");
+                    $stmt2->execute(array($user,$id));
+                    $count = $stmt2->rowcount();
+                    if($count == 1){
+                        $theMsg = "<div class='alert alert-danger' role='alert'>Sorry this user is exist</div>";
+                        redirectHome($theMsg, 'back');
+                    } else {
+                        // Update the database with this info
+                        $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
+                        $stmt->execute(array($user , $email , $full_name ,$pass , $id ));
+            
+                        // echo success message 
+                        $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
+                        redirectHome($theMsg, 'back');
+                    }
                 }
 
         } else {
