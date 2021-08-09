@@ -28,8 +28,8 @@ if (isset($_SESSION['Username'])) {
         // assign to varible
         $rows = $stmt->fetchAll();
 
-
-    ?>
+        if(!empty($rows)){
+        ?>
             <h2 class="text-center">Manage Member</h2>
             <div class="container">
                 <div class="table-responsive">
@@ -67,6 +67,12 @@ if (isset($_SESSION['Username'])) {
                 </div>
                 <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Mebmer</a>
             </div>
+            <?php } else {
+                echo '<div class="container">';
+                    echo '<div class="alert alert-info">There\'s No Mebmer to show</div>';
+                    echo '<a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Mebmer</a>';
+                echo '</div>';
+        } ?>
     <?php } elseif ($do == 'Add') { 
         // add members page
         ?>
@@ -336,7 +342,7 @@ if (isset($_SESSION['Username'])) {
                 $stmt = $con->prepare("UPDATE users SET RegStatus = 1 WHERE UserID = ?");
                 $stmt->execute(array($userid));
                 $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Activated</div>';
-                redirectHome($theMsg);
+                redirectHome($theMsg , 'back');
             } else {
                 $theMsg = "<div class='alert alert-danger' role='alert'>This id is <strong>not exist</strong></div>";
                 redirectHome($theMsg);

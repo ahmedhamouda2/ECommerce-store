@@ -19,8 +19,9 @@
 			}
             $stmt2 = $con->prepare("SELECT * FROM categories ORDER BY Ordering $sort");
             $stmt2->execute();
-            $cats = $stmt2->fetchAll(); ?>
-
+            $cats = $stmt2->fetchAll(); 
+            if(!empty($cats)) {
+                ?>
                 <h2 class="text-center">Manage Categories</h2>
                 <div class="container categories">
                     <div class="card">
@@ -57,7 +58,14 @@
                     </div>
                     <a href="categories.php?do=Add" class="btn btn-primary add-category"><i class="fa fa-plus"></i> New Category</a>
                 </div>
-            <?php
+            <?php } else {
+                        echo '<div class="container">';
+                            echo '<div class="alert alert-info">There\'s No categories to show</div>';
+                            echo '<a href="categories.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New catgory</a>';
+                        echo '</div>';
+            } ?>
+
+        <?php
 
 		} elseif ($do == 'Add') { ?>
 

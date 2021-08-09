@@ -19,8 +19,9 @@
         $stmt->execute();
 
         // assign to varible
-        $items = $stmt->fetchAll(); ?>
-
+        $items = $stmt->fetchAll(); 
+        if(!empty($items)) {
+        ?>
             <h2 class="text-center">Manage Items</h2>
             <div class="container">
                 <div class="table-responsive">
@@ -61,6 +62,14 @@
                 </div>
                 <a href="Items.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Item</a>
             </div>
+
+        <?php } else {
+            echo '<div class="container">';
+                echo '<div class="alert alert-info">There\'s No items to show</div>';
+                echo '<a href="Items.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Item</a>';
+            echo '</div>';
+        } ?>
+
     <?php
 
 		} elseif ($do == 'Add') { ?>

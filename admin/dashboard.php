@@ -65,19 +65,23 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled latest-users">
-                                <?php 
-                                    foreach($theLatestUsers as $user){
-                                        echo '<li>';
-                                            echo $user['Username'];
-                                            echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '">';
-                                                echo '<span class="btn btn-success float-right">';
-                                                    echo '<i class="fa fa-edit"></i> Edit';
-                                                    if($user['RegStatus'] == 0){
-                                                        echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right"><i class="fas fa-user-check"></i> Activate</a>';
-                                                    }
-                                                echo '</span>';
-                                            echo '</a>';
-                                        echo '</li>';
+                                <?php
+                                    if(!empty($latestNumUsers)){
+                                        foreach($theLatestUsers as $user){
+                                            echo '<li>';
+                                                echo $user['Username'];
+                                                echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '">';
+                                                    echo '<span class="btn btn-success float-right">';
+                                                        echo '<i class="fa fa-edit"></i> Edit';
+                                                        if($user['RegStatus'] == 0){
+                                                            echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right"><i class="fas fa-user-check"></i> Activate</a>';
+                                                        }
+                                                    echo '</span>';
+                                                echo '</a>';
+                                            echo '</li>';
+                                        }
+                                    } else {
+                                        echo 'There\'s No users to show';
                                     }
                                 ?>
                             </ul>
@@ -94,19 +98,23 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled latest-users">
-                                <?php 
-                                    foreach($theLatestItems as $item){
-                                        echo '<li>';
-                                            echo $item['Name'];
-                                            echo '<a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '">';
-                                                echo '<span class="btn btn-success float-right">';
-                                                    echo '<i class="fa fa-edit"></i> Edit';
-                                                    if($item['Approve'] == 0){
-                                                        echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right"><i class="fas fa-check"></i> Approve</a>';
-                                                    }
-                                                echo '</span>';
-                                            echo '</a>';
-                                        echo '</li>';
+                                <?php
+                                    if(!empty($latestNumItems)){
+                                        foreach($theLatestItems as $item){
+                                            echo '<li>';
+                                                echo $item['Name'];
+                                                echo '<a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '">';
+                                                    echo '<span class="btn btn-success float-right">';
+                                                        echo '<i class="fa fa-edit"></i> Edit';
+                                                        if($item['Approve'] == 0){
+                                                            echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right"><i class="fas fa-check"></i> Approve</a>';
+                                                        }
+                                                    echo '</span>';
+                                                echo '</a>';
+                                            echo '</li>';
+                                        }
+                                    } else {
+                                        echo 'There\'s No items to show';
                                     }
                                 ?>
                             </ul>
@@ -137,13 +145,17 @@
                                                             users.UserID = comments.user_id");
                                 $stmt->execute();
                                 $comments = $stmt->fetchAll();
-
-                                foreach($comments as $comment) {
-                                    echo '<div class="comment-box d-flex">';
-                                        echo '<span class="user-n">' . $comment['Username'] . '</span>';
-                                        echo '<p class="user-c">' . $comment['comment'] . '</p>';
-                                    echo '</div>';
+                                if(!empty($comments)) {
+                                    foreach($comments as $comment) {
+                                        echo '<div class="comment-box d-flex">';
+                                            echo '<span class="user-n">' . $comment['Username'] . '</span>';
+                                            echo '<p class="user-c">' . $comment['comment'] . '</p>';
+                                        echo '</div>';
+                                    }
+                                } else {
+                                    echo 'There\'s No comments to show';
                                 }
+
                             ?>
                         </div>
                     </div>

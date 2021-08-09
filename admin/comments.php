@@ -32,9 +32,9 @@ if (isset($_SESSION['Username'])) {
         $stmt->execute();
 
         // assign to varible
-        $rows = $stmt->fetchAll();
-
-    ?>
+        $comments = $stmt->fetchAll();
+        if(!empty($comments)) {
+            ?>
             <h2 class="text-center">Manage Comments</h2>
             <div class="container">
                 <div class="table-responsive">
@@ -48,29 +48,33 @@ if (isset($_SESSION['Username'])) {
                             <td>Control</td>
                         </tr>
                         <?php 
-                            foreach ($rows as $row) {
+                            foreach ($comments as $comment) {
                                 echo '<tr>';
-                                    echo'<td>' . $row['c_id'] . '</td>';
-                                    echo'<td>' . $row['comment'] . '</td>';
-                                    echo'<td>' . $row['Item_Name'] . '</td>';
-                                    echo'<td>' . $row['Username'] . '</td>';
-                                    echo'<td>' . $row['comment_date'] . '</td>';
+                                    echo'<td>' . $comment['c_id'] . '</td>';
+                                    echo'<td>' . $comment['comment'] . '</td>';
+                                    echo'<td>' . $comment['Item_Name'] . '</td>';
+                                    echo'<td>' . $comment['Username'] . '</td>';
+                                    echo'<td>' . $comment['comment_date'] . '</td>';
                                     echo'<td>
-                                            <a href="comments.php?do=Edit&commentid=' . $row['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                            <a href="comments.php?do=Edit&commentid=' . $comment['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
                                             
-                                            <a href="comments.php?do=Delete&commentid=' . $row['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
-                                            if($row['status'] == 0){
-                                                echo '<a href="comments.php?do=Approve&commentid=' . $row['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
+                                            <a href="comments.php?do=Delete&commentid=' . $comment['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                            if($comment['status'] == 0){
+                                                echo '<a href="comments.php?do=Approve&commentid=' . $comment['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
                                             }
-
                                         echo '</td>';
                                 echo '</tr>';
                             }
                         ?>
-
                     </table>
                 </div>
             </div>
+        <?php } else {
+                echo '<div class="container">';
+                    echo '<div class="alert alert-info">There\'s No Comments to show</div>';
+                echo '</div>';
+        } ?>
+
     <?php } elseif ($do == 'Edit') {  // Edit page 
             $commentid = isset($_GET['commentid']) && is_numeric($_GET['commentid']) ? intval($_GET['commentid']): 0;
             // check if comment exist in database
