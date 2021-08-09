@@ -45,7 +45,7 @@
                     <div class="stat stat-comments d-flex flex-row justify-content-around">
                         <div>
                             Total Comments 
-                            <span><a href="#">3001</a></span>
+                            <span><a href="comments.php"><?php echo countItems('c_id', 'comments') ?></a></span>
                         </div>
                         <div><i class="fas fa-comments fa-5x"></i></div>
                     </div>
