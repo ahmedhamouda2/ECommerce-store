@@ -13,9 +13,20 @@
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 		if ($do == 'Manage') {
 
-        $stmt = $con->prepare("SELECT items.* , categories.Name AS catogry_name , users.Username FROM items
-                            INNER JOIN categories ON items.Cat_ID = categories.ID
-                            INNER JOIN users ON items.Member_ID = users.UserID;");
+        $stmt = $con->prepare("SELECT 
+                                    items.* , categories.Name AS catogry_name , users.Username
+                                FROM 
+                                    items
+                                INNER JOIN 
+                                    categories 
+                                ON 
+                                    items.Cat_ID = categories.ID
+                                INNER JOIN 
+                                    users 
+                                ON 
+                                    items.Member_ID = users.UserID
+                                ORDER BY 
+                                    Item_ID DESC");
         $stmt->execute();
 
         // assign to varible

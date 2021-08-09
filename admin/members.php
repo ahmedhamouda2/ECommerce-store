@@ -22,7 +22,7 @@ if (isset($_SESSION['Username'])) {
         }
 
         // select all users except Admin
-        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID != 1 $query");
+        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID != 1 $query ORDER BY UserID DESC");
         $stmt->execute();
 
         // assign to varible
