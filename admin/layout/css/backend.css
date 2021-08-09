@@ -2,6 +2,9 @@
 body {
 	background-color: #F4F4F4;
 }
+.row {
+    margin-top: 20px;
+}
 .form-control::placeholder {
     color: #cacaca;
     font-size: 14px;
