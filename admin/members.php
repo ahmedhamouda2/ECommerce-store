@@ -304,7 +304,7 @@ if (isset($_SESSION['Username'])) {
                                             WHERE 
                                                 Username = ? 
                                             AND 
-                                                UserID = ?");
+                                                UserID != ?");
                     $stmt2->execute(array($user,$id));
                     $count = $stmt2->rowcount();
                     if($count == 1){
