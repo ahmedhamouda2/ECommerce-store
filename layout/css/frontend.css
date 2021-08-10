@@ -47,6 +47,9 @@ h2 {
 .img-thumbnail {
     padding: .2rem;
 }
+.form-control:focus {
+    box-shadow: none;
+}
 /* end  Bootstrap edits*/
 
 /* start header */
@@ -55,3 +58,39 @@ h2 {
     background-color: #FFF;
 }
 /* end header */
+
+/* start login page */
+.login-page form {
+    margin: auto;
+    max-width: 400px;
+}
+.custom-input {
+    position: relative;
+    padding: 10px;
+}
+.custom-input label {
+    position: absolute;
+    left: 30px;
+    top: 18px;
+    font-size: 14px;
+    color: #999;
+    transition: 0.35s ease-in-out;
+    z-index: -1;
+}
+.custom-input input:not([type=submit]){
+    background-color: transparent;
+}
+.custom-input input:not([type=submit]):focus + label ,
+.has-data label {
+    left: 20px;
+    top: -12px;
+    font-size: 14px;
+    color: #008dde;
+    transition: 0.35s ease-in-out;
+}
+.login .btn {
+	background-color: #008dde;
+    width: 380px !important;
+    margin: auto;
+}
+/* end login page */
