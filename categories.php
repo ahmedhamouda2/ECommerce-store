@@ -5,12 +5,16 @@
         <div class="row">
             <?php
                 foreach(getitems($_GET['pageid']) as $item){
-                    echo '<div class="col-sm-6 col-md-3">';
-                        echo '<div class="thumbnail item-box">';
-                            echo '<img class="img-responsive" src="https://picsum.photos/250" alt="">';
-                            echo '<div class="caption">';
-                                echo '<h3>' . $item['Name'] . '</h3>';
-                                echo '<p>' . $item['Description'] . '</p>';
+                    echo '<div class="col-sm-6 col-md-4 col-lg-3">';
+                        echo '<div class="card">';
+                            echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
+                            echo '<div class="card-body">';
+                                echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
+                                echo '<p class="card-text">' . $item['Description'] . '</p>';
+                                echo '<div class="d-flex justify-content-around">';
+                                    echo '<button type="button" class="btn btn-light">' . $item['Price'] . '</button>'; 
+                                    echo '<a href="#" class="btn btn-primary">See More</a>';
+                                echo '</div>';
                             echo '</div>';
                         echo '</div>';
                     echo '</div>';

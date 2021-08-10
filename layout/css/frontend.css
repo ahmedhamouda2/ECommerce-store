@@ -44,4 +44,7 @@ h2 {
     color: #fff;
     padding: 0.5rem 1.5rem;
 }
+.img-thumbnail {
+    padding: .2rem;
+}
 /* end  Bootstrap edits*/
