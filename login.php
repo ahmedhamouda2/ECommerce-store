@@ -1,6 +1,6 @@
 <?php include 'init.php'; ?>
 <div class="container login-page">
-    <h2 class="text-center"><span class="login">login</span> | <span class="signup">Signup</span></h2>
+    <h2 class="text-center"><span class="selected" data-class="login">Login</span> | <span data-class="signup">Signup</span></h2>
     <form class="login">
         <div class="custom-input">
             <input class="form-control" type="text" name="username" autocomplete="off">

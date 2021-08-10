@@ -1,3 +1,11 @@
+// switch between login and signup
+$(".login-page h2 span").click(function(){
+    $(this).addClass('selected').siblings().removeClass('selected');
+    $('.login-page form').hide();
+    $('.' + $(this).data('class')).fadeIn(200)
+})
+
+
 // placeholder go to top when focus
 $(".custom-input input:not([type=submit]) ").on("focusout", function () {
     if ($(this).val() != "") {

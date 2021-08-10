@@ -60,11 +60,20 @@ h2 {
 /* end header */
 
 /* start login page */
+.login-page h2 {
+    color: #c0c0c0;
+}
+.login-page h2 span{
+    cursor: pointer;
+}
 .login-page form {
     margin: auto;
     max-width: 400px;
 }
-.custom-input {
+.login-page form.signup{
+    display: none;
+}
+.login-page .custom-input {
     position: relative;
     padding: 10px;
 }
@@ -80,17 +89,36 @@ h2 {
 .custom-input input:not([type=submit]){
     background-color: transparent;
 }
-.custom-input input:not([type=submit]):focus + label ,
-.has-data label {
+.login .custom-input input:not([type=submit]):focus + label ,
+.login .has-data label {
     left: 20px;
     top: -12px;
     font-size: 14px;
     color: #008dde;
     transition: 0.35s ease-in-out;
 }
-.login .btn {
-	background-color: #008dde;
+.signup .custom-input input:not([type=submit]):focus + label ,
+.signup .has-data label {
+    left: 20px;
+    top: -12px;
+    font-size: 14px;
+    color: #28a745;
+    transition: 0.35s ease-in-out;
+}
+.signup .form-control:focus {
+    border-color:#28a745 ;
+}
+.login-page .selected[data-class="login"] {
+    color: #008dde;
+}
+.login-page .selected[data-class="signup"] {
+    color: #28a745;
+}
+.login-page .btn {
     width: 380px !important;
     margin: auto;
+}
+.login .btn {
+    background-color: #008dde;
 }
 /* end login page */
