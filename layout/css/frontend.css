@@ -89,7 +89,7 @@ h2 {
 .custom-input input:not([type=submit]){
     background-color: transparent;
 }
-.login .custom-input input:not([type=submit]):focus + label ,
+.login .custom-input input:not([type=submit]):focus ~ label ,
 .login .has-data label {
     left: 20px;
     top: -12px;
@@ -97,7 +97,7 @@ h2 {
     color: #008dde;
     transition: 0.35s ease-in-out;
 }
-.signup .custom-input input:not([type=submit]):focus + label ,
+.signup .custom-input input:not([type=submit]):focus ~ label ,
 .signup .has-data label {
     left: 20px;
     top: -12px;
