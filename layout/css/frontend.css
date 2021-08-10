@@ -1,0 +1,47 @@
+/* Start Main Rules */
+body {
+	background-color: #F4F4F4;
+}
+h2 {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 40px 0;
+    color: #666;
+}
+.row {
+    margin-top: 20px;
+}
+.form-control::placeholder {
+    color: #cacaca;
+    font-size: 14px;
+}
+.asterisk {
+    position: absolute;
+    right: 25px;
+    top: 2px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #D20707;
+}
+/* End Main Rules */
+
+/* start  Bootstrap edits*/
+@media(min-width: 992px){
+    .navbar {
+        padding: 0;
+    }
+}
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link , .navbar-nav .dropdown-menu , 
+.dropdown-item {
+    background-color: #3498db;
+}
+.dropdown-menu , .dropdown-divider {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+.dropdown-item {
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+}
+/* end  Bootstrap edits*/
