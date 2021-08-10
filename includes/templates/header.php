@@ -25,7 +25,7 @@
                     <?php
                         $categories = getCat();
                         foreach($categories as $cat) {
-                            echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '">' . $cat['Name'] . '</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '&pagename=' . str_replace(' ' , '-' ,$cat['Name']) . '">' . $cat['Name'] . '</a></li>';
                         }
                     ?>
                 </ul>

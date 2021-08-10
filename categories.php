@@ -1,7 +1,7 @@
-<?php
-    include 'init.php';
-    echo 'welcome to categories page <br>';
-    echo 'Your pageid is ' . $_GET['pageid'];
-    include $tpl . 'footer.php';
+<?php include 'init.php'; ?>
 
-?>
+    <div class="container">
+        <h2 class="text-center"><?php echo str_replace('-' , ' ' , $_GET['pagename']) ?></h2>
+    </div>
+
+<?php include $tpl . 'footer.php';?>
