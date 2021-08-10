@@ -48,3 +48,10 @@ h2 {
     padding: .2rem;
 }
 /* end  Bootstrap edits*/
+
+/* start header */
+.upper-bar {
+    padding: 10px;
+    background-color: #FFF;
+}
+/* end header */

@@ -12,23 +12,29 @@
         <link rel="stylesheet" href="<?php echo $css?>frontend.css">
     </head>
     <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand active" href="index.php">HomePage</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <?php
-                        $categories = getCat();
-                        foreach($categories as $cat) {
-                            echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '&pagename=' . str_replace(' ' , '-' ,$cat['Name']) . '">' . $cat['Name'] . '</a></li>';
-                        }
-                    ?>
-                </ul>
+        <div class="upper-bar">
+            <div class="container">
+                <a href="login.php">
+                    <div class="d-flex justify-content-end">Login/Singup</div>
+                </a>
             </div>
         </div>
-    </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand active" href="index.php">HomePage</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <?php
+                            $categories = getCat();
+                            foreach($categories as $cat) {
+                                echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '&pagename=' . str_replace(' ' , '-' ,$cat['Name']) . '">' . $cat['Name'] . '</a></li>';
+                            }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </nav>
