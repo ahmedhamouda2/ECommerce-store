@@ -14,14 +14,14 @@
 	}
 
 	/*
-	** Get items Function
+	** Get items Function v2.0
 	** Function to get items from database
 	*/
 
-	function getitems($CatID) {
+	function getitems($where , $value) {
 		global $con;
-		$getitem= $con->prepare("SELECT * FROM items WHERE Cat_ID = ? ORDER BY item_ID DESC");
-		$getitem->execute(array($CatID));
+		$getitem= $con->prepare("SELECT * FROM items WHERE $where = ? ORDER BY item_ID DESC");
+		$getitem->execute(array($value));
 		$items = $getitem->fetchAll();
 		return $items;
 	}
