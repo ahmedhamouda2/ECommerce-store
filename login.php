@@ -8,20 +8,24 @@
 
     // check if user coming form HTTP Post Request
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $user = $_POST['username'];
-        $pass = $_POST['password'];
-        $hashedPass = sha1($pass);          // password encryption
-        
-        // check if user exist in database
-        $stmt = $con->prepare("SELECT Username , `Password` FROM users WHERE Username = ? AND `Password` = ?");
-        $stmt->execute(array($user ,$hashedPass));
-        $count = $stmt->rowCount();
-
-        // if count > 0 this mean the database contains a record about this username
-        if($count > 0) {
-            $_SESSION['user'] = $user;      // Register seesion name
-            header('location:index.php');       // Redirect To index Page
-            exit();
+        if(isset($_POST['login'])) {
+            $user = $_POST['username'];
+            $pass = $_POST['password'];
+            $hashedPass = sha1($pass);          // password encryption
+            
+            // check if user exist in database
+            $stmt = $con->prepare("SELECT Username , `Password` FROM users WHERE Username = ? AND `Password` = ?");
+            $stmt->execute(array($user ,$hashedPass));
+            $count = $stmt->rowCount();
+    
+            // if count > 0 this mean the database contains a record about this username
+            if($count > 0) {
+                $_SESSION['user'] = $user;      // Register seesion name
+                header('location:index.php');       // Redirect To index Page
+                exit();
+            }
+        } else {
+            $test = $_POST['username'];
         }
     }
 ?>
@@ -37,12 +41,12 @@
             <input class="form-control" type="password" name="password" autocomplete="new-password" required>
             <label>Type your password</label>
         </div>
-        <input class="btn btn-primary btn-block" type="submit" name="submit" value="login">
+        <input class="btn btn-primary btn-block" type="submit" name="login" value="login">
     </form>
     <!-- End login form -->
     <br>
     <!-- start signup form -->
-    <form class="signup">
+    <form class="signup" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <div class="custom-input">
             <input class="form-control" type="text" name="username" autocomplete="off" required>
             <label>Type your username</label>
@@ -59,9 +63,12 @@
             <input class="form-control" type="email" name="email" required>
             <label>Type valid email</label>
         </div>
-        <input class="btn btn-success btn-block" type="submit" name="submit" value="Signup">
+        <input class="btn btn-success btn-block" type="submit" name="Signup" value="Signup">
     </form>
     <!-- end signup form -->
+    <div class="the-messages text-center">
+        <?php echo $test; ?>
+    </div>
 </div>
 
 <?php include $tpl . 'footer.php'; ?>
