@@ -38,6 +38,9 @@
                 if($pass1 !== $pass2){
                     $formErrors[] = 'Sorry Password is not match';
                 }
+                if(empty($_POST['password'])){
+                    $formErrors[] = 'Sorry Password can\'t be Empty';
+                }
             }
             if(isset($_POST['email'])) {
                 $filterEmail = filter_var($_POST['email'] , FILTER_SANITIZE_EMAIL);
