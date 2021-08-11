@@ -60,7 +60,20 @@
                     Latest Comments
                 </div>
                 <div class="card-body">
-                    Test Comments
+                    <?php
+                    $stmt = $con->prepare("SELECT comment FROM comments WHERE user_id = ?");
+                    $stmt->execute(array($info['UserID']));
+
+                    // assign to varible
+                    $comments = $stmt->fetchAll();
+                    if(!empty($comments)){
+                        foreach($comments as $comment){
+                            echo '<p>' . $comment['comment'] . '</p>';
+                        }
+                    } else {
+                        echo 'There\'s no comments to show';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
