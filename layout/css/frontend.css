@@ -121,6 +121,13 @@ h2 {
 .login .btn {
     background-color: #008dde;
 }
+.the-messages .alert-danger {
+    max-width: 380px;
+    margin: auto;
+}
+.the-messages .alert-danger:first-child {
+    margin-top: 10px;
+}
 /* end login page */
 
 /* start profile page */
