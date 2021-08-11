@@ -26,24 +26,26 @@
             }
         } else {
             $formErrors = array();
-            if(isset($_POST['username'])) {
-                $filterUser = filter_var($_POST['username'] , FILTER_SANITIZE_STRING);
+            $username   = $_POST['username'];
+            $password   = $_POST['password'];
+            $password2  = $_POST['password2'];
+            $email      = $_POST['email'];
+            if(isset($username)) {
+                $filterUser = filter_var($username , FILTER_SANITIZE_STRING);
                 if(strlen($filterUser) < 4) {
                     $formErrors[] = '<div class="alert alert-danger">Username must be larger than <strong>4</strong> characters </div>';
                 }
             }
-            if(isset($_POST['password']) && isset($_POST['password2'])) {
-                if(empty($_POST['password'])){
+            if(isset($password) && isset($password2)) {
+                if(empty($password)){
                     $formErrors[] = '<div class="alert alert-danger">Sorry Password can\'t be Empty</div>';
                 }
-                $pass1 = sha1($_POST['password']);
-                $pass2 = sha1($_POST['password2']);
-                if($pass1 !== $pass2){
+                if(sha1($password) !== sha1($password2)){
                     $formErrors[] = '<div class="alert alert-danger">Sorry Password is not match</div>';
                 }
             }
-            if(isset($_POST['email'])) {
-                $filterEmail = filter_var($_POST['email'] , FILTER_SANITIZE_EMAIL);
+            if(isset($email )) {
+                $filterEmail = filter_var($email  , FILTER_SANITIZE_EMAIL);
                 if(filter_var($filterEmail , FILTER_SANITIZE_EMAIL ) != true) {
                     $formErrors[] = '<div class="alert alert-danger">This Email not valid</div>';
                 }
