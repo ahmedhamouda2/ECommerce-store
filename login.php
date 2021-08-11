@@ -25,7 +25,13 @@
                 exit();
             }
         } else {
-            $test = $_POST['username'];
+            $formErrors = array();
+            if(isset($_POST['username'])) {
+                $filterUser = filter_var($_POST['username'] , FILTER_SANITIZE_STRING);
+                if(strlen($filterUser) < 4) {
+                    $formErrors[] = 'Username must be larger than <strong>4</strong> characters';
+                }
+            }
         }
     }
 ?>
@@ -67,7 +73,13 @@
     </form>
     <!-- end signup form -->
     <div class="the-messages text-center">
-        <?php echo $test; ?>
+        <?php
+            if(!empty($formErrors)){
+                foreach($formErrors as $error){
+                    echo $error . "<br>";
+                }
+            }
+        ?>
     </div>
 </div>
 
