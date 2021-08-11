@@ -6,7 +6,6 @@
         $getUser = $con->prepare("SELECT * FROM users WHERE Username = ?"); 
         $getUser->execute(array($sessionUser));
         $info = $getUser->fetch();
-        echo  $info['Username'] . $info['Password'];
 ?>
     <h2 class="text-center">My Profile</h2>
     <div class="information block">
@@ -16,7 +15,10 @@
                     My Information
                 </div>
                 <div class="card-body">
-                    Name : Ahmed
+                    Name : <?php echo $info['Username'] ?> <br>
+                    Email : <?php echo $info['Email'] ?> <br>
+                    Full Name : <?php echo $info['FullName'] ?> <br>
+                    Registered Date : <?php echo $info['Date'] ?> <br>
                 </div>
             </div>
         </div>
