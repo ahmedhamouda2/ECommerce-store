@@ -18,6 +18,7 @@
                     if(isset($_SESSION['user'])){
                         echo 'Welcome ' . $_SESSION['user'];
                         echo '<a href="profile.php"> My Profile</a>';
+                        echo '<a href="logout.php"> logout</a>';
                         $userStatus = checkUserStatus($_SESSION['user']);
                         if($userStatus == 1) {
                             // user is not active
