@@ -1,4 +1,7 @@
-<?php include 'init.php'; ?>
+<?php
+    session_start();
+    include 'init.php';
+?>
 
     <div class="container">
         <h2 class="text-center"><?php echo str_replace('-' , ' ' , $_GET['pagename']) ?></h2>
