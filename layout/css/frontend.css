@@ -127,7 +127,7 @@ h2 {
 .block {
     margin: 20px 0 0;
 }
-.block .card-body {
+.block .card:first-child .card-body{
     border: 2px solid #007bff;
 }
 /* end profile page */
