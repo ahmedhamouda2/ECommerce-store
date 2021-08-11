@@ -2,6 +2,11 @@
     session_start();
     $pageTitle = 'Profile';
     include 'init.php';
+    if(isset($_SESSION['user'])) {
+        $getUser = $con->prepare("SELECT * FROM users WHERE Username = ?"); 
+        $getUser->execute(array($sessionUser));
+        $info = $getUser->fetch();
+        echo  $info['Username'] . $info['Password'];
 ?>
     <h2 class="text-center">My Profile</h2>
     <div class="information block">
@@ -41,4 +46,10 @@
         </div>
     </div>
 
-<?php include $tpl . 'footer.php';?>
+<?php 
+    } else {
+        header('location:login.php');
+        exit();
+    }
+    include $tpl . 'footer.php';
+?>
