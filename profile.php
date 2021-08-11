@@ -15,10 +15,24 @@
                     My Information
                 </div>
                 <div class="card-body">
-                    Name : <?php echo $info['Username'] ?> <br>
-                    Email : <?php echo $info['Email'] ?> <br>
-                    Full Name : <?php echo $info['FullName'] ?> <br>
-                    Registered Date : <?php echo $info['Date'] ?> <br>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-unlock-alt"></i>
+                            <span>Login Name</span> : <?php echo $info['Username'] ?>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span> : <?php echo $info['Email'] ?>
+                        </li>
+                        <li>
+                            <i class="fas fa-user"></i>
+                            <span>Full Name</span> : <?php echo $info['FullName'] ?>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Registered Date</span> : <?php echo $info['Date'] ?>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -30,25 +44,29 @@
                     My-Ads
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <?php
-                            foreach(getitems('Member_ID' , $info['UserID']) as $item){
-                                echo '<div class="col-sm-6 col-md-4 col-lg-3">';
-                                    echo '<div class="card">';
-                                        echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
-                                        echo '<div class="card-body border-0">';
-                                            echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
-                                            echo '<p class="card-text">' . $item['Description'] . '</p>';
-                                            echo '<div class="d-flex justify-content-around">';
-                                                echo '<button type="button" class="btn btn-light">' . $item['Price'] . '</button>'; 
-                                                echo '<a href="#" class="btn btn-primary">See More</a>';
-                                            echo '</div>';
+                    <?php
+                    if(!empty(getitems('Member_ID' , $info['UserID']))){
+                        echo '<div class="row">';
+                        foreach(getitems('Member_ID' , $info['UserID']) as $item){
+                            echo '<div class="col-sm-6 col-md-4 col-lg-3">';
+                                echo '<div class="card">';
+                                    echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
+                                    echo '<div class="card-body border-0">';
+                                        echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
+                                        echo '<p class="card-text">' . $item['Description'] . '</p>';
+                                        echo '<div class="d-flex justify-content-around">';
+                                            echo '<button type="button" class="btn btn-light">' . $item['Price'] . '</button>'; 
+                                            echo '<a href="#" class="btn btn-primary">See More</a>';
                                         echo '</div>';
                                     echo '</div>';
                                 echo '</div>';
-                            }
-                        ?>
-                    </div>
+                            echo '</div>';
+                        }
+                        echo '</div>';
+                    } else {
+                        echo 'There\'s no Ads to show';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
