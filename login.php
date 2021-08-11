@@ -33,13 +33,13 @@
                 }
             }
             if(isset($_POST['password']) && isset($_POST['password2'])) {
+                if(empty($_POST['password'])){
+                    $formErrors[] = 'Sorry Password can\'t be Empty';
+                }
                 $pass1 = sha1($_POST['password']);
                 $pass2 = sha1($_POST['password2']);
                 if($pass1 !== $pass2){
                     $formErrors[] = 'Sorry Password is not match';
-                }
-                if(empty($_POST['password'])){
-                    $formErrors[] = 'Sorry Password can\'t be Empty';
                 }
             }
             if(isset($_POST['email'])) {
