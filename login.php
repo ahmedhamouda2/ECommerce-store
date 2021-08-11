@@ -70,15 +70,15 @@
     <!-- start signup form -->
     <form class="signup" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <div class="custom-input">
-            <input class="form-control" type="text" name="username" autocomplete="off" required>
+            <input class="form-control" type="text" name="username" autocomplete="off" required pattern=".{4,}" title="Username must be 4 chars or more">
             <label>Type your username</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="password" name="password" autocomplete="new-password" required>
+            <input class="form-control" type="password" name="password" autocomplete="new-password" required minlength="4">
             <label>Type a complex password</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="password" name="password2" autocomplete="new-password" required>
+            <input class="form-control" type="password" name="password2" autocomplete="new-password" required minlength="4">
             <label>Type a password again</label>
         </div>
         <div class="custom-input">
