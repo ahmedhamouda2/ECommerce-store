@@ -26,7 +26,19 @@
 		return $items;
 	}
 
+	
+	/*
+	** check the user is not activated
+	** Function to check the RegStatus of the user
+	*/
 
+	function checkUserStatus($user){
+		global $con;
+		$stmtx = $con->prepare("SELECT Username , RegStatus FROM users WHERE Username = ? AND RegStatus = 0");
+		$stmtx->execute(array($user));
+		$status = $stmtx->rowCount();
+		return $status;
+	}
 
 
 

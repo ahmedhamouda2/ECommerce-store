@@ -17,6 +17,11 @@
                 <?php
                     if(isset($_SESSION['user'])){
                         echo 'Welcome ' . $_SESSION['user'];
+                        $userStatus = checkUserStatus($_SESSION['user']);
+                        if($userStatus == 1) {
+                            // user is not active
+                            echo ' membership need to activation by Admin';
+                        }
                     } else {
                 ?>
                 <a href="login.php">
