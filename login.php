@@ -39,6 +39,12 @@
                     $formErrors[] = 'Sorry Password is not match';
                 }
             }
+            if(isset($_POST['email'])) {
+                $filterEmail = filter_var($_POST['email'] , FILTER_SANITIZE_EMAIL);
+                if(filter_var($filterEmail , FILTER_SANITIZE_EMAIL ) != true) {
+                    $formErrors[] = 'This Email not valid';
+                }
+            }
         }
     }
 ?>
