@@ -33,21 +33,40 @@
             if(isset($username)) {
                 $filterUser = filter_var($username , FILTER_SANITIZE_STRING);
                 if(strlen($filterUser) < 4) {
-                    $formErrors[] = '<div class="alert alert-danger">Username must be larger than <strong>4</strong> characters </div>';
+                    $formErrors[] = 'Username must be larger than <strong>4</strong> characters';
                 }
             }
             if(isset($password) && isset($password2)) {
                 if(empty($password)){
-                    $formErrors[] = '<div class="alert alert-danger">Sorry Password can\'t be Empty</div>';
+                    $formErrors[] = 'Sorry Password can\'t be Empty';
                 }
                 if(sha1($password) !== sha1($password2)){
-                    $formErrors[] = '<div class="alert alert-danger">Sorry Password is not match</div>';
+                    $formErrors[] = 'Sorry Password is not match';
                 }
             }
             if(isset($email )) {
                 $filterEmail = filter_var($email  , FILTER_SANITIZE_EMAIL);
                 if(filter_var($filterEmail , FILTER_SANITIZE_EMAIL ) != true) {
-                    $formErrors[] = '<div class="alert alert-danger">This Email not valid</div>';
+                    $formErrors[] = 'This Email not valid';
+                }
+            }
+            // check if there no error proceed the user add
+            if(empty($formErrors)){
+                // check if user exist to database
+                $check = checkItem("Username", "users", $username);
+                if($check == 1) {
+                    $formErrors[] = 'Sorry this User is Exists';
+                } else {
+                    // Insert user info in database
+                    $stmt = $con->prepare("INSERT INTO users(Username , `Password` , Email  ,RegStatus , `Date`) VALUES(:zuser , :zpass , :zmail , 0 , now())");
+                    $stmt->execute(array(
+                        'zuser' => $username,
+                        'zpass' => sha1($password),
+                        'zmail' => $email
+                    ));
+
+                    // echo success message
+                    $successMsg = 'Congrats You are now registered user';
                 }
             }
         }
@@ -94,8 +113,11 @@
         <?php
             if(!empty($formErrors)){
                 foreach($formErrors as $error){
-                    echo $error . "<br>";
+                    echo '<div class="alert alert-danger">' . $error . '</div>';
                 }
+            }
+            if(isset($successMsg)){
+                echo '<div class="alert alert-success">' . $successMsg . '</div>';
             }
         ?>
     </div>

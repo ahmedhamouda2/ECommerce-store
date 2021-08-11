@@ -121,7 +121,7 @@ h2 {
 .login .btn {
     background-color: #008dde;
 }
-.the-messages .alert-danger {
+.the-messages .alert {
     max-width: 380px;
     margin: auto;
 }

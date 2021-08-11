@@ -40,7 +40,21 @@
 		return $status;
 	}
 
+	/*
+	** Check user Function
+	** Function to Check user In Database
+	** $select = The user To Select
+	** $from = The Table To Select From 
+	** $value = The Value Of Select
+	*/
 
+	function checkItem($select, $from, $value) {
+		global $con;
+		$statement = $con->prepare("SELECT $select FROM $from WHERE $select = ?");
+		$statement->execute(array($value));
+		$count = $statement->rowCount();
+		return $count;
+	}
 
 // Title Function that Echo the page title in case the page has the variable $pageTitle and Echo Default title for other pages.
 
@@ -73,22 +87,6 @@
 // 		echo "<div class='alert alert-info' role='alert'>You Will Be Redirected to $link After $seconds Seconds.</div>";
 // 		header("refresh:$seconds;url=$url");
 // 		exit();
-// 	}
-
-// 	/*
-// 	** Check Items Function
-// 	** Function to Check Item In Database [ Function Accept Parameters ]
-// 	** $select = The Item To Select [ Example: user, item, category ]
-// 	** $from = The Table To Select From [ Example: users, items, categories ]
-// 	** $value = The Value Of Select [ Example: Ahmed, Box, Electronics ]
-// 	*/
-
-// 	function checkItem($select, $from, $value) {
-// 		global $con;
-// 		$statement = $con->prepare("SELECT $select FROM $from WHERE $select = ?");
-// 		$statement->execute(array($value));
-// 		$count = $statement->rowCount();
-// 		return $count;
 // 	}
 
 
