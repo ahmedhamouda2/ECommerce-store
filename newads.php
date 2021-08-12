@@ -3,9 +3,15 @@ session_start();
 $pageTitle = 'Create New Item';
 include 'init.php';
 if (isset($_SESSION['user'])) {
-    $getUser = $con->prepare("SELECT * FROM users WHERE Username = ?");
-    $getUser->execute(array($sessionUser));
-    $info = $getUser->fetch();
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $name       = filter_var($_POST['name'] , FILTER_SANITIZE_STRING);
+        $desc       = filter_var($_POST['description'] , FILTER_SANITIZE_STRING);
+        $price      = filter_var($_POST['price'] , FILTER_SANITIZE_NUMBER_INT);
+        $county     = filter_var($_POST['country'] , FILTER_SANITIZE_STRING);
+        $status     = filter_var($_POST['status'] , FILTER_SANITIZE_NUMBER_INT);
+        $category   = filter_var($_POST['category'] , FILTER_SANITIZE_NUMBER_INT);
+    }
+
 ?>
     <h2 class="text-center"><?php echo $pageTitle ?></h2>
     <div class="create-ad block">
