@@ -14,13 +14,15 @@
             $hashedPass = sha1($pass);          // password encryption
             
             // check if user exist in database
-            $stmt = $con->prepare("SELECT Username , `Password` FROM users WHERE Username = ? AND `Password` = ?");
+            $stmt = $con->prepare("SELECT UserID , Username , `Password` FROM users WHERE Username = ? AND `Password` = ?");
             $stmt->execute(array($user ,$hashedPass));
+            $get = $stmt->fetch();
             $count = $stmt->rowCount();
     
             // if count > 0 this mean the database contains a record about this username
             if($count > 0) {
-                $_SESSION['user'] = $user;      // Register seesion name
+                $_SESSION['user'] = $user;      // Register session name
+                $_SESSION['uid'] = $get['UserID'];      // Register session user id
                 header('location:index.php');       // Redirect To index Page
                 exit();
             }

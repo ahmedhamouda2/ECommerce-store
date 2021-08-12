@@ -3,6 +3,7 @@ session_start();
 $pageTitle = 'Create New Item';
 include 'init.php';
 if (isset($_SESSION['user'])) {
+    print_r($_SESSION);
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $formErrors = array();
         $name       = filter_var($_POST['name'] , FILTER_SANITIZE_STRING);
