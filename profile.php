@@ -64,7 +64,7 @@
                         }
                         echo '</div>';
                     } else {
-                        echo 'There\'s no Ads to show';
+                        echo 'There\'s no Ads to show , Create <a href="newads.php">New ads</a>';
                     }
                     ?>
                 </div>
