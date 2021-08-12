@@ -3,13 +3,12 @@ session_start();
 $pageTitle = 'Create New Item';
 include 'init.php';
 if (isset($_SESSION['user'])) {
-    print_r($_SESSION);
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $formErrors = array();
         $name       = filter_var($_POST['name'] , FILTER_SANITIZE_STRING);
         $desc       = filter_var($_POST['description'] , FILTER_SANITIZE_STRING);
         $price      = filter_var($_POST['price'] , FILTER_SANITIZE_NUMBER_INT);
-        $county     = filter_var($_POST['country'] , FILTER_SANITIZE_STRING);
+        $country     = filter_var($_POST['country'] , FILTER_SANITIZE_STRING);
         $status     = filter_var($_POST['status'] , FILTER_SANITIZE_NUMBER_INT);
         $category   = filter_var($_POST['category'] , FILTER_SANITIZE_NUMBER_INT);
         if(strlen($name) < 4) {
@@ -18,8 +17,8 @@ if (isset($_SESSION['user'])) {
         if(strlen($desc) < 10) {
             $formErrors[] = 'Item description must be at least <strong>10</strong> characters';
         }
-        if(strlen($county) < 2) {
-            $formErrors[] = 'County must be at least <strong>2</strong> characters';
+        if(strlen($country) < 2) {
+            $formErrors[] = 'Country must be at least <strong>2</strong> characters';
         }
         if(empty($price)) {
             $formErrors[] = 'Item price must be not empty';
@@ -29,6 +28,25 @@ if (isset($_SESSION['user'])) {
         }
         if(empty($category)) {
             $formErrors[] = 'Item category must be not empty';
+        }
+        // check if there no error proceed the update operation
+        if(empty($formErrors)){
+            // Insert item info in database
+            $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember)");
+            $stmt->execute(array(
+                'zname' => $name,
+                'zdesc' => $desc,
+                'zprice' => $price,
+                'zcountry' => $country,
+                'zstatus' => $status,
+                'zcat' => $category,
+                'zmember' => $_SESSION['uid']
+            ));
+
+            // echo success message
+            if($stmt) {
+                echo '<div class="alert alert-success">Item success added</div>';
+            }
         }
     }
 
