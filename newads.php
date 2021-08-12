@@ -1,18 +1,18 @@
 <?php
 session_start();
-$pageTitle = 'New Ads';
+$pageTitle = 'Create New Item';
 include 'init.php';
 if (isset($_SESSION['user'])) {
     $getUser = $con->prepare("SELECT * FROM users WHERE Username = ?");
     $getUser->execute(array($sessionUser));
     $info = $getUser->fetch();
 ?>
-    <h2 class="text-center">Create New Ads</h2>
+    <h2 class="text-center"><?php echo $pageTitle ?></h2>
     <div class="create-ad block">
         <div class="container">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    Create New Ads
+                    <?php echo $pageTitle ?>
                 </div>
                 <div class="card-body">
                     <div class="row">
