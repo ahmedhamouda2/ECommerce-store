@@ -20,6 +20,11 @@ h2 {
     font-weight: 500;
     color: #D20707;
 }
+.main-form .asterisk {
+    right: 22px;
+    top: 3px;
+    font-size: 28px;
+}
 /* End Main Rules */
 
 /* start  Bootstrap edits*/

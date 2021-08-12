@@ -17,34 +17,34 @@ if (isset($_SESSION['user'])) {
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-8">
-                            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="main-form">
                                 <!-- start Name field -->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Name</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="name" class="form-control live-name" autocomplete="off" required placeholder="Name of Item">
+                                        <input type="username" name="name" class="form-control live" autocomplete="off" required placeholder="Name of Item" data-class=".live-title">
                                     </div>
                                 </div>
                                 <!-- End Name field -->
                                 <!-- start Description field -->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Description</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="description" class="form-control live-description" autocomplete="off" required placeholder="Describe the Item">
+                                        <input type="username" name="description" class="form-control live" autocomplete="off" required placeholder="Describe the Item" data-class=".live-desc">
                                     </div>
                                 </div>
                                 <!-- End Description field -->
                                 <!-- start price field -->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Price</label>
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Price</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="price" class="form-control live-price" autocomplete="off" required placeholder="Price the Item">
+                                        <input type="username" name="price" class="form-control live" autocomplete="off" required placeholder="Price the Item" data-class=".live-price">
                                     </div>
                                 </div>
                                 <!-- End price field -->
                                 <!-- start country field -->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Country</label>
                                     <div class="col-sm-10 col-md-9">
                                         <input type="username" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
                                     </div>
@@ -52,7 +52,7 @@ if (isset($_SESSION['user'])) {
                                 <!-- End country field -->
                                 <!-- start status field -->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Status</label>
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Status</label>
                                     <div class="col-sm-10 col-md-9">
                                         <select name="status">
                                             <option value="0">...</option>
@@ -66,7 +66,7 @@ if (isset($_SESSION['user'])) {
                                 <!-- End status field -->
                                 <!-- start categories field -->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Category</label>
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Category</label>
                                     <div class="col-sm-10 col-md-9">
                                         <select name="category">
                                             <option value="0">...</option>
@@ -84,7 +84,7 @@ if (isset($_SESSION['user'])) {
                                 <!-- End categories field -->
                                 <!-- start submit -->
                                 <div class="form-group row">
-                                    <div class="offset-sm-2 col-sm-10">
+                                    <div class="offset-sm-3 col-sm-9">
                                         <input type="submit" value="Add Item" class="btn btn-primary btn-sm">
                                     </div>
                                 </div>
@@ -95,10 +95,10 @@ if (isset($_SESSION['user'])) {
                             <div class="card live-preview">
                                 <img class="card-img-top img-fluid" src="https://picsum.photos/250" alt="Card image">
                                 <div class="card-body" style="border:none;">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Description</p>
+                                    <h4 class="card-title live-title">Title</h4>
+                                    <p class="card-text live-desc">Description</p>
                                     <div class="d-flex justify-content-around">
-                                        <button type="button" class="btn btn-light price-tag">$0</button>
+                                        <button type="button" class="btn btn-light price-tag">$<span class="live-price">0</span></button>
                                         <a href="#" class="btn btn-primary">See More</a>
                                     </div>
                                 </div>
