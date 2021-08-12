@@ -27,3 +27,18 @@ $('input').each(function () {
 $('.confirm').click(function () {
     return confirm('Are You Sure?');
 });
+
+// Trigger selectboxit
+$("select").selectBoxIt({
+    autoWidth:false
+});
+
+$('.live-name').keyup(function(){
+    $('.live-preview .card-title').text($(this).val())
+})
+$('.live-description').keyup(function(){
+    $('.live-preview .card-text').text($(this).val())
+})
+$('.live-price').keyup(function(){
+    $('.live-preview .price-tag').text('$' + $(this).val())
+})

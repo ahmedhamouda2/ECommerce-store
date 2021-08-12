@@ -8,9 +8,6 @@ h2 {
     margin: 40px 0;
     color: #666;
 }
-.row {
-    margin-top: 20px;
-}
 .form-control::placeholder {
     color: #cacaca;
     font-size: 14px;
