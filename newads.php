@@ -4,12 +4,31 @@ $pageTitle = 'Create New Item';
 include 'init.php';
 if (isset($_SESSION['user'])) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $formErrors = array();
         $name       = filter_var($_POST['name'] , FILTER_SANITIZE_STRING);
         $desc       = filter_var($_POST['description'] , FILTER_SANITIZE_STRING);
         $price      = filter_var($_POST['price'] , FILTER_SANITIZE_NUMBER_INT);
         $county     = filter_var($_POST['country'] , FILTER_SANITIZE_STRING);
         $status     = filter_var($_POST['status'] , FILTER_SANITIZE_NUMBER_INT);
         $category   = filter_var($_POST['category'] , FILTER_SANITIZE_NUMBER_INT);
+        if(strlen($name) < 4) {
+            $formErrors[] = 'Item title must be at least <strong>4</strong> characters';
+        }
+        if(strlen($desc) < 10) {
+            $formErrors[] = 'Item description must be at least <strong>10</strong> characters';
+        }
+        if(strlen($county) < 2) {
+            $formErrors[] = 'County must be at least <strong>2</strong> characters';
+        }
+        if(empty($price)) {
+            $formErrors[] = 'Item price must be not empty';
+        }
+        if(empty($status)) {
+            $formErrors[] = 'Item status must be not empty';
+        }
+        if(empty($category)) {
+            $formErrors[] = 'Item category must be not empty';
+        }
     }
 
 ?>
@@ -111,6 +130,15 @@ if (isset($_SESSION['user'])) {
                             </div>
                         </div>
                     </div>
+                    <!-- start looping through errors -->
+                    <?php
+                        if(!empty($formErrors)){
+                            foreach($formErrors as $error) {
+                                echo '<div class="alert alert-danger">' . $error . '</div>';
+                            }
+                        }
+                    ?>
+                    <!-- end looping through errors -->
                 </div>
             </div>
         </div>
