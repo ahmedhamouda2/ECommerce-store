@@ -149,4 +149,25 @@ h2 {
     display: inline-block;
     width: 120px;
 }
+.card .date {
+    font-size: 13px;
+    font-weight: bold;
+    color: #AAA;
+}
+.card .price {
+    width: 120px;
+    position: absolute;
+    top: 7px;
+    left: -33px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 38px;
+    color: #FFF;
+    border-bottom: 30px solid #E9272F;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    transform: rotate(-45deg);
+    height: 0;
+}
 /* end profile page */
