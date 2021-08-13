@@ -47,9 +47,10 @@
                     <?php
                     if(!empty(getitems('Member_ID' , $info['UserID']))){
                         echo '<div class="row">';
-                        foreach(getitems('Member_ID' , $info['UserID']) as $item){
+                        foreach(getitems('Member_ID' , $info['UserID'] , 1) as $item){
                             echo '<div class="col-sm-6 col-md-4 col-lg-3">';
                                 echo '<div class="card">';
+                                    if($item['Approve'] == 0) {echo 'Awaiting Approval';}
                                     echo '<span class="price">$' . $item['Price'] . '</span>'; 
                                     echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
                                     echo '<div class="card-body border-0">';

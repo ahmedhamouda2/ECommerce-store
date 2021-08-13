@@ -14,13 +14,18 @@
 	}
 
 	/*
-	** Get items Function v2.0
-	** Function to get items from database
+	** Get AD items Function v3.0
+	** Function to get AD items from database
 	*/
 
-	function getitems($where , $value) {
+	function getitems($where , $value , $approve = NULL) {
 		global $con;
-		$getitem= $con->prepare("SELECT * FROM items WHERE $where = ? ORDER BY item_ID DESC");
+		if($approve == NULL) {
+			$sql = 'AND Approve = 1';
+		} else {
+			$sql = NULL;
+		}
+		$getitem= $con->prepare("SELECT * FROM items WHERE $where = ? $sql ORDER BY item_ID DESC");
 		$getitem->execute(array($value));
 		$items = $getitem->fetchAll();
 		return $items;
