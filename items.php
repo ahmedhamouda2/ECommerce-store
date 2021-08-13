@@ -81,6 +81,9 @@
                                     'zitemid' => $itemid,
                                     'zuserid' => $userid,
                                 ));
+                                if($stmt){
+                                    echo '<div class="alert alert-success mt-2">Comment Added</div>';
+                                }
                             }
                         }
                     ?>
