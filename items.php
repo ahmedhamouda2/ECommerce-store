@@ -112,14 +112,21 @@
             $stmt->execute(array($item['Item_ID']));
             $comments = $stmt->fetchAll();
         ?>
-        <?php
-            foreach($comments as $comment) {
-                echo '<div class="row">';
-                    echo '<div class="col-md-3">' . $comment['Username'] . '</div>';
-                    echo '<div class="col-md-9">' . $comment['comment'] . '</div>';
-                echo '</div>';
-            }
-        ?>
+        <?php foreach($comments as $comment) { ?>
+            <div class="comment-box">
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <img class="img-fluid img-thumbnail rounded-circle d-block m-auto" src="https://picsum.photos/250" alt="Card image">
+                        <?php echo $comment['Username'] ?>
+                    </div>
+                    <div class="col-sm-10 d-flex flex-column">
+                        <p class="lead"><?php echo $comment['comment'] ?></p>
+                        <p class="date-comment"><?php echo $comment['comment_date'] ?></p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        <?php } ?>
     </div>
 
 <?php 
