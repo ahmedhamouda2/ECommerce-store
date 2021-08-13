@@ -18,7 +18,7 @@
                     if(isset($_SESSION['user'])){
                         echo 'Welcome ' . $sessionUser;
                         echo '<a href="profile.php"> My Profile</a>';
-                        echo '<a href="newads.php">-New Ads-</a>';
+                        echo '<a href="newads.php">-New Item-</a>';
                         echo '<a href="logout.php"> logout</a>';
                         $userStatus = checkUserStatus($sessionUser);
                         if($userStatus == 1) {

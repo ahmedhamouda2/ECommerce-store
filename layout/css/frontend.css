@@ -170,6 +170,14 @@ h2 {
     transform: rotate(-45deg);
     height: 0;
 }
+.card .approve-msg {
+    position: absolute;
+    top: 0;
+    right:0;
+    background-color: #b85a5a;
+    color: #FFF;
+    padding: 3px 5px;
+}
 /* end profile page */
 
 /* start items page */

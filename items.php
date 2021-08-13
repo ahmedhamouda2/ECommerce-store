@@ -17,7 +17,9 @@
                             ON 
                                 items.Member_ID = users.UserID
                             WHERE 
-								Item_ID = ?");
+								Item_ID = ?
+                            AND 
+                                Approve = 1");
     $stmt->execute(array($itemid));
     $count = $stmt->rowCount();
     if($count > 0) {
@@ -132,7 +134,7 @@
 <?php 
     } else {
         echo '<div class="container">';
-            echo '<div class="alert alert-danger" role="alert">There\'s No such ID</div>';
+            echo '<div class="alert alert-danger" role="alert">There\'s No such ID or this item Awaiting approval</div>';
         echo '</div>';
     }
     include $tpl . 'footer.php';
