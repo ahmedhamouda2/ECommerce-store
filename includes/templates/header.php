@@ -15,16 +15,18 @@
         <div class="upper-bar">
             <div class="container">
                 <?php
-                    if(isset($_SESSION['user'])){
-                        echo 'Welcome ' . $sessionUser;
-                        echo '<a href="profile.php"> My Profile</a>';
-                        echo '<a href="newads.php">-New Item-</a>';
-                        echo '<a href="logout.php"> logout</a>';
-                        $userStatus = checkUserStatus($sessionUser);
-                        if($userStatus == 1) {
-                            // user is not active
-                            
-                        }
+                    if(isset($_SESSION['user'])){ ?>
+                        <div class="btn-group my-info">
+                            <img class="rounded-circle" src="https://picsum.photos/250" alt="Card image">
+                            <span class="btn dropdown-toggle" data-toggle="dropdown"> <?php echo $sessionUser?> </span>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i> My Profile</a></li>
+                                <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw"></i> New Item</a></li>
+                                <li><a class="dropdown-item" href="profile.php#my-ads"><i class="fas fa-tags fa-fw"></i> My Items</a></li>
+                                <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                <?php
                     } else {
                 ?>
                 <a href="login.php">

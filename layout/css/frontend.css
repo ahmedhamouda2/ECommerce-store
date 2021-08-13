@@ -59,6 +59,10 @@ h2 {
     padding: 10px;
     background-color: #FFF;
 }
+.upper-bar .my-info img {
+    width: 32px;
+    height: 32px;
+}
 /* end header */
 
 /* start login page */

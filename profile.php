@@ -37,11 +37,11 @@
             </div>
         </div>
     </div>
-    <div class="my-ads block">
+    <div id="my-ads" class="my-ads block">
         <div class="container">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    My-Ads
+                    My-Items
                 </div>
                 <div class="card-body">
                     <?php
