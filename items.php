@@ -40,7 +40,7 @@
                     </li>
                     <li>
                         <i class="fas fa-money-bill-alt fa-fw"></i>
-                        <span>Price :  </span><?php echo $item['Price']?>
+                        <span>Price :  </span>$<?php echo $item['Price']?>
                     </li>
                     <li>
                         <i class="fas fa-globe fa-fw"></i>
@@ -58,6 +58,23 @@
             </div>
         </div>
         <hr>
+        <!-- Start add comment section -->
+        <?php if(isset($_SESSION['user'])) {?>
+            <div class="row">
+                <div class="offset-md-3 add-comment">
+                    <h4>Add Your Comment</h4>
+                    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                        <textarea class="form-control" cols="50" rows="5"></textarea>
+                        <input class="btn btn-primary" type="submit" value="Add Comment">
+                    </form>
+                    
+                </div>
+            </div>
+            <?php } else {
+                echo 'Please <a href="login.php">Login</a> or <a href="login.php">Register</a> to add a comment';
+            } ?> 
+        <hr>
+        <!-- End add comment section -->
         <div class="row">
             <div class="col-md-3">
                 user image

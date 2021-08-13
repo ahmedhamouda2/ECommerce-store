@@ -190,4 +190,10 @@ h2 {
     display: inline-block;
     width: 120px;
 }
+.add-comment h4 {
+    margin: 0 0 10px;
+}
+.add-comment textarea {
+    margin-bottom: 10px;
+}
 /* end items page */
