@@ -31,30 +31,39 @@
                 <img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">
             </div>
             <div class="col-md-9 item-info">
-            <h2 class="special-heading"><?php echo $item['Name']?></h2>
-            <p><?php echo $item['Description']?></p>
-            <ul class="list-unstyled">
-                <li>
-                    <i class="fas fa-calendar-day fa-fw"></i>
-                    <span>Add Date : </span><?php echo $item['Add_Date']?>
-                </li>
-                <li>
-                    <i class="fas fa-money-bill-alt fa-fw"></i>
-                    <span>Price :  </span><?php echo $item['Price']?>
-                </li>
-                <li>
-                    <i class="fas fa-globe fa-fw"></i>
-                    <span>Made in : </span><?php echo $item['Country_Made']?>
-                </li>
-                <li>
-                <i class="fas fa-tags fa-fw"></i>
-                    <span>Category : <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"></span><?php echo $item['catogry_name']?></a>
-                </li>
-                <li>
-                    <i class="fas fa-user fa-fw"></i>
-                    <span>Added by : <a href="#"></span><?php echo $item['Username']?></a>
-                </li>
-            </ul>
+                <h2 class="special-heading"><?php echo $item['Name']?></h2>
+                <p><?php echo $item['Description']?></p>
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="fas fa-calendar-day fa-fw"></i>
+                        <span>Add Date : </span><?php echo $item['Add_Date']?>
+                    </li>
+                    <li>
+                        <i class="fas fa-money-bill-alt fa-fw"></i>
+                        <span>Price :  </span><?php echo $item['Price']?>
+                    </li>
+                    <li>
+                        <i class="fas fa-globe fa-fw"></i>
+                        <span>Made in : </span><?php echo $item['Country_Made']?>
+                    </li>
+                    <li>
+                    <i class="fas fa-tags fa-fw"></i>
+                        <span>Category : <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"></span><?php echo $item['catogry_name']?></a>
+                    </li>
+                    <li>
+                        <i class="fas fa-user fa-fw"></i>
+                        <span>Added by : <a href="#"></span><?php echo $item['Username']?></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                user image
+            </div>
+            <div class="col-md-9">
+                user comment
             </div>
         </div>
     </div>

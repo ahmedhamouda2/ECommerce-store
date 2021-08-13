@@ -4,7 +4,7 @@
 ?>
 
     <div class="container">
-        <h2 class="text-center"><?php echo str_replace('-' , ' ' , $_GET['pagename']) ?></h2>
+        <h2 class="text-center">Show category</h2>
         <div class="row">
             <?php
                 foreach(getitems('Cat_ID' , $_GET['pageid']) as $item){
@@ -12,7 +12,7 @@
                         echo '<div class="card">';
                             echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
                             echo '<div class="card-body">';
-                                echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
+                                echo '<h4 class="card-title"><a href="items.php?itemid=' . $item['Item_ID'] . '">' . $item['Name'] . '</a></h4>';
                                 echo '<p class="card-text">' . $item['Description'] . '</p>';
                                 echo '<div class="d-flex justify-content-around">';
                                     echo '<button type="button" class="btn btn-light">' . $item['Price'] . '</button>'; 
