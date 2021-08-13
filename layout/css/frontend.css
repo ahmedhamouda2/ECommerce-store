@@ -177,4 +177,17 @@ h2 {
     font-size: 1.5em;
     margin: 0;
 }
+.item-info p {
+    padding: 10px;
+}
+.item-info ul li {
+    padding: 10px;
+}
+.item-info ul li:nth-child(odd) {
+    background-color: #e8e8e8;
+}
+.item-info ul li span {
+    display: inline-block;
+    width: 120px;
+}
 /* end items page */
