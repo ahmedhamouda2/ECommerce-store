@@ -63,11 +63,27 @@
             <div class="row">
                 <div class="offset-md-3 add-comment">
                     <h4>Add Your Comment</h4>
-                    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-                        <textarea class="form-control" cols="50" rows="5"></textarea>
+                    <form action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $item['Item_ID']  ?>" method="POST">
+                        <textarea class="form-control" name="comment" cols="50" rows="5"></textarea>
                         <input class="btn btn-primary" type="submit" value="Add Comment">
                     </form>
-                    
+                    <?php
+                        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            $comment = filter_var($_POST['comment'] ,FILTER_SANITIZE_STRING);
+                            $itemid = $item['Item_ID'];
+                            $userid = $item['Member_ID'];
+                            if(!empty($comment)) {
+                                $stmt = $con->prepare("INSERT INTO 
+                                                            comments(comment,`status`,comment_date,item_id,`user_id`)
+                                                        VALUES(:zcomment,0,NOW(),:zitemid,:zuserid)");
+                                $stmt->execute(array(
+                                    'zcomment' => $comment,
+                                    'zitemid' => $itemid,
+                                    'zuserid' => $userid,
+                                ));
+                            }
+                        }
+                    ?>
                 </div>
             </div>
             <?php } else {
