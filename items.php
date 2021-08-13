@@ -71,7 +71,7 @@
                         if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $comment = filter_var($_POST['comment'] ,FILTER_SANITIZE_STRING);
                             $itemid = $item['Item_ID'];
-                            $userid = $item['Member_ID'];
+                            $userid = $_SESSION['uid'];
                             if(!empty($comment)) {
                                 $stmt = $con->prepare("INSERT INTO 
                                                             comments(comment,`status`,comment_date,item_id,`user_id`)
