@@ -94,14 +94,32 @@
             } ?> 
         <hr>
         <!-- End add comment section -->
-        <div class="row">
-            <div class="col-md-3">
-                user image
-            </div>
-            <div class="col-md-9">
-                user comment
-            </div>
-        </div>
+        <?php
+            $stmt = $con->prepare("SELECT 
+                                        comments.* ,users.Username 
+                                    FROM 
+                                        comments 
+                                    INNER JOIN
+                                        users
+                                    ON
+                                        users.UserID = comments.user_id
+                                    WHERE
+                                        item_id = ?
+                                    AND 
+                                        `status` = 1
+                                    ORDER BY 
+                                        c_id DESC");
+            $stmt->execute(array($item['Item_ID']));
+            $comments = $stmt->fetchAll();
+        ?>
+        <?php
+            foreach($comments as $comment) {
+                echo '<div class="row">';
+                    echo '<div class="col-md-3">' . $comment['Username'] . '</div>';
+                    echo '<div class="col-md-9">' . $comment['comment'] . '</div>';
+                echo '</div>';
+            }
+        ?>
     </div>
 
 <?php 
