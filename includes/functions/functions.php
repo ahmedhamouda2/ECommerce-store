@@ -1,14 +1,13 @@
 <?php 
 
 	/*
-	** Get all items Function v2.0
+	** Get all items Function (ultimate function) v3.0
 	** Function to get all items from database
 	*/
 
-	function getAllFrom($tablename , $orderBy , $where = NULL) {
+	function getAllFrom($field , $table ,$where = NULL , $orderField , $ordering="DESC") {
 		global $con;
-		$sql = $where == NULL ? '' : $where;
-		$getAll= $con->prepare("SELECT * FROM $tablename $sql ORDER BY $orderBy DESC");
+		$getAll= $con->prepare("SELECT $field  FROM $table $where ORDER BY $orderField $ordering");
 		$getAll->execute();
 		$all = $getAll->fetchAll();
 		return $all;
