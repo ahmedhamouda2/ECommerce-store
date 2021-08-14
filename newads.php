@@ -115,7 +115,7 @@ if (isset($_SESSION['user'])) {
                                         <select name="category" required>
                                             <option value="">...</option>
                                             <?php
-                                            $cats = getAllFrom('categories', 'ID');
+                                            $cats = getAllFrom('*','categories','', 'ID');
                                             foreach ($cats as $cat) {
                                                 echo "<option value='" . $cat['ID'] . "'>" . $cat['Name'] . "</option>";
                                             }
