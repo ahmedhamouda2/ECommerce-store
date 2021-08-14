@@ -45,7 +45,7 @@ if (isset($_SESSION['user'])) {
 
             // echo success message
             if($stmt) {
-                echo '<div class="alert alert-success">Item success added</div>';
+                $successMsg = 'Item <strong>Success</strong>added';
             }
         }
     }
@@ -150,6 +150,9 @@ if (isset($_SESSION['user'])) {
                             foreach($formErrors as $error) {
                                 echo '<div class="alert alert-danger">' . $error . '</div>';
                             }
+                        }
+                        if(isset($successMsg)){
+                            echo '<div class="alert alert-success">' . $successMsg . '</div>';
                         }
                     ?>
                     <!-- end looping through errors -->
