@@ -7,7 +7,7 @@
 
 	function getAllFrom($field , $table ,$where = NULL , $and = NULL ,  $orderField , $ordering="DESC") {
 		global $con;
-		$getAll= $con->prepare("SELECT $field  FROM $table $where ORDER BY $orderField $ordering");
+		$getAll= $con->prepare("SELECT $field  FROM $table $where $and ORDER BY $orderField $ordering");
 		$getAll->execute();
 		$all = $getAll->fetchAll();
 		return $all;
@@ -24,20 +24,6 @@
 		$getCat->execute();
 		$cats = $getCat->fetchAll();
 		return $cats;
-	}
-
-	/*
-	** Get AD items Function v3.0
-	** Function to get AD items from database
-	*/
-
-	function getitems($where , $value , $approve = NULL) {
-		global $con;
-		$sql = $approve == NULL ? 'AND Approve = 1' : '';
-		$getitem= $con->prepare("SELECT * FROM items WHERE $where = ? $sql ORDER BY item_ID DESC");
-		$getitem->execute(array($value));
-		$items = $getitem->fetchAll();
-		return $items;
 	}
 
 	/*

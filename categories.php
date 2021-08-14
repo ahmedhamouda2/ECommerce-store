@@ -7,7 +7,8 @@
         <h2 class="text-center">Show category</h2>
         <div class="row">
             <?php
-                foreach(getitems('Cat_ID' , $_GET['pageid']) as $item){
+                $allItems = getAllFrom("*","items","where Cat_ID = {$_GET['pageid']}" , "AND Approve = 1" , "Item_ID");
+                foreach($allItems as $item){
                     echo '<div class="col-sm-6 col-md-4 col-lg-3">';
                         echo '<div class="card mt-3">';
                         echo '<span class="price">$' . $item['Price'] . '</span>';
