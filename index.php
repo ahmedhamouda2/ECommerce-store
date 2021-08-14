@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <?php
-            $allItems = getAllFrom('items', 'item_ID');
+            $allItems = getAllFrom('items', 'item_ID' , 'WHERE Approve = 1');
                 foreach($allItems as $item){
                     echo '<div class="col-sm-6 col-md-4 col-lg-3">';
                         echo '<div class="card">';
