@@ -66,7 +66,7 @@
                 <div class="offset-md-3 add-comment">
                     <h4>Add Your Comment</h4>
                     <form action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $item['Item_ID']  ?>" method="POST">
-                        <textarea class="form-control" name="comment" cols="50" rows="5"></textarea>
+                        <textarea class="form-control" name="comment" cols="50" rows="5" required></textarea>
                         <input class="btn btn-primary" type="submit" value="Add Comment">
                     </form>
                     <?php

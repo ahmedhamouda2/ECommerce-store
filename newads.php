@@ -66,7 +66,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Name</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="name" class="form-control live" autocomplete="off" required placeholder="Name of Item" data-class=".live-title">
+                                        <input type="text" pattern=".{4,}" title="Require at least 4 characters" name="name" class="form-control live" autocomplete="off" required placeholder="Name of Item" data-class=".live-title">
                                     </div>
                                 </div>
                                 <!-- End Name field -->
@@ -74,7 +74,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Description</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="description" class="form-control live" autocomplete="off" required placeholder="Describe the Item" data-class=".live-desc">
+                                        <input type="text" pattern=".{10,}" title="Require at least 10 characters" name="description" class="form-control live" autocomplete="off" required placeholder="Describe the Item" data-class=".live-desc">
                                     </div>
                                 </div>
                                 <!-- End Description field -->
@@ -82,7 +82,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Price</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="price" class="form-control live" autocomplete="off" required placeholder="Price the Item" data-class=".live-price">
+                                        <input type="text" name="price" class="form-control live" autocomplete="off" required placeholder="Price the Item" data-class=".live-price">
                                     </div>
                                 </div>
                                 <!-- End price field -->
@@ -90,7 +90,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Country</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <input type="username" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
+                                        <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
                                     </div>
                                 </div>
                                 <!-- End country field -->
@@ -98,8 +98,8 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Status</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <select name="status">
-                                            <option value="0">...</option>
+                                        <select name="status" required>
+                                            <option value="">...</option>
                                             <option value="1">New</option>
                                             <option value="2">Like New</option>
                                             <option value="3">Used</option>
@@ -112,8 +112,8 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Category</label>
                                     <div class="col-sm-10 col-md-9">
-                                        <select name="category">
-                                            <option value="0">...</option>
+                                        <select name="category" required>
+                                            <option value="">...</option>
                                             <?php
                                             $stmt2 = $con->prepare("SELECT * FROM categories");
                                             $stmt2->execute();
@@ -141,10 +141,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="card-body" style="border:none;">
                                     <h4 class="card-title live-title">Title</h4>
                                     <p class="card-text live-desc">Description</p>
-                                    <div class="d-flex justify-content-around">
-                                        <button type="button" class="btn btn-light price-tag">$<span class="live-price">0</span></button>
-                                        <a href="#" class="btn btn-primary">See More</a>
-                                    </div>
+                                    <span class="price">$<span class="live-price">0</span></span>
                                 </div>
                             </div>
                         </div>
