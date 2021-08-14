@@ -33,6 +33,7 @@
                             <span>Registered Date</span> : <?php echo $info['Date'] ?>
                         </li>
                     </ul>
+                    <a href="#" class="btn btn-dark">Edit Information</a>
                 </div>
             </div>
         </div>
