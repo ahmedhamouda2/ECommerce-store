@@ -1,6 +1,20 @@
 <?php 
 
 	/*
+	** Get all items Function v1.0
+	** Function to get all items from database
+	*/
+
+	function getAllFrom($tablename , $orderBy) {
+		global $con;
+		$getAll= $con->prepare("SELECT * FROM $tablename ORDER BY $orderBy DESC");
+		$getAll->execute();
+		$all = $getAll->fetchAll();
+		return $all;
+	}
+
+
+	/*
 	** Get categories Function
 	** Function to get categories from database
 	*/
