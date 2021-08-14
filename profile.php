@@ -6,6 +6,7 @@
         $getUser = $con->prepare("SELECT * FROM users WHERE Username = ?"); 
         $getUser->execute(array($sessionUser));
         $info = $getUser->fetch();
+        $userid =$info['UserID'];
 ?>
     <h2 class="text-center">My Profile</h2>
     <div class="information block">
@@ -46,9 +47,10 @@
                 </div>
                 <div class="card-body">
                     <?php
-                    if(!empty(getitems('Member_ID' , $info['UserID']))){
+                    $myItems = getAllFrom("*", "items" ,"WHERE Member_ID = $userid" , "" ,  "Item_ID", "DESC");
+                    if(!empty($myItems)){
                         echo '<div class="row">';
-                        foreach(getitems('Member_ID' , $info['UserID'] , 1) as $item){
+                        foreach($myItems as $item){
                             echo '<div class="col-sm-6 col-md-4 col-lg-3">';
                                 echo '<div class="card mt-3">';
                                     if($item['Approve'] == 0) {echo '<span class="approve-msg">Awaiting Approval</span>';}
@@ -79,13 +81,9 @@
                 </div>
                 <div class="card-body">
                     <?php
-                    $stmt = $con->prepare("SELECT comment FROM comments WHERE user_id = ?");
-                    $stmt->execute(array($info['UserID']));
-
-                    // assign to varible
-                    $comments = $stmt->fetchAll();
-                    if(!empty($comments)){
-                        foreach($comments as $comment){
+                    $myComments = getAllFrom("comment", "comments" ,"WHERE user_id = $userid" , "" ,  "c_id", "DESC");
+                    if(!empty($myComments)){
+                        foreach($myComments as $comment){
                             echo '<p>' . $comment['comment'] . '</p>';
                         }
                     } else {
