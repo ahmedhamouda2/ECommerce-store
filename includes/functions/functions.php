@@ -14,19 +14,6 @@
 	}
 
 	/*
-	** Get categories Function
-	** Function to get categories from database
-	*/
-
-	function getCat() {
-		global $con;
-		$getCat= $con->prepare("SELECT * FROM categories ORDER BY ID ASC");
-		$getCat->execute();
-		$cats = $getCat->fetchAll();
-		return $cats;
-	}
-
-	/*
 	** check the user is not activated
 	** Function to check the RegStatus of the user
 	*/
