@@ -115,9 +115,7 @@ if (isset($_SESSION['user'])) {
                                         <select name="category" required>
                                             <option value="">...</option>
                                             <?php
-                                            $stmt2 = $con->prepare("SELECT * FROM categories");
-                                            $stmt2->execute();
-                                            $cats = $stmt2->fetchAll();
+                                            $cats = getAllFrom('categories', 'ID');
                                             foreach ($cats as $cat) {
                                                 echo "<option value='" . $cat['ID'] . "'>" . $cat['Name'] . "</option>";
                                             }
