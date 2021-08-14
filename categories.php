@@ -9,7 +9,7 @@
             <?php
                 foreach(getitems('Cat_ID' , $_GET['pageid']) as $item){
                     echo '<div class="col-sm-6 col-md-4 col-lg-3">';
-                        echo '<div class="card">';
+                        echo '<div class="card mt-3">';
                         echo '<span class="price">$' . $item['Price'] . '</span>';
                             echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
                             echo '<div class="card-body">';
