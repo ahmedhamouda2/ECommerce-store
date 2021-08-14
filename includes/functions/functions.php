@@ -1,11 +1,11 @@
 <?php 
 
 	/*
-	** Get all items Function (ultimate function) v3.0
+	** Get all items Function (ultimate function) v4.0
 	** Function to get all items from database
 	*/
 
-	function getAllFrom($field , $table ,$where = NULL , $orderField , $ordering="DESC") {
+	function getAllFrom($field , $table ,$where = NULL , $and = NULL ,  $orderField , $ordering="DESC") {
 		global $con;
 		$getAll= $con->prepare("SELECT $field  FROM $table $where ORDER BY $orderField $ordering");
 		$getAll->execute();
