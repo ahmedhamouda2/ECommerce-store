@@ -7,17 +7,12 @@
 
 	function getAllFrom($tablename , $orderBy , $where = NULL) {
 		global $con;
-		if($where == NULL) {
-			$sql = '';
-		} else {
-			$sql = $where;
-		}
+		$sql = $where == NULL ? '' : $where;
 		$getAll= $con->prepare("SELECT * FROM $tablename $sql ORDER BY $orderBy DESC");
 		$getAll->execute();
 		$all = $getAll->fetchAll();
 		return $all;
 	}
-
 
 	/*
 	** Get categories Function
@@ -39,18 +34,13 @@
 
 	function getitems($where , $value , $approve = NULL) {
 		global $con;
-		if($approve == NULL) {
-			$sql = 'AND Approve = 1';
-		} else {
-			$sql = NULL;
-		}
+		$sql = $approve == NULL ? 'AND Approve = 1' : '';
 		$getitem= $con->prepare("SELECT * FROM items WHERE $where = ? $sql ORDER BY item_ID DESC");
 		$getitem->execute(array($value));
 		$items = $getitem->fetchAll();
 		return $items;
 	}
 
-	
 	/*
 	** check the user is not activated
 	** Function to check the RegStatus of the user
