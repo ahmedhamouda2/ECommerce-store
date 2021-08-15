@@ -18,7 +18,7 @@
                     if(isset($_SESSION['user'])){ ?>
                         <div class="btn-group my-info">
                             <img class="rounded-circle" src="https://picsum.photos/250" alt="Card image">
-                            <span class="btn dropdown-toggle" data-toggle="dropdown"> <?php echo $sessionUser?> </span>
+                            <span class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"> <?php echo $sessionUser?> </span>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i> My Profile</a></li>
                                 <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw"></i> New Item</a></li>

@@ -66,6 +66,10 @@ h2 {
     width: 32px;
     height: 32px;
 }
+.upper-bar .btn-outline-dark {
+    margin-left: 10px;
+    border-radius: 10px !important;
+}
 /* end header */
 
 /* start login page */
