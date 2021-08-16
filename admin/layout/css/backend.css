@@ -280,4 +280,18 @@ h2 {
 .categories .add-category {
     margin: 10px 0;
 }
+.categories .child-head {
+    font-weight: bold;
+    color: #22ab79;
+}
+.categories .child-head ,
+.categories .child-cats {
+    margin: 10px 0 10px 20px;
+}
+.categories .child-cats li{
+    margin-left: 20px;
+}
+.categories .child-cats li::before{
+    content: '- ';
+}
 /* end categories page */

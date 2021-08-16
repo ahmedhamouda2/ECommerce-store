@@ -51,12 +51,17 @@
                                             if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times"></i> Ads Disabled</span>';}
                                         echo '</div>'; 
                                     echo '</div>';
-                                    echo '<hr>';
                                     // get child categories
                                     $childCats = getAllFrom("*","categories","WHERE parent = {$cat['ID']}" , "" , "ID" , "ASC");
-                                    foreach($childCats as $c) {
-                                        echo $c['Name'] . '<br>';
+                                    if(!empty($childCats)) {
+                                        echo '<h5 class="child-head">Child Categories</h5>';
+                                        echo '<ul class="list-unstyled child-cats">';
+                                            foreach($childCats as $c) {
+                                                echo "<li><a href='categories.php?do=Edit&catid=" . $c['ID'] . "'>" . $c['Name'] . "</a></li>";
+                                            }
+                                        echo '</ul>';
                                     }
+                                    echo '<hr>';
                                 }
                             ?>
                         </div>
