@@ -45,7 +45,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <?php
-                            $allCats = getAllFrom("*","categories","" , "" , "ID" , "ASC");
+                            $allCats = getAllFrom("*","categories","WHERE parent = 0" , "" , "ID" , "ASC");
                             foreach($allCats as $cat) {
                                 echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '">' . $cat['Name'] . '</a></li>';
                             }
