@@ -331,7 +331,7 @@
                         <!-- start submit -->
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <input type="submit" value="Save" class="btn btn-primary btn-sm>
+                                <input type="submit" value="Save" class="btn btn-primary btn-sm">
                             </div>
                         </div>
                         <!-- end submit -->
