@@ -1,6 +1,20 @@
 <?php 
 
-// Title Function that Echo the page title in case the page has the variable $pageTitle and Echo Default title for other pages.
+	/*
+	** Get all items Function (ultimate function) v4.0
+	** Function to get all items from database
+	*/
+
+	function getAllFrom($field , $table ,$where = NULL , $and = NULL ,  $orderField , $ordering="DESC") {
+		global $con;
+		$getAll= $con->prepare("SELECT $field  FROM $table $where $and ORDER BY $orderField $ordering");
+		$getAll->execute();
+		$all = $getAll->fetchAll();
+		return $all;
+	}
+
+
+	// Title Function that Echo the page title in case the page has the variable $pageTitle and Echo Default title for other pages.
 
 	function getTitle() {
 		global $pageTitle;

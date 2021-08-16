@@ -88,6 +88,22 @@
                         </div>
                     </div>
                     <!-- end Description field -->
+                    <!-- start category type -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Parent Catgory ?</label>
+                        <div class="col-sm-10 col-md-6">
+                            <select name="parent">
+                                <option value="0">None</option>
+                                <?php $allcats = getAllFrom("*" , "categories" ,"WHERE parent= 0" , "" ,  "ID" , "ASC");
+                                    foreach($allcats as $cat) {
+                                        echo "<option value='" . $cat['ID'] . "'>" . $cat['Name'] . "</option>";
+                                    }
+                                
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- end category type -->
                     <!-- start Ordering field -->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Ordering</label>
@@ -161,6 +177,7 @@
             // get variables from the Form
             $name       = $_POST['name'];
             $desc       = $_POST['description'];
+            $parent       = $_POST['parent'];
             $order      = $_POST['ordering'];
             $visible    = $_POST['visibility'];
             $comment    = $_POST['commenting'];
@@ -172,10 +189,11 @@
                 redirectHome($theMsg , 'back');
             } else {
                 // Insert Category info in database
-                $stmt = $con->prepare("INSERT INTO categories(Name, Description, Ordering, Visibility, Allow_Comment, Allow_Ads) VALUES(:zname, :zdesc, :zorder, :zvisible, :zcomment, :zads)");
+                $stmt = $con->prepare("INSERT INTO categories(`Name`, `Description`, parent, Ordering, Visibility, Allow_Comment, Allow_Ads) VALUES(:zname, :zdesc, :zparent, :zorder, :zvisible, :zcomment, :zads)");
                 $stmt->execute(array(
                     'zname' 	=> $name,
                     'zdesc' 	=> $desc,
+                    'zparent' 	=> $parent,
                     'zorder' 	=> $order,
                     'zvisible' 	=> $visible,
                     'zcomment' 	=> $comment,
