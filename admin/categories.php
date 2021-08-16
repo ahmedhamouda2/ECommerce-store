@@ -356,6 +356,7 @@
                 $name       = $_POST['name'];
                 $desc       = $_POST['description'];
                 $order      = $_POST['ordering'];
+                $parent     = $_POST['parent'];
                 $visible    = $_POST['visibility'];
                 $comment    = $_POST['commenting'];
                 $ads        = $_POST['ads'];
@@ -367,12 +368,13 @@
                                         `Name` = ?,
                                         `Description` = ?,
                                         Ordering = ?,
+                                        parent = ?,
                                         Visibility = ?,
                                         Allow_comment = ?,
                                         Allow_Ads = ? 
                                     WHERE 
                                         ID = ?");
-            $stmt->execute(array($name , $desc , $order ,$visible , $comment , $ads , $id));
+            $stmt->execute(array($name , $desc , $order , $parent , $visible , $comment , $ads , $id));
 
             // echo success message 
             $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
