@@ -45,7 +45,7 @@
 
                                         echo '<h3>' . $cat['Name'] . '</h3>';
                                         echo '<div class="full-view">';
-                                            echo "<p>"; if($cat['Description'] == '') { echo 'This category has no description'; } else { echo $cat['Description']; } echo "</p>"; '</p>';
+                                            echo "<p>"; if($cat['Description'] == '') { echo 'This category has no description'; } else { echo $cat['Description']; } echo "</p>";
                                             if($cat['Visibility'] == 1) { echo '<span class="visibility cat-span"><i class="fa fa-eye"></i> Hidden</span>'; }
                                             if($cat['Allow_comment'] == 1) { echo '<span class="commenting cat-span"><i class="fa fa-times"></i> Comment Disabled</span>'; }
                                             if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times"></i> Ads Disabled</span>';}
