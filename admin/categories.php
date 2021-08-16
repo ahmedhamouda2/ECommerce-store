@@ -265,6 +265,24 @@
                             </div>
                         </div>
                         <!-- end Ordering field -->
+                        <!-- start category type -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Parent Catgory ?</label>
+                            <div class="col-sm-10 col-md-6">
+                                <select name="parent">
+                                    <option value="0">None</option>
+                                    <?php $allcats = getAllFrom("*" , "categories" ,"WHERE parent= 0" , "" ,  "ID" , "ASC");
+                                        foreach($allcats as $c) {
+                                            echo "<option value='" . $c['ID'] . "'";
+                                            if($cat['parent'] == $c['ID']){ echo ' selected'; }
+                                            
+                                            echo ">" . $c['Name'] . "</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- end category type -->  
                         <!-- start Visibility field -->
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Visibility</label>
