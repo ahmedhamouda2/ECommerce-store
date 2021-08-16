@@ -63,3 +63,10 @@ $('.toggle-info').click(function(){
         $(this).html('<i class="fa fa-plus"></i>')
     }
 });
+
+// show delete button on childs cats
+$('.child-link').hover(function(){
+    $(this).find('.show-delete').fadeIn(400);
+} , function(){
+    $(this).find('.show-delete').fadeOut(400);
+})

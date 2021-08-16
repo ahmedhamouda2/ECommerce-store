@@ -283,15 +283,19 @@ h2 {
 .categories .child-head {
     font-weight: bold;
     color: #22ab79;
+    margin: 15px 0 10px;
 }
-.categories .child-head ,
 .categories .child-cats {
-    margin: 10px 0 10px 20px;
+    margin: 0;
 }
 .categories .child-cats li{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 .categories .child-cats li::before{
     content: '- ';
+}
+.categories .show-delete{
+    color: #F00;
+    display: none;
 }
 /* end categories page */

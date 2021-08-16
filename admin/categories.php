@@ -49,18 +49,21 @@
                                             if($cat['Visibility'] == 1) { echo '<span class="visibility cat-span"><i class="fa fa-eye"></i> Hidden</span>'; }
                                             if($cat['Allow_comment'] == 1) { echo '<span class="commenting cat-span"><i class="fa fa-times"></i> Comment Disabled</span>'; }
                                             if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times"></i> Ads Disabled</span>';}
+                                            // get child categories
+                                            $childCats = getAllFrom("*","categories","WHERE parent = {$cat['ID']}" , "" , "ID" , "ASC");
+                                            if(!empty($childCats)) {
+                                                echo '<h6 class="child-head">Child Categories</h6>';
+                                                echo '<ul class="list-unstyled child-cats">';
+                                                    foreach($childCats as $c) {
+                                                        echo "<li class='child-link'>
+                                                                <a href='categories.php?do=Edit&catid=" . $c['ID'] . "'>" . $c['Name'] . "</a>
+                                                                <a href='categories.php?do=Delete&catid=" . $c['ID'] . "'  class='show-delete confirm'>Delete</a>
+                                                            </li>";
+                                                    }
+                                                echo '</ul>';
+                                            }
                                         echo '</div>'; 
                                     echo '</div>';
-                                    // get child categories
-                                    $childCats = getAllFrom("*","categories","WHERE parent = {$cat['ID']}" , "" , "ID" , "ASC");
-                                    if(!empty($childCats)) {
-                                        echo '<h5 class="child-head">Child Categories</h5>';
-                                        echo '<ul class="list-unstyled child-cats">';
-                                            foreach($childCats as $c) {
-                                                echo "<li><a href='categories.php?do=Edit&catid=" . $c['ID'] . "'>" . $c['Name'] . "</a></li>";
-                                            }
-                                        echo '</ul>';
-                                    }
                                     echo '<hr>';
                                 }
                             ?>
