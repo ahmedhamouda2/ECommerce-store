@@ -17,7 +17,7 @@
             if (isset($_GET['sort']) && in_array($_GET['sort'], $sort_array)) {
 				$sort = $_GET['sort'];
 			}
-            $stmt2 = $con->prepare("SELECT * FROM categories ORDER BY Ordering $sort");
+            $stmt2 = $con->prepare("SELECT * FROM categories WHERE parent = 0 ORDER BY Ordering $sort");
             $stmt2->execute();
             $cats = $stmt2->fetchAll(); 
             if(!empty($cats)) {
@@ -52,6 +52,11 @@
                                         echo '</div>'; 
                                     echo '</div>';
                                     echo '<hr>';
+                                    // get child categories
+                                    $childCats = getAllFrom("*","categories","WHERE parent = {$cat['ID']}" , "" , "ID" , "ASC");
+                                    foreach($childCats as $c) {
+                                        echo $c['Name'] . '<br>';
+                                    }
                                 }
                             ?>
                         </div>
