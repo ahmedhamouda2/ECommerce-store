@@ -92,7 +92,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item">
+                            <input type="text" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item">
                         </div>
                     </div>
                     <!-- End Name field -->
@@ -100,7 +100,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item">
+                            <input type="text" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item">
                         </div>
                     </div>
                     <!-- End Description field -->
@@ -108,7 +108,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Price</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item">
+                            <input type="text" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item">
                         </div>
                     </div>
                     <!-- End price field -->
@@ -116,7 +116,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
+                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
                         </div>
                     </div>
                     <!-- End country field -->
@@ -268,7 +268,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item" value="<?php echo $item['Name'] ?>">
+                            <input type="text" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item" value="<?php echo $item['Name'] ?>">
                         </div>
                     </div>
                     <!-- End Name field -->
@@ -276,7 +276,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item" value="<?php echo $item['Description'] ?>">
+                            <input type="text" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item" value="<?php echo $item['Description'] ?>">
                         </div>
                     </div>
                     <!-- End Description field -->
@@ -284,7 +284,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Price</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item" value="<?php echo $item['Price'] ?>">
+                            <input type="text" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item" value="<?php echo $item['Price'] ?>">
                         </div>
                     </div>
                     <!-- End price field -->
@@ -292,7 +292,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made" value="<?php echo $item['Country_Made'] ?>">
+                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made" value="<?php echo $item['Country_Made'] ?>">
                         </div>
                     </div>
                     <!-- End country field -->

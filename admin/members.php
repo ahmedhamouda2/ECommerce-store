@@ -83,7 +83,7 @@ if (isset($_SESSION['Username'])) {
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="username" class="form-control" autocomplete="off" required  placeholder="Username to login into Shop">
+                            <input type="text" name="username" class="form-control" autocomplete="off" required  placeholder="Username to login into Shop">
                         </div>
                     </div>
                     <!-- End username field -->
@@ -212,7 +212,7 @@ if (isset($_SESSION['Username'])) {
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="username" name="username" class="form-control" value="<?php echo $row['Username'] ?>" autocomplete="off" required>
+                                <input type="text" name="username" class="form-control" value="<?php echo $row['Username'] ?>" autocomplete="off" required>
                             </div>
                         </div>
                         <!-- End username field -->

@@ -89,7 +89,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="username" name="name" class="form-control" autocomplete="off" required  placeholder="Name of category">
+                            <input type="text" name="name" class="form-control" autocomplete="off" required  placeholder="Name of category">
                         </div>
                     </div>
                     <!-- End Name field -->
@@ -245,7 +245,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="username" name="name" class="form-control" required  placeholder="Name of category" value="<?php echo $cat['Name'] ?>">
+                                <input type="text" name="name" class="form-control" required  placeholder="Name of category" value="<?php echo $cat['Name'] ?>">
                             </div>
                         </div>
                         <!-- End Name field -->
@@ -367,14 +367,14 @@
                                     SET 
                                         `Name` = ?,
                                         `Description` = ?,
-                                        Ordering = ?,
                                         parent = ?,
+                                        Ordering = ?,
                                         Visibility = ?,
                                         Allow_comment = ?,
                                         Allow_Ads = ? 
                                     WHERE 
                                         ID = ?");
-            $stmt->execute(array($name , $desc , $order , $parent , $visible , $comment , $ads , $id));
+            $stmt->execute(array($name , $desc , $parent , $order  , $visible , $comment , $ads , $id));
 
             // echo success message 
             $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
