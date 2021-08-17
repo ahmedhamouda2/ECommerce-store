@@ -4,10 +4,11 @@
 ?>
 
     <div class="container">
-        <h2 class="text-center">Show category</h2>
+        <h2 class="text-center">Show category Items</h2>
         <div class="row">
             <?php
-                $allItems = getAllFrom("*","items","where Cat_ID = {$_GET['pageid']}" , "AND Approve = 1" , "Item_ID");
+                $catgory = isset($_GET['pageid']) && is_numeric($_GET['pageid']) ? intval($_GET['pageid']): 0;
+                $allItems = getAllFrom("*","items","where Cat_ID = {$catgory}" , "AND Approve = 1" , "Item_ID");
                 foreach($allItems as $item){
                     echo '<div class="col-sm-6 col-md-4 col-lg-3">';
                         echo '<div class="card mt-3">';
