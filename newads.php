@@ -8,9 +8,10 @@ if (isset($_SESSION['user'])) {
         $name       = filter_var($_POST['name'] , FILTER_SANITIZE_STRING);
         $desc       = filter_var($_POST['description'] , FILTER_SANITIZE_STRING);
         $price      = filter_var($_POST['price'] , FILTER_SANITIZE_NUMBER_INT);
-        $country     = filter_var($_POST['country'] , FILTER_SANITIZE_STRING);
+        $country    = filter_var($_POST['country'] , FILTER_SANITIZE_STRING);
         $status     = filter_var($_POST['status'] , FILTER_SANITIZE_NUMBER_INT);
         $category   = filter_var($_POST['category'] , FILTER_SANITIZE_NUMBER_INT);
+        $tags       = filter_var($_POST['tags'] , FILTER_SANITIZE_STRING);
         if(strlen($name) < 4) {
             $formErrors[] = 'Item title must be at least <strong>4</strong> characters';
         }
@@ -32,7 +33,7 @@ if (isset($_SESSION['user'])) {
         // check if there no error proceed the update operation
         if(empty($formErrors)){
             // Insert item info in database
-            $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember)");
+            $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID , tags) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember , :ztags)");
             $stmt->execute(array(
                 'zname' => $name,
                 'zdesc' => $desc,
@@ -40,7 +41,8 @@ if (isset($_SESSION['user'])) {
                 'zcountry' => $country,
                 'zstatus' => $status,
                 'zcat' => $category,
-                'zmember' => $_SESSION['uid']
+                'zmember' => $_SESSION['uid'],
+                'ztags' => $tags
             ));
 
             // echo success message
@@ -124,6 +126,14 @@ if (isset($_SESSION['user'])) {
                                     </div>
                                 </div>
                                 <!-- End categories field -->
+                                <!-- start Tags field -->
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Tags</label>
+                                    <div class="col-sm-10 col-md-9">
+                                        <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )">
+                                    </div>
+                                </div>
+                                <!-- End Tags field -->
                                 <!-- start submit -->
                                 <div class="form-group row">
                                     <div class="offset-sm-3 col-sm-9">
