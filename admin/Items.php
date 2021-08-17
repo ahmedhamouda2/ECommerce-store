@@ -170,6 +170,14 @@
                         </div>
                     </div>
                     <!-- End categories field -->
+                    <!-- start Tags field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Tags</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )">
+                        </div>
+                    </div>
+                    <!-- End Tags field -->
                     <!-- start submit -->
                     <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
@@ -194,7 +202,8 @@
             $country    = $_POST['country'];
             $status     = $_POST['status'];
             $member     = $_POST['member'];
-            $cat     = $_POST['category'];
+            $cat        = $_POST['category'];
+            $tags       = $_POST['tags'];
 
             // validate the Form 
             $formErrors = array();
@@ -227,7 +236,7 @@
             // check if there no error proceed the update operation
                 if(empty($formErrors)){
                     // Insert item info in database
-                    $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember)");
+                    $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID , tags) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember , :ztags)");
                     $stmt->execute(array(
                         'zname' => $name,
                         'zdesc' => $desc,
@@ -235,7 +244,8 @@
                         'zcountry' => $country,
                         'zstatus' => $status,
                         'zmember' => $member,
-                        'zcat' => $cat
+                        'zcat' => $cat,
+                        'ztags' => $tags
                     ));
     
                     // echo success message 
@@ -343,6 +353,14 @@
                         </div>
                     </div>
                     <!-- End categories field -->
+                    <!-- start Tags field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Tags</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )" value="<?php echo $item['tags'] ?>">
+                        </div>
+                    </div>
+                    <!-- End Tags field -->
                     <!-- start submit -->
                     <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
@@ -426,6 +444,7 @@
                 $status     = $_POST['status'];
                 $cat        = $_POST['category'];
                 $member     = $_POST['member'];
+                $tags     = $_POST['tags'];
 
                 // validate the Form 
                 $formErrors = array();
@@ -461,10 +480,10 @@
                         $stmt = $con->prepare("UPDATE 
                                                     items 
                                                 SET 
-                                                    `Name` = ? , `Description` = ? , Price = ? , Country_made = ? , `status` = ?, Cat_ID = ? , Member_ID = ?
+                                                    `Name` = ? , `Description` = ? , Price = ? , Country_made = ? , `status` = ?, Cat_ID = ? , Member_ID = ? , tags = ?
                                                 WHERE 
                                                     Item_ID = ?");
-                        $stmt->execute(array($name , $desc , $price ,$country , $status , $cat , $member ,$id));
+                        $stmt->execute(array($name , $desc , $price ,$country , $status , $cat , $member , $tags , $id));
             
                         // echo success message 
                         $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Updated</div>';
