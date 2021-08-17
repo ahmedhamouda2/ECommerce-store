@@ -145,6 +145,14 @@ if (isset($_SESSION['Username'])) {
 
             $hashPass = sha1($_POST['password']);
 
+            // upload variables
+            $avatar = $_FILES['avatar'];
+            print_r($avatar);
+            $avatarName = $_FILES['avatar']['name'];
+            $avatarType = $_FILES['avatar']['type'];
+            $avatarTmp = $_FILES['avatar']['tmp_name'];
+            $avatarSize = $_FILES['avatar']['size'];
+
             // validate the Form 
             $formErrors = array();
             if(empty($user)){
@@ -174,24 +182,24 @@ if (isset($_SESSION['Username'])) {
                 if(empty($formErrors)){
 
                     // check if user exist to database
-                    $check = checkItem("Username", "users", $user);
-                    if($check == 1) {
-                        $theMsg = '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
-                        redirectHome($theMsg , 'back');
-                    } else {
-                        // Insert user info in database
-                        $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName ,RegStatus , Date) VALUES(:zuser , :zpass , :zmail , :zname , 1 , now())");
-                        $stmt->execute(array(
-                            'zuser' => $user,
-                            'zpass' => $hashPass,
-                            'zmail' => $email,
-                            'zname' => $full_name
-                        ));
+                    // $check = checkItem("Username", "users", $user);
+                    // if($check == 1) {
+                    //     $theMsg = '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
+                    //     redirectHome($theMsg , 'back');
+                    // } else {
+                    //     // Insert user info in database
+                    //     $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName ,RegStatus , Date) VALUES(:zuser , :zpass , :zmail , :zname , 1 , now())");
+                    //     $stmt->execute(array(
+                    //         'zuser' => $user,
+                    //         'zpass' => $hashPass,
+                    //         'zmail' => $email,
+                    //         'zname' => $full_name
+                    //     ));
     
-                        // echo success message 
-                        $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Inserted</div>';
-						redirectHome($theMsg, 'back');
-                    }
+                    //     // echo success message 
+                    //     $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Inserted</div>';
+					// 	redirectHome($theMsg, 'back');
+                    // }
                 }
 
         } else {
