@@ -47,7 +47,13 @@ if (isset($_SESSION['Username'])) {
                             foreach ($rows as $row) {
                                 echo '<tr>';
                                     echo'<td>' . $row['UserID'] . '</td>';
-                                    echo'<td><img src="uploads/avatars/' . $row["Avatar"] . '" alt = "avatar image"></td>';
+                                    echo'<td>';
+                                        if(empty($row["Avatar"])){
+                                            echo '<img src="uploads/avatars/default.png" alt = "Default image">';
+                                        } else {
+                                            echo '<img src="uploads/avatars/' . $row["Avatar"] . '" alt = "avatar image">';
+                                        }
+                                    echo '</td>';
                                     echo'<td>' . $row['Username'] . '</td>';
                                     echo'<td>' . $row['Email'] . '</td>';
                                     echo'<td>' . $row['FullName'] . '</td>';
