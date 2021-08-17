@@ -141,10 +141,8 @@
                             <select name="member">
                                 <option value="0">...</option>
                                 <?php
-                                    $stmt = $con->prepare("SELECT * FROM users");
-                                    $stmt->execute();
-                                    $users=$stmt->fetchAll();
-                                    foreach($users as $user) {
+                                    $allmembers = getAllFrom("*" ,"users" ,"" , "" ,  "UserID");
+                                    foreach($allmembers as $user) {
                                         echo "<option value='" . $user['UserID'] . "'>". $user['Username'] . "</option>";
                                     }
                                 ?>
@@ -159,10 +157,8 @@
                             <select name="category">
                                 <option value="0">...</option>
                                 <?php
-                                    $stmt2 = $con->prepare("SELECT * FROM categories");
-                                    $stmt2->execute();
-                                    $cats=$stmt2->fetchAll();
-                                    foreach($cats as $cat) {
+                                    $allCats = getAllFrom("*" ,"categories" ,"" , "" ,  "ID");
+                                    foreach($allCats as $cat) {
                                         echo "<option value='" . $cat['ID'] . "'>". $cat['Name'] . "</option>";
                                     }
                                 ?>
@@ -315,10 +311,8 @@
                         <div class="col-sm-10 col-md-6">
                             <select name="member">
                                 <?php
-                                    $stmt = $con->prepare("SELECT * FROM users");
-                                    $stmt->execute();
-                                    $users=$stmt->fetchAll();
-                                    foreach($users as $user) {
+                                    $allmembers = getAllFrom("*" ,"users" ,"" , "" ,  "UserID");
+                                    foreach($allmembers as $user) {
                                         echo "<option value='" . $user['UserID'] . "'";
                                         if($item['Member_ID'] == $user['UserID']){echo 'selected';}
                                         echo ">" . $user['Username'] . "</option>";
@@ -334,10 +328,8 @@
                         <div class="col-sm-10 col-md-6">
                             <select name="category">
                                 <?php
-                                    $stmt2 = $con->prepare("SELECT * FROM categories");
-                                    $stmt2->execute();
-                                    $cats=$stmt2->fetchAll();
-                                    foreach($cats as $cat) {
+                                    $allCats = getAllFrom("*" ,"categories" ,"" , "" ,  "ID"); 
+                                    foreach($allCats as $cat) {
                                         echo "<option value='" . $cat['ID'] . "'";
                                         if($item['Cat_ID'] == $cat['ID']){echo 'selected';}
                                         echo ">". $cat['Name'] . "</option>";
