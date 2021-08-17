@@ -146,15 +146,17 @@ if (isset($_SESSION['Username'])) {
             $hashPass = sha1($_POST['password']);
 
             // upload variables
-            $avatar = $_FILES['avatar'];
-            print_r($avatar);
             $avatarName = $_FILES['avatar']['name'];
             $avatarType = $_FILES['avatar']['type'];
             $avatarTmp = $_FILES['avatar']['tmp_name'];
             $avatarSize = $_FILES['avatar']['size'];
 
             // list of allowed images to upload
-            $avatarExtension = array("png" ,"jpg" ,"jpeg" ,"gif" , 'webp');
+            $avatarAllowedExtension = array("png" ,"jpg" ,"jpeg" ,"gif" , 'webp');
+
+            //get avatar extension
+            $explodeAvatar = explode('.' , $avatarName);
+            $avatarExtension = strtolower(end($explodeAvatar));
 
             // validate the Form 
             $formErrors = array();
@@ -175,6 +177,12 @@ if (isset($_SESSION['Username'])) {
             }
             if(empty($email)){
                 $formErrors[] = 'Email cant be <strong>empty.</strong>';
+            }
+            if(!empty($avatarName)  && !in_array($avatarExtension ,$avatarAllowedExtension)){
+                $formErrors[] = 'This extension of image is not <strong>allowed.</strong>';
+            }
+            if(empty($avatarName)){
+                $formErrors[] = 'Avatar is <strong>required.</strong>';
             }
             // loop into errors array and echo it 
             foreach($formErrors as $error){
