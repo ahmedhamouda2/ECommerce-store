@@ -202,6 +202,34 @@ h2 {
 .activate , .approve {
 	margin-left: 5px;
 }
+.custom-file {
+    background: #FFF;
+    border: 1px solid #ced4da;
+    position: relative;
+    height: 40px;
+    border-radius: .25rem;
+}
+.custom-file div {
+    padding: 8px 12px;
+    color: #cacaca;
+    font-size: 14px;
+}
+.custom-file [type="file"] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+} 
+.custom-file .fa-upload {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
 /* End members page */
 
 /* start categories page */

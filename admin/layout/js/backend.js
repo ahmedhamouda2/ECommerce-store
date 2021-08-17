@@ -70,3 +70,13 @@ $('.child-link').hover(function(){
 } , function(){
     $(this).find('.show-delete').fadeOut(400);
 })
+
+// custom the input field 
+$(document).ready(function(){
+	$("input[type='file']").wrap("<div class='custom-file'></div>");
+	$(".custom-file").prepend("<div>Click for upload your Avatar</div>"); 
+	$(".custom-file").append("<i class='fas fa-upload'></i>"); 
+	$("input[type='file']").change (function(){
+		$(this).prev("div").text($(this).val().substr(12));
+	});
+});
