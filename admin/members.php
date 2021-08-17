@@ -112,6 +112,14 @@ if (isset($_SESSION['Username'])) {
                         </div>
                     </div>
                     <!-- end fullname field -->
+                    <!-- start avatar field -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">User Avatar</label>
+                        <div class="col-sm-10 col-md-6">
+                            <input type="file" name="avatar">
+                        </div>
+                    </div>
+                    <!-- end avatar field -->
                     <!-- start submit -->
                     <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
