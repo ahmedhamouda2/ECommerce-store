@@ -198,24 +198,25 @@ if (isset($_SESSION['Username'])) {
                     move_uploaded_file($avatarTmp , 'uploads\avatars\\' . $avatar);
 
                     // check if user exist to database
-                    // $check = checkItem("Username", "users", $user);
-                    // if($check == 1) {
-                    //     $theMsg = '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
-                    //     redirectHome($theMsg , 'back');
-                    // } else {
-                    //     // Insert user info in database
-                    //     $stmt = $con->prepare("INSERT INTO users(Username , Password , Email , FullName ,RegStatus , Date) VALUES(:zuser , :zpass , :zmail , :zname , 1 , now())");
-                    //     $stmt->execute(array(
-                    //         'zuser' => $user,
-                    //         'zpass' => $hashPass,
-                    //         'zmail' => $email,
-                    //         'zname' => $full_name
-                    //     ));
+                    $check = checkItem("Username", "users", $user);
+                    if($check == 1) {
+                        $theMsg = '<div class="alert alert-danger" role="alert"> Sorry , This user is <strong>exist</strong></div>';
+                        redirectHome($theMsg , 'back');
+                    } else {
+                        // Insert user info in database
+                        $stmt = $con->prepare("INSERT INTO users(Username , `Password` , Email , FullName ,RegStatus , `Date` , Avatar) VALUES(:zuser , :zpass , :zmail , :zname , 1 , now() , :zavatar) ");
+                        $stmt->execute(array(
+                            'zuser' => $user,
+                            'zpass' => $hashPass,
+                            'zmail' => $email,
+                            'zname' => $full_name,
+                            'zavatar' => $avatar
+                        ));
     
-                    //     // echo success message 
-                    //     $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Inserted</div>';
-					// 	redirectHome($theMsg, 'back');
-                    // }
+                        // echo success message 
+                        $theMsg = "<div class='alert alert-success' role='alert'>" . $stmt->rowCount() . ' Record Inserted</div>';
+						redirectHome($theMsg, 'back');
+                    }
                 }
 
         } else {
