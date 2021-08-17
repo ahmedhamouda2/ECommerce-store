@@ -153,6 +153,9 @@ if (isset($_SESSION['Username'])) {
             $avatarTmp = $_FILES['avatar']['tmp_name'];
             $avatarSize = $_FILES['avatar']['size'];
 
+            // list of allowed images to upload
+            $avatarExtension = array("png" ,"jpg" ,"jpeg" ,"gif" , 'webp');
+
             // validate the Form 
             $formErrors = array();
             if(empty($user)){
