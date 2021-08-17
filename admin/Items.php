@@ -157,9 +157,13 @@
                             <select name="category">
                                 <option value="0">...</option>
                                 <?php
-                                    $allCats = getAllFrom("*" ,"categories" ,"" , "" ,  "ID");
+                                    $allCats = getAllFrom("*" ,"categories" ,"WHERE parent = 0" , "" ,  "ID");
                                     foreach($allCats as $cat) {
                                         echo "<option value='" . $cat['ID'] . "'>". $cat['Name'] . "</option>";
+                                        $childCats = getAllFrom("*" ,"categories" ,"WHERE parent = {$cat['ID']}" , "" ,  "ID");
+                                        foreach($childCats as $child) {
+                                            echo "<option value='" . $child['ID'] . "'>--- ". $child['Name'] . "</option>";
+                                        }
                                     }
                                 ?>
                             </select>
