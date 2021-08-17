@@ -64,7 +64,9 @@
                             foreach($alltags as $tag) {
                                 $tagWithoutSpace = str_replace(" ", "" , $tag);
                                 $lowerTag = strtolower($tagWithoutSpace);
-                                echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a>';
+                                if(!empty($tag)) {
+                                    echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a>';
+                                }
                             }
                         ?>
                     </li>
