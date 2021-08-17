@@ -38,23 +38,35 @@
                 <ul class="list-unstyled">
                     <li>
                         <i class="fas fa-calendar-day fa-fw"></i>
-                        <span>Add Date : </span><?php echo $item['Add_Date']?>
+                        <span>Add Date </span> : <?php echo $item['Add_Date']?>
                     </li>
                     <li>
                         <i class="fas fa-money-bill-alt fa-fw"></i>
-                        <span>Price :  </span>$<?php echo $item['Price']?>
+                        <span>Price </span> : $<?php echo $item['Price']?>
                     </li>
                     <li>
                         <i class="fas fa-globe fa-fw"></i>
-                        <span>Made in : </span><?php echo $item['Country_Made']?>
+                        <span>Made in </span> : <?php echo $item['Country_Made']?>
                     </li>
                     <li>
                     <i class="fas fa-tags fa-fw"></i>
-                        <span>Category : <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"></span><?php echo $item['catogry_name']?></a>
+                        <span>Category <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"></span> : <?php echo $item['catogry_name']?></a>
                     </li>
                     <li>
                         <i class="fas fa-user fa-fw"></i>
-                        <span>Added by : <a href="#"></span><?php echo $item['Username']?></a>
+                        <span>Added by <a href="#"></span> : <?php echo $item['Username']?></a>
+                    </li>
+                    <li>
+                        <i class="fas fa-clipboard-list fa-fw"></i>
+                        <span>Tags </span> :
+                        <?php
+                            $alltags = explode("," , $item['tags']) ;
+                            foreach($alltags as $tag) {
+                                $tagWithoutSpace = str_replace(" ", "" , $tag);
+                                $lowerTag = strtolower($tagWithoutSpace);
+                                echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a> | ';
+                            }
+                        ?>
                     </li>
                 </ul>
             </div>
