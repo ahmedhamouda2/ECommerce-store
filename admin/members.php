@@ -194,8 +194,8 @@ if (isset($_SESSION['Username'])) {
 
             // check if there no error proceed the update operation
                 if(empty($formErrors)){
-
-                    move_uploaded_file($avatarTmp , 'uploads\avatars\\' . $avatarName);
+                    $avatar = rand(0,1000000) . '_' . $avatarName;
+                    move_uploaded_file($avatarTmp , 'uploads\avatars\\' . $avatar);
 
                     // check if user exist to database
                     // $check = checkItem("Username", "users", $user);
