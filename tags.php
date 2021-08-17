@@ -4,10 +4,10 @@
 ?>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <?php
                 $tag = isset($_GET['name']) ? $_GET['name']: 0;
-                echo '<h2 class="text-center">' . $_GET['name'] . '</h2>';
+                echo '<h2>' . $_GET['name'] . '</h2>';
             ?>
         </div>
     </div>

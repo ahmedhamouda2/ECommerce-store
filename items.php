@@ -56,7 +56,7 @@
                         <i class="fas fa-user fa-fw"></i>
                         <span>Added by <a href="#"></span> : <?php echo $item['Username']?></a>
                     </li>
-                    <li>
+                    <li class="tags-items">
                         <i class="fas fa-clipboard-list fa-fw"></i>
                         <span>Tags </span> :
                         <?php
@@ -64,7 +64,7 @@
                             foreach($alltags as $tag) {
                                 $tagWithoutSpace = str_replace(" ", "" , $tag);
                                 $lowerTag = strtolower($tagWithoutSpace);
-                                echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a> | ';
+                                echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a>';
                             }
                         ?>
                     </li>
