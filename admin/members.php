@@ -184,6 +184,9 @@ if (isset($_SESSION['Username'])) {
             if(empty($avatarName)){
                 $formErrors[] = 'Avatar is <strong>required.</strong>';
             }
+            if($avatarSize > 4194304){      // 4 MB * 1024 * 1024 = 4194340 bytes 
+                $formErrors[] = 'Avatar can\'t be larger than <strong> 4MB</strong>';
+            }
             // loop into errors array and echo it 
             foreach($formErrors as $error){
                 echo  '<div class="alert alert-danger" role="alert">' . $error . '</div>';
