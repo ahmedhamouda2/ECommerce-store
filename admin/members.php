@@ -78,7 +78,7 @@ if (isset($_SESSION['Username'])) {
         ?>
             <h2 class="text-center">Add New Member</h2>
             <div class="container">
-                <form action="?do=Insert" method="POST">
+                <form action="?do=Insert" method="POST" enctype="multipart/form-data">
                     <!-- start username field -->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
