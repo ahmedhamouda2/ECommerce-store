@@ -1,6 +1,6 @@
 /* Start Main Rules */
 body {
-	background-color: #F4F4F4;
+	background-color: #fff;
     font-family: 'Cairo', sans-serif;
 }
 h2 {
@@ -73,7 +73,7 @@ h2 {
 
 /* start header */
 .upper-bar {
-    padding: 10px;
+    padding: 5px;
     background-color: #FFF;
 }
 .upper-bar .my-info img {
@@ -83,6 +83,17 @@ h2 {
 .upper-bar .btn-outline-dark {
     margin-left: 10px;
     border-radius: 10px !important;
+}
+.button-login {
+    background: #0c87ce;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #FFF;
+    transition: 0.3s;
+}
+.button-login:hover {
+    background: #0b69a0;
 }
 /* end header */
 
@@ -154,6 +165,23 @@ h2 {
 }
 .the-messages .alert-danger:first-child {
     margin-top: 10px;
+}
+.divider {
+    height: 44px;
+    margin-top: 30px;
+    margin-bottom: -18px;
+    background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+}
+.divider::after {
+    content: "";
+    display: block;
+    height: 44px;
+    background-color: transparent;
+    background: linear-gradient(to right,#fff,rgba(255,255,255,0),#fff);
+}
+.copyright {
+    font-size: 12px;
+    color: #555;
 }
 /* end login page */
 

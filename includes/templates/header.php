@@ -45,7 +45,7 @@
                     } else {
                 ?>
                 <a href="login.php">
-                    <div class="d-flex justify-content-end">Login/Singup</div>
+                    <div class="text-right button-login">Login/Singup</div>
                 </a>
                 <?php } ?>
             </div>

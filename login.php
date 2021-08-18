@@ -87,6 +87,10 @@
             <label>Type your password</label>
         </div>
         <input class="btn btn-primary btn-block" type="submit" name="login" value="login">
+        <div class="divider"></div>
+        <div class="copyright text-center">
+            <span>© 2021, Ahmed Hamouda , All rights reserved.</span>
+        </div>
     </form>
     <!-- End login form -->
     <br>
@@ -109,6 +113,10 @@
             <label>Type valid email</label>
         </div>
         <input class="btn btn-success btn-block" type="submit" name="Signup" value="Signup">
+        <div class="divider"></div>
+        <div class="copyright text-center">
+            <span>© 2021, Ahmed Hamouda , All rights reserved.</span>
+        </div>
     </form>
     <!-- end signup form -->
     <div class="the-messages text-center">
