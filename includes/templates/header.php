@@ -16,8 +16,20 @@
             <div class="container">
                 <?php
                     if(isset($_SESSION['user'])){ ?>
+                    <?php        
+                        $getUser = $con->prepare("SELECT * FROM users WHERE Username = ?"); 
+                        $getUser->execute(array($sessionUser));
+                        $info = $getUser->fetch();
+                        $userAvatar = $info['Avatar'];
+                    ?>
                         <div class="btn-group my-info">
-                            <img class="rounded-circle" src="https://picsum.photos/250" alt="Card image">
+                            <?php
+                                if(empty($userAvatar)){
+                                    echo '<img class="rounded-circle" src="admin/uploads/avatars/default.png" alt = "Default image">';
+                                } else {
+                                    echo '<img class="rounded-circle" src="admin/uploads/avatars/' . $userAvatar . '" alt = "avatar image">';
+                                }
+                            ?>
                             <span class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"> <?php echo $sessionUser?> </span>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i> My Profile</a></li>
