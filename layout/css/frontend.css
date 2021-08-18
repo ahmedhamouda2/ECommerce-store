@@ -26,6 +26,13 @@ h2 {
     top: 3px;
     font-size: 28px;
 }
+.custom-item {
+    text-decoration: none;
+    color: #000;
+}
+.custom-item:hover {
+    text-decoration: none;
+}
 /* End Main Rules */
 
 /* start  Bootstrap edits*/
