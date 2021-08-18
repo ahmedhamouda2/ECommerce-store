@@ -37,6 +37,12 @@ h2 {
         padding: 0;
     }
 }
+.navbar-dark .navbar-brand {
+    font-size: 1.4rem;
+}
+.nav-item {
+    font-size: 1.2rem;
+}
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link , .navbar-nav .dropdown-menu , 
 .dropdown-item {
     background-color: #3498db;
@@ -48,7 +54,7 @@ h2 {
 }
 .dropdown-item {
     color: #fff;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem;
 }
 .img-thumbnail {
     padding: .2rem;
