@@ -76,6 +76,12 @@ body {
 .nav-item {
     font-size: 1.2rem;
 }
+.nav-link {
+    color: rgba(255,255,255,.5);
+}
+.nav-link:hover {
+    color: rgba(255,255,255,.75);
+}
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link , .navbar-nav .dropdown-menu , 
 .dropdown-item {
     background-color: #3498db;
@@ -98,6 +104,7 @@ body {
     color: #FFF;
     border-radius: 10px;
     margin-bottom: 15px;
+    box-shadow: 4px 4px 10px #888888;
 }
 .home-stats a {
     color: #FFF;
@@ -122,6 +129,9 @@ body {
 .latest {
     margin-top: 30px;
 }
+.latest .card {
+    box-shadow: 2px 2px 10px #888888;
+}
 .latest-users {
     margin-bottom: 0;
 }
@@ -129,8 +139,14 @@ body {
 	padding: 10px;
 	overflow: hidden;
 }
+.latest-users li img {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
 .latest-users li:nth-child(odd) {
-	background-color: #EEE;
+    background-color: #f5f5f5;
+    border-radius: 6px;
 }
 .latest-users .btn-success,
 .latest-users .btn-info {
@@ -149,29 +165,41 @@ body {
 .latest  .comment-box {
     margin: 2% 0 4%;
 }
+.latest  .comment-box img {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
 .latest  .comment-box .user-n {
     margin-right: 5%;
-    width: 20%;
-    text-align: center;
+    width: 30%;
     line-height: 40px;
 }
 .latest  .comment-box .user-c {
-    width: 80% ;
-    background-color: #EFEFEF;
+    width: 70% ;
     padding: 10px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(222, 223, 224);
+    border-radius: 4px;
     position: relative;
 }
 .latest  .comment-box .user-c::before {
     content: '';
-    display: block;
+    background: rgb(255, 255, 255);
+    border-width: 0px 0px 1px 1px;
+    border-left-style: solid;
+    border-left-color: rgb(222, 223, 224);
+    border-bottom-style: solid;
+    border-bottom-color: rgb(222, 223, 224);
+    height: 14px;
+    width: 14px;
     position: absolute;
-    left: -30px;
-    top: 5px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-color: transparent #adadad transparent transparent;
-    border-width: 15px;
+    left: -8px;
+    top: 12px;
+    transform: rotate( 45deg);
+}
+.color-icon {
+    color: #868686;
 }
 /* end dashbord page */
 
