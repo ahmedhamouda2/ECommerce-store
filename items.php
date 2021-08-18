@@ -37,7 +37,7 @@
                 <p class="price-color">Price  : <span>$<?php echo $item['Price']?></span></p>
                 <p><?php echo $item['Description']?></p>
                 <hr>
-                <p><span>Made in </span> <?php echo $item['Country_Made']?></p>
+                <p><span>Made in </span> <?php echo ucfirst($item['Country_Made'])?></p>
                 <p class="tags-items"><span>Category </span> <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"><?php echo $item['catogry_name']?></a></p>
                 <p><span>Posted by </span> <?php echo $item['Username']?></p>
                 <p><span>Date posted  </span> <?php echo $item['Add_Date']?></p>

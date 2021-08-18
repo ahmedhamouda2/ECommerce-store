@@ -17,7 +17,7 @@
                                         echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
                                         echo '<p class="card-text">' . $item['Description'] . '</p>';
                                         echo '<div class="d-flex justify-content-between">';
-                                            echo '<span class="date text-left">' . $item['Country_Made'] . '</span>';
+                                            echo '<span class="date text-left">' . ucfirst($item['Country_Made']) . '</span>';
                                             echo '<span class="date text-right">' . $item['Add_Date'] . '</span>';
                                         echo '</div>';
                                     echo '</div>';

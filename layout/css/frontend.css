@@ -303,6 +303,11 @@ h2 {
     color: #eaeaea;
     margin-right: 5px
 }
+@media (max-width:600px){
+    .add-comment {
+        margin-left: 10px
+    }
+}
 .add-comment h4 {
     margin: 0 0 10px;
 }

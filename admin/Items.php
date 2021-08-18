@@ -302,7 +302,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made" value="<?php echo $item['Country_Made'] ?>">
+                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made" value="<?php echo ucfirst($item['Country_Made']) ?>">
                         </div>
                     </div>
                     <!-- End country field -->
