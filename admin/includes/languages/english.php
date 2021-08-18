@@ -12,6 +12,7 @@
             'STATISTICS'    => 'Statistics' ,
             'LOGS'          => 'Logs',
             'DROPDOWN_Name' => 'Ahmed',
+            'Visit_Shop'    => 'Visit Shop',
             'EDIT_PROFILE'  => 'Edit Profile',
             'SETTINGS'      => 'Settings',
             'LOGOUT'        => 'Logout',

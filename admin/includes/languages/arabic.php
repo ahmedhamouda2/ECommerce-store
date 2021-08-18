@@ -12,6 +12,7 @@
             'STATISTICS'    => 'إحصائيات' ,
             'LOGS'          => 'السجلات',
             'DROPDOWN_Name' => 'أحمد',
+            'Visit_Shop'    => 'زيارة المتجر',
             'EDIT_PROFILE'  => 'تعديل الملف الشخصي',
             'SETTINGS'      => 'إعدادات',
             'LOGOUT'        => 'تسجيل خروج',
