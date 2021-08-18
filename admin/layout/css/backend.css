@@ -92,11 +92,11 @@ body {
     border-radius: 10px;
     margin-bottom: 15px;
 }
-.home-stats .stat a {
+.home-stats a {
     color: #FFF;
     text-decoration: none;
 }
-.home-stats .stat span {
+.home-stats a span {
     display: block;
     font-size: 50px;
 }

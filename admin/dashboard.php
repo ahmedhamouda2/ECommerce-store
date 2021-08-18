@@ -15,40 +15,48 @@
             <h2>Dashbord</h2>
             <div class="row">
                 <div class="col-md-3">
-                    <div class="stat stat-member d-flex flex-row justify-content-around">
-                        <div>
-                            Total Members 
-                            <span><a href="members.php"><?php echo countItems('UserID', 'users') ?></a></span>
+                    <a href="members.php">
+                        <div class="stat stat-member d-flex flex-row justify-content-around">
+                            <div>
+                                Total Members 
+                                <span><?php echo countItems('UserID', 'users') ?></span>
+                            </div>
+                            <div><i class="fas fa-users fa-5x"></i></div>
                         </div>
-                        <div><i class="fas fa-users fa-5x"></i></div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat stat-pending d-flex flex-row justify-content-around">
-                        <div>
-                            Pending Members 
-                            <span><a href="members.php?do=Manage&page=Pending"><?php echo checkItem('RegStatus', 'users', 0) ?></a></span>
+                    <a href="members.php?do=Manage&page=Pending">
+                        <div class="stat stat-pending d-flex flex-row justify-content-around">
+                            <div>
+                                Pending Members 
+                                <span><?php echo checkItem('RegStatus', 'users', 0) ?></span>
+                            </div>
+                            <div><i class="fas fa-user-clock fa-5x"></i></i></div>
                         </div>
-                        <div><i class="fas fa-user-clock fa-5x"></i></i></div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat stat-items d-flex flex-row justify-content-around">
-                        <div>
-                            Total Items 
-                            <span><a href="Items.php"><?php echo countItems('Item_ID', 'items') ?></a></span>
+                    <a href="Items.php">
+                        <div class="stat stat-items d-flex flex-row justify-content-around">
+                            <div>
+                                Total Items 
+                                <span><?php echo countItems('Item_ID', 'items') ?></span>
+                            </div>
+                            <div><i class="fas fa-tags fa-5x"></i></div>
                         </div>
-                        <div><i class="fas fa-tags fa-5x"></i></div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat stat-comments d-flex flex-row justify-content-around">
-                        <div>
-                            Total Comments 
-                            <span><a href="comments.php"><?php echo countItems('c_id', 'comments') ?></a></span>
+                    <a href="comments.php">
+                        <div class="stat stat-comments d-flex flex-row justify-content-around">
+                            <div>
+                                Total Comments 
+                                <span><?php echo countItems('c_id', 'comments') ?></span>
+                            </div>
+                            <div><i class="fas fa-comments fa-5x"></i></div>
                         </div>
-                        <div><i class="fas fa-comments fa-5x"></i></div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
