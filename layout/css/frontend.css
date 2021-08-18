@@ -321,9 +321,25 @@ h2 {
     max-width: 100px;
 }
 .comment-box .lead {
-    background-color: #EEE;
     padding: 10px;
+    border: 1px solid rgb(222, 223, 224);
+    border-radius: 4px;
     margin-top: 10px;
+}
+.comment-box .lead::after {
+    content: '';
+    background: rgb(255, 255, 255);
+    border-width: 0px 0px 1px 1px;
+    border-left-style: solid;
+    border-left-color: rgb(222, 223, 224);
+    border-bottom-style: solid;
+    border-bottom-color: rgb(222, 223, 224);
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    left: 8px;
+    top: 25px;
+    transform: rotate(45deg);
 }
 .comment-box .date-comment {
     margin: 0;
