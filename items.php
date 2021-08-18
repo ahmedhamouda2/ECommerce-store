@@ -29,55 +29,39 @@
     <h2 class="text-center"><?php echo $item['Name']?></h2>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">
             </div>
-            <div class="col-md-9 item-info">
+            <div class="col-md-8 item-info">
                 <h2 class="special-heading"><?php echo $item['Name']?></h2>
+                <p class="price-color">Price  : <span>$<?php echo $item['Price']?></span></p>
                 <p><?php echo $item['Description']?></p>
-                <ul class="list-unstyled">
-                    <li>
-                        <i class="fas fa-calendar-day fa-fw"></i>
-                        <span>Add Date </span> : <?php echo $item['Add_Date']?>
-                    </li>
-                    <li>
-                        <i class="fas fa-money-bill-alt fa-fw"></i>
-                        <span>Price </span> : $<?php echo $item['Price']?>
-                    </li>
-                    <li>
-                        <i class="fas fa-globe fa-fw"></i>
-                        <span>Made in </span> : <?php echo $item['Country_Made']?>
-                    </li>
-                    <li>
-                    <i class="fas fa-tags fa-fw"></i>
-                        <span>Category <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"></span> : <?php echo $item['catogry_name']?></a>
-                    </li>
-                    <li>
-                        <i class="fas fa-user fa-fw"></i>
-                        <span>Added by <a href="#"></span> : <?php echo $item['Username']?></a>
-                    </li>
-                    <li class="tags-items">
-                        <i class="fas fa-clipboard-list fa-fw"></i>
-                        <span>Tags </span> :
-                        <?php
-                            $alltags = explode("," , $item['tags']) ;
-                            foreach($alltags as $tag) {
-                                $tagWithoutSpace = str_replace(" ", "" , $tag);
-                                $lowerTag = strtolower($tagWithoutSpace);
-                                if(!empty($tag)) {
-                                    echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a>';
-                                }
+                <hr>
+                <p><span>Made in </span> <?php echo $item['Country_Made']?></p>
+                <p class="tags-items"><span>Category </span> <a href="categories.php?pageid=<?php echo $item['Cat_ID']?>"><?php echo $item['catogry_name']?></a></p>
+                <p><span>Posted by </span> <?php echo $item['Username']?></p>
+                <p><span>Date posted  </span> <?php echo $item['Add_Date']?></p>
+                <hr>
+                <p class="tags-items">
+                    <span>Tags </span>
+                    <?php
+                        $alltags = explode("," , $item['tags']) ;
+                        foreach($alltags as $tag) {
+                            $tagWithoutSpace = str_replace(" ", "" , $tag);
+                            $lowerTag = strtolower($tagWithoutSpace);
+                            if(!empty($tag)) {
+                                echo "<a href='tags.php?name={$lowerTag}'>" . $tag . '</a>';
                             }
-                        ?>
-                    </li>
-                </ul>
+                        }
+                    ?>
+                </p>
             </div>
         </div>
         <hr>
         <!-- Start add comment section -->
         <?php if(isset($_SESSION['user'])) {?>
             <div class="row">
-                <div class="offset-md-3 add-comment">
+                <div class="offset-md-4 add-comment">
                     <h4>Add Your Comment</h4>
                     <form action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $item['Item_ID']  ?>" method="POST">
                         <textarea class="form-control" name="comment" cols="50" rows="5" required></textarea>

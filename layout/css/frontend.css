@@ -278,22 +278,22 @@ h2 {
 
 /* start items page */
 .special-heading {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 0;
+    font-weight: normal;
 }
 .item-info p {
-    padding: 10px;
+    color:#565959;
 }
-.item-info ul li {
-    padding: 10px;
-}
-.item-info ul li:nth-child(odd) {
-    background-color: #f5f5f5;
-    border-radius: 6px;
-}
-.item-info ul li span {
+.item-info p span {
+    font-weight: bold;
+    width: 100px;
     display: inline-block;
-    width: 120px;
+}
+.item-info .price-color span {
+    color:#c52f09;
+    font-weight: bold;
+    font-size: 20px;
 }
 .tags-items a {
     display: inline-block;
