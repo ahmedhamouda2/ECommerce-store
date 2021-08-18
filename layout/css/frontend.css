@@ -47,10 +47,17 @@ h2 {
 .dropdown-item {
     background-color: #3498db;
 }
+.dropdown-menu {
+    min-width: 8rem;
+}
 .dropdown-menu , .dropdown-divider {
     padding: 0;
     margin: 0;
     border-radius: 0;
+}
+.special-dropdown:hover ,
+.special-dropdown:focus {
+    color: #c0392b;
 }
 .dropdown-item {
     color: #fff;
@@ -126,7 +133,7 @@ h2 {
     transition: 0.35s ease-in-out;
 }
 .signup .form-control:focus {
-    border-color:#28a745 ;
+    border-color:#28a745;
 }
 .login-page .selected[data-class="login"] {
     color: #008dde;
@@ -152,20 +159,51 @@ h2 {
 
 /* start profile page */
 .block {
-    margin: 20px 0 0;
+    margin: 20px 0;
 }
 .block .card:first-child .card-body{
     border: 2px solid #007bff;
 }
-.information ul li {
-    padding: 10px;
+.special-avatar {
+    width: 260px;
+    border-radius: 4px;
 }
-.information ul li:nth-child(odd) {
-    background-color: #eee;
+.information .edit-profile {
+    width: 260px;
 }
-.information ul li span {
-    display: inline-block;
-    width: 120px;
+.information .edit-profile a {
+    display: block;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    line-height: 1.4;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.information .edit-profile a:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    transition: 0.3s;
+}
+@media (max-width:600px) {
+    .information {
+        text-align: center;
+    }
+    .information .edit-profile {
+        margin: auto;
+    }
+}
+.information .date-join {
+    font-size: 14px;
+}
+.information .date-join i {
+    color: #6a737d;
 }
 .card .date {
     font-size: 13px;
@@ -196,6 +234,11 @@ h2 {
     color: #FFF;
     padding: 3px 5px;
 }
+.my-comments p {
+    padding: 10px;
+    border: 1px solid rgb(222, 223, 224);
+    border-radius: 4px;
+}
 /* end profile page */
 
 /* start items page */
@@ -210,7 +253,8 @@ h2 {
     padding: 10px;
 }
 .item-info ul li:nth-child(odd) {
-    background-color: #e8e8e8;
+    background-color: #f5f5f5;
+    border-radius: 6px;
 }
 .item-info ul li span {
     display: inline-block;

@@ -1,6 +1,6 @@
 /* Start Main Rules */
 body {
-	background-color: #F4F4F4;
+	background-color: #FFF;
     font-family: 'Cairo', sans-serif;
 }
 .row {
@@ -21,9 +21,19 @@ body {
 /* End Main Rules */
 
 /* Start Login Form */
+.parent {
+    border-radius: 5px;
+    border: 1px #ddd solid;
+    width: 390px;
+    margin: 100px auto;
+}
+.login .heading-login {
+    padding-left: 10px;
+    font-weight: 600;
+}
 .login {
 	width: 350px;
-	margin: 100px auto;
+    margin: 40px auto 60px;
 }
 .login h3 {
 	color: #888;
@@ -44,7 +54,6 @@ body {
 }
 .custom-input input[type="text"] , 
 .custom-input input[type="password"] {
-    /* height: 30px; */
     background-color: transparent;
     border: 1px solid #dfdfdf;
 }
@@ -61,6 +70,26 @@ body {
 	background-color: #008dde;
     width: 330px !important;
     margin: auto;
+}
+.help a {
+    color: #0066c0;
+    font-size: 14px;
+}
+.divider {
+    height: 44px;
+    margin-bottom: -18px;
+    background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+}
+.divider::after {
+    content: "";
+    display: block;
+    height: 44px;
+    background-color: transparent;
+    background: linear-gradient(to right,#fff,rgba(255,255,255,0),#fff);
+}
+.copyright {
+    font-size: 12px;
+    color: #555;
 }
 /* End Login Form */
 
@@ -86,10 +115,16 @@ body {
 .dropdown-item {
     background-color: #3498db;
 }
+.dropdown-menu {
+    min-width: 8rem;
+}
 .dropdown-menu , .dropdown-divider {
     padding: 0;
     margin: 0;
     border-radius: 0;
+}
+.dropdown-item:focus:last-of-type, .dropdown-item:hover:last-of-type {
+    color: #c0392b;
 }
 .dropdown-item {
     color: #fff;
@@ -178,7 +213,6 @@ body {
 .latest  .comment-box .user-c {
     width: 70% ;
     padding: 10px;
-    background: rgb(255, 255, 255);
     border: 1px solid rgb(222, 223, 224);
     border-radius: 4px;
     position: relative;
@@ -233,6 +267,7 @@ h2 {
 }
 .main-table .btn {
 	padding: 3px 10px;
+    margin-bottom: 5px;
 }
 .activate , .approve {
 	margin-left: 5px;
@@ -362,3 +397,9 @@ h2 {
     display: none;
 }
 /* end categories page */
+
+/* start comment page */
+.comment-custom {
+    width: 300px;
+}
+/* end comment page */

@@ -53,7 +53,7 @@ if (isset($_SESSION['Username'])) {
                             foreach ($comments as $comment) {
                                 echo '<tr>';
                                     echo'<td>' . $comment['c_id'] . '</td>';
-                                    echo'<td>' . $comment['comment'] . '</td>';
+                                    echo'<td class="comment-custom">' . $comment['comment'] . '</td>';
                                     echo'<td>' . $comment['Item_Name'] . '</td>';
                                     echo'<td>' . $comment['Username'] . '</td>';
                                     echo'<td>' . $comment['comment_date'] . '</td>';

@@ -28,18 +28,27 @@
         }
     }
 ?>
+<div class="parent">
+    <form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <h3 class="heading-login"><?php echo lang('Admin_Login') ?></h3>
+        <div class="custom-input">
+            <input class="form-control" type="text" name="user" autocomplete="off">
+            <label>Username</label>
+        </div>
+        <div class="custom-input">
+            <input class="form-control" type="password" name="pass" autocomplete="new-password">
+            <label>Password</label>
+        </div>
+        <input class="btn btn-primary btn-block" type="submit" value="Login" />
+        <div class="help text-center mt-2">
+            <a href="#">Need help?</a>
+        </div>
+    </form>
+</div>
 
-<form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-    <h3 class="text-center"><?php echo lang('Admin_Login') ?></h3>
-    <div class="custom-input">
-        <input class="form-control" type="text" name="user" autocomplete="off">
-        <label>Username</label>
-    </div>
-    <div class="custom-input">
-        <input class="form-control" type="password" name="pass" autocomplete="new-password">
-        <label>Password</label>
-    </div>
-    <input class="btn btn-primary btn-block" type="submit" value="Login" />
-</form>
+<div class="divider"></div>
+<div class="copyright text-center">
+    <span>© 2021, Ahmed Hamouda , All rights reserved.</span>
+</div>
 
 <?php include $tpl . 'footer.php';?>

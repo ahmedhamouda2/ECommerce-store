@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="upper-bar">
-            <div class="container">
+            <div class="container text-right">
                 <?php
                     if(isset($_SESSION['user'])){ ?>
                     <?php        
@@ -38,7 +38,7 @@
                                 <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i> My Profile</a></li>
                                 <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw"></i> New Item</a></li>
                                 <li><a class="dropdown-item" href="profile.php#my-ads"><i class="fas fa-tags fa-fw"></i> My Items</a></li>
-                                <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+                                <li><a class="dropdown-item special-dropdown" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
                             </ul>
                         </div>
                 <?php
