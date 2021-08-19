@@ -35,3 +35,18 @@ INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `FullName`, `Gro
 (21, 'ahmed mohammed', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ahmedmohammed@gmail.com', 'ahmed mohammed', 0,1, '2021-08-18', '');
 (22, 'husam abu odah02', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'husam abu odah02', 'husam abu odah', 0, 1, '2021-08-18', '259942_EYVxlOSXsAExOpX.jpg');
 (23, 'Rola', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'rolaali@gmail.com', 'Rola ahmed', 0, 1, '2021-08-18','');
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+    `ID` int(11) NOT NULL,
+    `Name` varchar(255) NOT NULL,
+    `Description` text NOT NULL,
+    `parent` int(11) NOT NULL,
+    `Ordering` int(11) DEFAULT NULL,
+    `Visibility` tinyint(4) NOT NULL DEFAULT '0',
+    `Allow_Comment` tinyint(4) NOT NULL DEFAULT '0',
+    `Allow_Ads` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
