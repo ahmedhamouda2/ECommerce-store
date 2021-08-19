@@ -133,3 +133,38 @@ INSERT INTO `comments` (`c_id`, `comment`, `status`, `comment_date`, `item_id`, 
 (21, 'This is wonderful of using', 1, '2021-08-19 18:07:11', 10, 3),
 (22, 'This is very useful', 1, '2021-08-19 18:07:16', 13, 3),
 (23, 'So cool', 1, '2021-08-19 18:15:40', 12, 3);
+
+
+--
+-- Indexes for tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+    ADD PRIMARY KEY (`UserID`),
+    ADD UNIQUE KEY `Username` (`Username`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+    ADD PRIMARY KEY (`ID`),
+    ADD UNIQUE KEY `Name` (`Name`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+    ADD PRIMARY KEY (`Item_ID`),
+    ADD KEY `member_1` (`Member_ID`),
+    ADD KEY `cat_1` (`Cat_ID`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+    ADD PRIMARY KEY (`c_id`),
+    ADD KEY `items_comments` (`item_id`),
+    ADD KEY `users_comments` (`user_id`);
