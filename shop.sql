@@ -106,3 +106,18 @@ INSERT INTO `items` (`Item_ID`, `Name`, `Description`, `Price`, `Add_Date`, `Cou
 (23, 'Washing Machine', 'kg1400 Washing Machine White', '450', '2021-08-14', 'Italia', 'Washing_machine.webp', '2', 1, 10, 22, 'discount , electical devices , machine'),
 (24, 'embroidery robe', 'hand made works', '40', '2021-08-17', 'Palestine', 'embroidery_robe.webp', '1', 1, 6, 20, 'discount , handmade , heritage , legacy , tradition ,clothing'),
 (25, 'T-shirt sport', 'T-shirt for playing sport', '50', '2021-08-19', 'spain', 'sports-t-shirt.webp', '1', 1, 9, 22, 'discount , sport ,clothing , football');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+    `c_id` int(11) NOT NULL,
+    `comment` text NOT NULL,
+    `status` tinyint(4) NOT NULL,
+    `comment_date` timestamp NOT NULL,
+    `item_id` int(11) NOT NULL,
+    `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
