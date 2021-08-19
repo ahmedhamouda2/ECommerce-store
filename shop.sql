@@ -36,6 +36,8 @@ INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `FullName`, `Gro
 (22, 'husam abu odah02', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'husam abu odah02', 'husam abu odah', 0, 1, '2021-08-18', '259942_EYVxlOSXsAExOpX.jpg');
 (23, 'Rola', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'rolaali@gmail.com', 'Rola ahmed', 0, 1, '2021-08-18','');
 
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `categories`
 --
@@ -61,6 +63,27 @@ INSERT INTO `categories` (`ID`, `Name`, `Description`, `parent`, `Ordering`, `Vi
 (8, 'Cell Phones', 'Cell Phones', 0, 3, 0, 0, 0),
 (9, 'Clothing', 'clothing and fashion', 0, 4, 1, 1, 1),
 (10, 'Tools', 'home tools', 0, 5, 0, 1, 0),
-(13, 'Samsung', 'Samsung smartphones', 8, 6, 1, 1, 0);
+(13, 'Samsung', 'Samsung smartphones', 8, 6, 1, 1, 0),
 (15, 'Hammers', 'Hammers for testing', 10, 11, 0, 1, 1),
-(16, 'iPhone mobiles', 'iPhone from apple inc', 8, 20, 0, 0, 1),
+(16, 'iPhone mobiles', 'iPhone from apple inc', 8, 20, 0, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+    `Item_ID` int(11) NOT NULL,
+    `Name` varchar(255) NOT NULL,
+    `Description` text NOT NULL,
+    `Price` varchar(255) NOT NULL,
+    `Add_Date` date NOT NULL,
+    `Country_Made` varchar(255) NOT NULL,
+    `Image` varchar(255) NOT NULL,
+    `Status` varchar(255) NOT NULL,
+    `Approve` tinyint(4) NOT NULL DEFAULT '0',
+    `Cat_ID` int(11) NOT NULL,
+    `Member_ID` int(11) NOT NULL,
+    `tags` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
