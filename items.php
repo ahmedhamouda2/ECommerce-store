@@ -96,7 +96,7 @@
         <!-- End add comment section -->
         <?php
             $stmt = $con->prepare("SELECT 
-                                        comments.* ,users.Username 
+                                        comments.* ,users.Username , users.Avatar
                                     FROM 
                                         comments 
                                     INNER JOIN
@@ -116,7 +116,13 @@
             <div class="comment-box">
                 <div class="row">
                     <div class="col-sm-2 text-center">
-                        <?php echo '<img class="img-fluid img-thumbnail rounded-circle d-block m-auto" src="layout/assets/' . $comment["Image"] . '" alt="Card image">'; ?>
+                        <?php
+                        if(empty($comment['Avatar'])){
+                            echo '<img class="img-fluid img-thumbnail rounded-circle d-block m-auto" src="admin/uploads/avatars/default.png" alt = "Default image">';
+                        } else {
+                            echo '<img class="img-fluid img-thumbnail rounded-circle d-block m-auto" src="admin/uploads/avatars/' . $comment['Avatar'] . '" alt = "avatar image">';
+                        } 
+                        ?>
                         <?php echo $comment['Username'] ?>
                     </div>
                     <div class="col-sm-10 d-flex flex-column">
