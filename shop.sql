@@ -87,3 +87,22 @@ CREATE TABLE `items` (
     `Member_ID` int(11) NOT NULL,
     `tags` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`Item_ID`, `Name`, `Description`, `Price`, `Add_Date`, `Country_Made`, `Image`, `Status`, `Approve`, `Cat_ID`, `Member_ID`, `tags`) VALUES
+(10, 'Laptop', 'Very Good laptop', '700', '2021-08-10', 'China', 'Laptop.png', '1', 1, 7, 1, 'device , electronic , smart '),
+(11, 'Magic Mouse', 'Apple Mouse', '20', '2021-08-10', 'USA', 'Magic_mouse.jpg', '1', 1, 7, 2, 'professional , great mouse , For gaming , Ergonomic , discount'),
+(12, 'iPhone 12', 'apple mobile', '1500', '2021-08-10', 'japan', 'iPhone_12.jpg', '1', 1, 8, 3, 'discount , smart , phone , apple'),
+(13, 'TP-Link Archer', 'The best', '70', '2021-08-10', 'China', 'TP_Link_Archer.jpg', '1', 1, 7, 3, 'Ergonomic , router, electrician , device'),
+(14, 'Bluetooth Speaker', 'very good speaker ', '125', '2021-08-10', 'USA', 'Bluetooth_Speakeri_Wireless.webp', '1', 1, 7, 2, 'discount , speaker , music'),
+(15, 'Remote', 'This is testing remote', '20', '2021-08-12', 'USA', 'Remote.jpg', '1', 1, 7, 19, 'discount'),
+(19, 'Wooden Game', 'A Good Wooden game', '45', '2021-08-14', 'Palestine', 'Wooden_game_.jpg', '3', 1, 6, 23, 'homemade , discount , wood , gaming'),
+(20, 'Network Cable', 'Cat 9 Network Cable', '100', '2021-08-14', 'USA', 'Network_cable.jpg', '4', 1, 10, 17, ' electronic , cable , network'),
+(21, 'Air conditioner', 'To cool the air, very practical', '200', '2021-08-14', 'Korea', 'air-conditioning.jpg', '3', 1, 10, 21, 'discount , electrician , cooling , chilled , machine'),
+(22, 'PlayStation 5', 'Good Playstation 5 Game', '125', '2021-08-14', 'Finland', 'PlayStation_5.jpg', '2', 1, 10, 3, 'discount , gaming , video game'),
+(23, 'Washing Machine', 'kg1400 Washing Machine White', '450', '2021-08-14', 'Italia', 'Washing_machine.webp', '2', 1, 10, 22, 'discount , electical devices , machine'),
+(24, 'embroidery robe', 'hand made works', '40', '2021-08-17', 'Palestine', 'embroidery_robe.webp', '1', 1, 6, 20, 'discount , handmade , heritage , legacy , tradition ,clothing'),
+(25, 'T-shirt sport', 'T-shirt for playing sport', '50', '2021-08-19', 'spain', 'sports-t-shirt.webp', '1', 1, 9, 22, 'discount , sport ,clothing , football');
