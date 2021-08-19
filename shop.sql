@@ -135,6 +135,8 @@ INSERT INTO `comments` (`c_id`, `comment`, `status`, `comment_date`, `item_id`, 
 (23, 'So cool', 1, '2021-08-19 18:15:40', 12, 3);
 
 
+-- --------------------------------------------------------
+
 --
 -- Indexes for tables
 --
@@ -168,3 +170,35 @@ ALTER TABLE `comments`
     ADD PRIMARY KEY (`c_id`),
     ADD KEY `items_comments` (`item_id`),
     ADD KEY `users_comments` (`user_id`);
+
+
+-- --------------------------------------------------------
+
+--
+-- AUTO_INCREMENT for tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+    MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'To Identify User', AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+    MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+    MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+    MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
