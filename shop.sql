@@ -50,3 +50,17 @@ CREATE TABLE `categories` (
     `Allow_Comment` tinyint(4) NOT NULL DEFAULT '0',
     `Allow_Ads` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`ID`, `Name`, `Description`, `parent`, `Ordering`, `Visibility`, `Allow_Comment`, `Allow_Ads`) VALUES
+(6, 'HandMade', 'Hand made items', 0, 1, 1, 1, 1),
+(7, 'Computers', 'Computers item', 0, 2, 0, 0, 1),
+(8, 'Cell Phones', 'Cell Phones', 0, 3, 0, 0, 0),
+(9, 'Clothing', 'clothing and fashion', 0, 4, 1, 1, 1),
+(10, 'Tools', 'home tools', 0, 5, 0, 1, 0),
+(13, 'Samsung', 'Samsung smartphones', 8, 6, 1, 1, 0);
+(15, 'Hammers', 'Hammers for testing', 10, 11, 0, 1, 1),
+(16, 'iPhone mobiles', 'iPhone from apple inc', 8, 20, 0, 0, 1),
