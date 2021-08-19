@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="<?php echo lang('DIRECTION'); ?>">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,10 +35,10 @@
                             ?>
                             <span class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"> <?php echo $sessionUser?> </span>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i> My Profile</a></li>
-                                <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw"></i> New Item</a></li>
-                                <li><a class="dropdown-item" href="profile.php#my-ads"><i class="fas fa-tags fa-fw"></i> My Items</a></li>
-                                <li><a class="dropdown-item special-dropdown" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a></li>
+                                <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i><?php echo lang('Profile'); ?></a></li>
+                                <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw"></i><?php echo lang('New_Item'); ?></a></li>
+                                <li><a class="dropdown-item" href="profile.php#my-ads"><i class="fas fa-tags fa-fw"></i><?php echo lang('My_Items'); ?></a></li>
+                                <li><a class="dropdown-item special-dropdown" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i><?php echo lang('LOGOUT'); ?></a></li>
                             </ul>
                         </div>
                 <?php
@@ -52,7 +52,7 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand active" href="index.php">HomePage</a>
+                <a class="navbar-brand active" href="index.php"><?php echo lang('HomePage'); ?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -62,7 +62,7 @@
                         <?php
                             $allCats = getAllFrom("*","categories","WHERE parent = 0" , "" , "ID" , "ASC");
                             foreach($allCats as $cat) {
-                                echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '">' . $cat['Name'] . '</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '">' . lang($cat['Name']) . '</a></li>';
                             }
                         ?>
                     </ul>

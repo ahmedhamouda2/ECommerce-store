@@ -3,20 +3,22 @@
     function lang($phrase) {
 
         static $lang = array (
-            // Navbar links
-            'HOME_ADMIN'    => 'Home' ,
-            'CATEGORIES'    => 'Categories' ,
-            'ITEMS'         => 'Items' ,
-            'MEMBERS'       => 'Members' ,
-            'COMMENTS'      => 'Comments' ,
-            'STATISTICS'    => 'Statistics' ,
-            'LOGS'          => 'Logs',
-            'DROPDOWN_Name' => 'Ahmed',
-            'EDIT_PROFILE'  => 'Edit Profile',
-            'SETTINGS'      => 'Settings',
-            'LOGOUT'        => 'Logout',
+            'DIRECTION'     => 'ltr',
 
-            'Admin_Login'   => 'Admin Login' 
+            'Profile'      => 'My Profile',
+            'New_Item'   => 'New Item' ,
+            'My_Items'   => 'My Items' ,
+            'LOGOUT'        => 'Logout',
+            // Navbar links
+            'HomePage'    => 'HomePage' ,
+            'Handmade'    => 'Handmade' ,
+            'Computers'         => 'Items' ,
+            'Cell phones'       => 'Cell phones' ,
+            'Clothing'      => 'Clothing' ,
+            'Tools'    => 'Tools' ,
+            'Samsung'          => 'Samsung',
+            'Hammers' => 'Hammers',
+            'iPhone mobiles'  => 'iPhone mobiles',
         );
         return $lang[$phrase];
     }
