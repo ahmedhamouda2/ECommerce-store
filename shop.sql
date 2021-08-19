@@ -121,3 +121,15 @@ CREATE TABLE `comments` (
     `item_id` int(11) NOT NULL,
     `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`c_id`, `comment`, `status`, `comment_date`, `item_id`, `user_id`) VALUES
+(1, 'Very Nice', 1, '2021-08-11 21:37:10', 2, 2),
+(2, 'Very Nice', 1, '2021-08-12 00:56:34', 10, 3),
+(20, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quae ex, rem voluptatibus fugit magni corrupti esse perferendis reiciendis? Consectetur provident iste perspiciatis ratione, incidunt neque nemo cumque? Libero, laboriosam.', 1, '2021-08-14 01:04:39', 11, 3),
+(21, 'This is wonderful of using', 1, '2021-08-19 18:07:11', 10, 3),
+(22, 'This is very useful', 1, '2021-08-19 18:07:16', 13, 3),
+(23, 'So cool', 1, '2021-08-19 18:15:40', 12, 3);
