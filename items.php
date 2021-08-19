@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">
+                <?php echo '<img class="card-img-top img-fluid img-thumbnail rounded-circle d-block m-auto" src="layout/assets/' . $item["Image"] . '" alt="Card image">'; ?>
             </div>
             <div class="col-md-8 item-info">
                 <h2 class="special-heading"><?php echo $item['Name']?></h2>
@@ -116,7 +116,7 @@
             <div class="comment-box">
                 <div class="row">
                     <div class="col-sm-2 text-center">
-                        <img class="img-fluid img-thumbnail rounded-circle d-block m-auto" src="https://picsum.photos/250" alt="Card image">
+                        <?php echo '<img class="img-fluid img-thumbnail rounded-circle d-block m-auto" src="layout/assets/' . $comment["Image"] . '" alt="Card image">'; ?>
                         <?php echo $comment['Username'] ?>
                     </div>
                     <div class="col-sm-10 d-flex flex-column">

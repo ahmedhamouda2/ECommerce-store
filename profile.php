@@ -54,7 +54,7 @@
                                     echo '<a class="custom-item" href="items.php?itemid=' . $item['Item_ID'] . '">';
                                         if($item['Approve'] == 0) {echo '<span class="approve-msg">Awaiting Approval</span>';}
                                         echo '<span class="price">$' . $item['Price'] . '</span>'; 
-                                        echo '<img class="card-img-top img-fluid img-thumbnail" src="https://picsum.photos/250" alt="Card image">';
+                                        echo '<img class="card-img-top img-fluid img-thumbnail" src="layout/assets/' . $item["Image"] . '" alt="Card image">';
                                         echo '<div class="card-body border-0">';
                                             echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
                                             echo '<p class="card-text">' . $item['Description'] . '</p>';
