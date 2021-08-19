@@ -9,12 +9,10 @@
         $userid =$info['UserID'];
 ?>
     <h2 class="text-center">My Profile</h2>
-    <div class="information block">
+    <section class="information block">
         <div class="container">
             <div class="card">
-                <div class="card-header bg-primary text-white">
-                    My Information
-                </div>
+                <div class="card-header bg-primary text-white"> My Information </div>
                 <div class="card-body">
                     <div class="avatar">
                         <?php                                 
@@ -40,13 +38,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="my-ads" class="my-ads block">
+    </section>
+    <section id="my-ads" class="my-ads block">
         <div class="container">
             <div class="card">
-                <div class="card-header bg-primary text-white">
-                    My-Items
-                </div>
+                <div class="card-header bg-primary text-white"> My-Items </div>
                 <div class="card-body">
                     <?php
                     $myItems = getAllFrom("*", "items" ,"WHERE Member_ID = $userid" , "" ,  "Item_ID", "DESC");
@@ -79,13 +75,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="my-comments block">
+    </section>
+    <section class="my-comments block">
         <div class="container">
             <div class="card">
-                <div class="card-header bg-primary text-white">
-                    Latest Comments
-                </div>
+                <div class="card-header bg-primary text-white"> Latest Comments </div>
                 <div class="card-body">
                     <?php
                     $myComments = getAllFrom("comment", "comments" ,"WHERE user_id = $userid" , "" ,  "c_id", "DESC");
@@ -100,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 <?php 
     } else {

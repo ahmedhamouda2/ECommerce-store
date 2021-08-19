@@ -23,16 +23,20 @@ $('input').each(function () {
     }
 });
 
+
 // Confirmation Message On Button
 $('.confirm').click(function () {
     return confirm('Are You Sure?');
 });
+
 
 // Trigger selectboxit
 $("select").selectBoxIt({
     autoWidth:false
 });
 
+
+// live update of item data
 $('.live').keyup(function(){
     $($(this).data('class')).text($(this).val());
 })

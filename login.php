@@ -21,9 +21,9 @@
     
             // if count > 0 this mean the database contains a record about this username
             if($count > 0) {
-                $_SESSION['user'] = $user;      // Register session name
+                $_SESSION['user'] = $user;              // Register session name
                 $_SESSION['uid'] = $get['UserID'];      // Register session user id
-                header('location:index.php');       // Redirect To index Page
+                header('location:index.php');           // Redirect To index Page
                 exit();
             }
         } else {
@@ -60,7 +60,9 @@
                     $formErrors[] = 'Sorry this User is Exists';
                 } else {
                     // Insert user info in database
-                    $stmt = $con->prepare("INSERT INTO users(Username , `Password` , Email  ,RegStatus , `Date`) VALUES(:zuser , :zpass , :zmail , 0 , now())");
+                    $stmt = $con->prepare("INSERT INTO 
+                                                users(Username , `Password` , Email  ,RegStatus , `Date`)
+                                            VALUES(:zuser , :zpass , :zmail , 0 , now())");
                     $stmt->execute(array(
                         'zuser' => $username,
                         'zpass' => sha1($password),

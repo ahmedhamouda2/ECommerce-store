@@ -15,7 +15,6 @@ if (isset($_SESSION['Username'])) {
     $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
     // start manage page
     if ($do == 'Manage') { // manage member page
-
         $query = '';
         if(isset($_GET['page']) && $_GET['page']=='Pending'){
             $query = 'AND RegStatus = 0';
@@ -24,10 +23,8 @@ if (isset($_SESSION['Username'])) {
         // select all users except Admin
         $stmt = $con->prepare("SELECT * FROM users WHERE GroupID != 1 $query ORDER BY UserID DESC");
         $stmt->execute();
-
         // assign to varible
         $rows = $stmt->fetchAll();
-
         if(!empty($rows)){
         ?>
             <h2 class="text-center">Manage Member</h2>
@@ -233,8 +230,6 @@ if (isset($_SESSION['Username'])) {
         }
         echo "</div>";
 
-
-            
     } elseif ($do == 'Edit') {  // Edit page 
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
         // check if user exist in database
@@ -242,9 +237,7 @@ if (isset($_SESSION['Username'])) {
         $stmt->execute(array($userid));
         $row = $stmt->fetch();
         $count = $stmt->rowCount();
-
         if($count > 0) { ?>
-
             <h2 class="text-center">Edit Member</h2>
             <div class="container">
                     <form action="?do=Update" method="POST">
@@ -308,7 +301,7 @@ if (isset($_SESSION['Username'])) {
             $id         = $_POST['userid'];
             $user       = $_POST['username'];
             $email      = $_POST['email'];
-            $full_name = $_POST['full'];
+            $full_name  = $_POST['full'];
 
             // password trick 
             $pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
@@ -374,7 +367,6 @@ if (isset($_SESSION['Username'])) {
             // Check if eet request userid Is Numeric & Get its integer value   
             $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
             $check = checkItem("userid", "users", $userid);
-
             if($check > 0) {
                 $stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
                 $stmt->bindParam(":zuser", $userid);
@@ -394,7 +386,6 @@ if (isset($_SESSION['Username'])) {
             $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']): 0;
             // select all data depend on this ID 
             $check = checkItem("userid", "users", $userid);
-
             if($check > 0) {
                 $stmt = $con->prepare("UPDATE users SET RegStatus = 1 WHERE UserID = ?");
                 $stmt->execute(array($userid));

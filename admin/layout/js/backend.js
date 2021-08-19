@@ -1,3 +1,4 @@
+// In the case of input not empty => does not interfere label with a value of input
 $(".custom-input input[type='text'] , .custom-input input[type='password'] ").on("focusout", function () {
     if ($(this).val() != "") {
         $(this).parent().addClass("has-data");
@@ -14,15 +15,8 @@ $('input').each(function () {
     }
 });
 
+
 // Convert Password Field To Text Field On Hover
-
-// var passField = $('.password');
-// $('.show-pass').hover(function () {
-//     passField.attr('type', 'text');
-// }, function () {
-//     passField.attr('type', 'password');
-// });
-
 let inputpass = document.querySelector('.password')
 function showPassword(){
     inputpass.type ='text'; 
@@ -31,10 +25,12 @@ function hidePassword(){
     inputpass.type ='password';
 }
 
+
 // Confirmation Message On Button
 $('.confirm').click(function () {
     return confirm('Are You Sure?');
 });
+
 
 // Category View Option
 $('.cat h3').click(function () {
@@ -49,10 +45,12 @@ $('.option span').click(function () {
     }
 });
 
+
 // Trigger selectboxit
 $("select").selectBoxIt({
     autoWidth:false
 });
+
 
 // Dashbord 
 $('.toggle-info').click(function(){
@@ -64,12 +62,14 @@ $('.toggle-info').click(function(){
     }
 });
 
+
 // show delete button on childs cats
 $('.child-link').hover(function(){
     $(this).find('.show-delete').fadeIn(400);
 } , function(){
     $(this).find('.show-delete').fadeOut(400);
 })
+
 
 // custom the input field 
 $(document).ready(function(){

@@ -176,7 +176,6 @@
                                 } else {
                                     echo 'There\'s No comments to show';
                                 }
-
                             ?>
                         </div>
                     </div>
@@ -184,7 +183,6 @@
             </div>
             <!-- End latest comment -->
         </section>
-
         <?php 
 
         include $tpl . 'footer.php';

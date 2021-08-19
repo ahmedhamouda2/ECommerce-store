@@ -14,11 +14,20 @@
         $hashedPass = sha1($password);          // password encryption
         
         // check if user exist in database
-        $stmt = $con->prepare("SELECT UserID , Username , Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1 LIMIT 1");
+        $stmt = $con->prepare("SELECT 
+                                    UserID , Username , `Password` 
+                                FROM 
+                                    users 
+                                WHERE 
+                                    Username = ? 
+                                AND 
+                                    `Password` = ? 
+                                AND 
+                                    GroupID = 1 
+                                LIMIT 1");
         $stmt->execute(array($username ,$hashedPass));
         $row = $stmt->fetch();
         $count = $stmt->rowCount();
-
         // if count > 0 this mean the database contains a record about this username
         if($count > 0) {
             $_SESSION['Username'] = $username;      // Register seesion name
@@ -45,7 +54,6 @@
         </div>
     </form>
 </div>
-
 <div class="divider"></div>
 <div class="copyright text-center">
     <span>© 2021, Ahmed Hamouda , All rights reserved.</span>

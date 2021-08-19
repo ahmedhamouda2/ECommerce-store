@@ -3,7 +3,7 @@
     $pageTitle = 'Show Items';
     include 'init.php';
     $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
-    // check if user exist in database
+
     $stmt = $con->prepare("SELECT 
                                 items.* , categories.Name AS catogry_name , users.Username
                             FROM 

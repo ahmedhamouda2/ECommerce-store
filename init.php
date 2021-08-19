@@ -12,11 +12,11 @@ if(isset($_SESSION['user'])) {
 
 // Routes 
 
-$tpl = 'includes/templates/';       // templates directory
-$css = 'layout/css/';               // css directory
-$js = 'layout/js/';                 // js directory
-$lang 	= 'includes/languages/';    // Language Directory
-$func 	= 'includes/functions/';    // functions Directory
+$tpl    = 'includes/templates/';        // templates directory
+$css    = 'layout/css/';                // css directory
+$js     = 'layout/js/';                 // js directory
+$lang 	= 'includes/languages/';        // Language Directory
+$func 	= 'includes/functions/';        // functions Directory
 
 //include the important files
 

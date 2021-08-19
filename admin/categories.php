@@ -77,11 +77,9 @@
                             echo '<a href="categories.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New catgory</a>';
                         echo '</div>';
             } ?>
-
         <?php
 
 		} elseif ($do == 'Add') { ?>
-
             <h2 class="text-center">Add New Category</h2>
             <div class="container">
                 <form action="?do=Insert" method="POST">
@@ -182,7 +180,6 @@
             
             <?php 
 		} elseif ($do == 'Insert') {
-
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo "<h2 class='text-center'>Insert Category</h2>";
             echo "<div class='container'>";
@@ -236,7 +233,6 @@
             $count = $stmt->rowCount();
 
             if($count > 0) { ?>
-
                 <h2 class="text-center">Edit Category</h2>
                 <div class="container">
                     <form action="?do=Update" method="POST">
@@ -347,7 +343,6 @@
         }
 
 		} elseif ($do == 'Update') {
-
             echo "<h2 class='text-center'>Update Category</h2>";
             echo "<div class='container'>";
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -387,7 +382,6 @@
             echo "</div>";
 
 		} elseif ($do == 'Delete') {
-
         // Delete Category page
         echo "<h2 class='text-center'>Delete Category</h2>";
         echo "<div class='container'>";
@@ -395,7 +389,6 @@
             $catid = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']): 0;
             // check if Category exist in database
             $check = checkItem("ID", "categories", $catid);
-
             if($check > 0) {
                 $stmt = $con->prepare("DELETE FROM categories WHERE ID = :zid");
                 $stmt->bindParam(":zid", $catid);
@@ -407,17 +400,11 @@
                 redirectHome($theMsg);
             }
         echo "</div>";
-
         }
-
 		include $tpl . 'footer.php';
 
 	} else {
-
 		header('Location: index.php');
-
 		exit();
 	}
-    
-
 ?>

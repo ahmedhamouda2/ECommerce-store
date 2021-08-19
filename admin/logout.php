@@ -1,8 +1,8 @@
 <?php 
 
-    session_start(); // start the Session
-    session_unset(); // unset the data
-    session_destroy(); // destroy the session
+    session_start();    // start the Session
+    session_unset();    // unset the data
+    session_destroy();  // destroy the session
 
     header('Location:index.php');
-    exit();  // ignore error in case sent the wrong header
+    exit();             // ignore error in case sent the wrong header

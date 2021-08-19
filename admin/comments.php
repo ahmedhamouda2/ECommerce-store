@@ -15,7 +15,6 @@ if (isset($_SESSION['Username'])) {
     $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
     // start manage page
     if ($do == 'Manage') { // manage comments page
-
         // select all users except Admin
         $stmt = $con->prepare("SELECT 
                                     comments.* , items.Name AS Item_Name , users.Username 
@@ -59,7 +58,6 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td>' . $comment['comment_date'] . '</td>';
                                     echo'<td>
                                             <a href="comments.php?do=Edit&commentid=' . $comment['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                                            
                                             <a href="comments.php?do=Delete&commentid=' . $comment['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
                                             if($comment['status'] == 0){
                                                 echo '<a href="comments.php?do=Approve&commentid=' . $comment['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
@@ -181,3 +179,4 @@ if (isset($_SESSION['Username'])) {
     header('location:index.php');
     exit();
 }
+

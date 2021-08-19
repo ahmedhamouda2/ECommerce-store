@@ -12,7 +12,6 @@
 		include 'init.php';
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 		if ($do == 'Manage') {
-
         $stmt = $con->prepare("SELECT 
                                     items.* , categories.Name AS catogry_name , users.Username
                                 FROM 
@@ -84,7 +83,6 @@
     <?php
 
 		} elseif ($do == 'Add') { ?>
-
             <h2 class="text-center">Add New Item</h2>
             <div class="container">
                 <form action="?do=Insert" method="POST">
@@ -189,7 +187,6 @@
             </div>
             <?php 
 		} elseif ($do == 'Insert') {  // Insert Items page
-
         echo "<div class='container'>";
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo "<h2 class='text-center'>Insert Items</h2>";
@@ -236,16 +233,18 @@
             // check if there no error proceed the update operation
                 if(empty($formErrors)){
                     // Insert item info in database
-                    $stmt = $con->prepare("INSERT INTO items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID , tags) VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember , :ztags)");
+                    $stmt = $con->prepare("INSERT INTO 
+                                                items(`Name` , `Description` , Price , Country_Made ,`Status` , Add_Date , Cat_ID , Member_ID , tags) 
+                                            VALUES(:zname , :zdesc , :zprice , :zcountry , :zstatus , now() , :zcat , :zmember , :ztags)");
                     $stmt->execute(array(
-                        'zname' => $name,
-                        'zdesc' => $desc,
-                        'zprice' => $price,
-                        'zcountry' => $country,
-                        'zstatus' => $status,
-                        'zmember' => $member,
-                        'zcat' => $cat,
-                        'ztags' => $tags
+                        'zname'     => $name,
+                        'zdesc'     => $desc,
+                        'zprice'    => $price,
+                        'zcountry'  => $country,
+                        'zstatus'   => $status,
+                        'zmember'   => $member,
+                        'zcat'      => $cat,
+                        'ztags'     => $tags
                     ));
     
                     // echo success message 
@@ -260,16 +259,13 @@
         echo "</div>";
 
 		} elseif ($do == 'Edit') {
-
         $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
         // check if user exist in database
         $stmt = $con->prepare("SELECT * FROM items WHERE Item_ID = ?");
         $stmt->execute(array($itemid));
         $item = $stmt->fetch();
         $count = $stmt->rowCount();
-
         if($count > 0) { ?>
-
             <h2 class="text-center">Edit Item</h2>
             <div class="container">
                 <form action="?do=Update" method="POST">
@@ -384,9 +380,7 @@
 
                 // assign to varible
                 $rows = $stmt->fetchAll();
-
                 if(!empty($rows)) {
-
                 ?>
                     <h2 class="text-center">Manage [ <?php echo $item['Name']  ?> ] Comments</h2>
                     <div class="container">
@@ -406,22 +400,18 @@
                                             echo'<td>' . $row['comment_date'] . '</td>';
                                             echo'<td>
                                                     <a href="comments.php?do=Edit&commentid=' . $row['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                                                    
                                                     <a href="comments.php?do=Delete&commentid=' . $row['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
                                                     if($row['status'] == 0){
                                                         echo '<a href="comments.php?do=Approve&commentid=' . $row['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
                                                     }
-
                                                 echo '</td>';
                                         echo '</tr>';
                                     }
                                 ?>
-
                             </table>
                         </div>
                         <?php } ?>
                     </div>
-
     <?php
         }else {
             echo '<div class="container">';
@@ -431,7 +421,6 @@
         }
 
 		} elseif ($do == 'Update') {
-
             echo "<h2 class='text-center'>Update Item</h2>";
             echo "<div class='container'>";
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -444,7 +433,7 @@
                 $status     = $_POST['status'];
                 $cat        = $_POST['category'];
                 $member     = $_POST['member'];
-                $tags     = $_POST['tags'];
+                $tags       = $_POST['tags'];
 
                 // validate the Form 
                 $formErrors = array();
@@ -497,7 +486,6 @@
             echo "</div>";
 
 		} elseif ($do == 'Delete') {
-
             // Delete Item page
             echo "<h2 class='text-center'>Delete Item</h2>";
             echo "<div class='container'>";
@@ -505,7 +493,6 @@
                 $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
                 // check if Item exist in database
                 $check = checkItem("Item_ID", "items", $itemid);
-
                 if($check > 0) {
                     $stmt = $con->prepare("DELETE FROM items WHERE Item_ID = :zid");
                     $stmt->bindParam(":zid", $itemid);
@@ -519,7 +506,6 @@
             echo "</div>";
 
 		} elseif ($do == 'Approve') {
-
             // Approve Item page
             echo "<h2 class='text-center'>Approve Item</h2>";
             echo "<div class='container'>";
@@ -527,7 +513,6 @@
                 $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']): 0;
                 // select all data depend on this ID 
                 $check = checkItem("Item_ID", "items", $itemid);
-
                 if($check > 0) {
                     $stmt = $con->prepare("UPDATE items SET Approve = 1 WHERE Item_ID = ?");
                     $stmt->execute(array($itemid));
@@ -538,17 +523,11 @@
                     redirectHome($theMsg);
                 }
             echo "</div>";
-
 		}
 
 		include $tpl . 'footer.php';
-
 	} else {
-
 		header('Location: index.php');
-
 		exit();
 	}
-
-
 ?>
