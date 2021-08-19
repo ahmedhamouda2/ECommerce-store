@@ -202,3 +202,24 @@ ALTER TABLE `items`
 ALTER TABLE `comments`
     MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
+
+-- --------------------------------------------------------
+
+--
+-- Constraints for tables
+--
+
+--
+-- Constraints for table `items`
+--
+ALTER TABLE `items`
+    ADD CONSTRAINT `cat_1` FOREIGN KEY (`Cat_ID`) REFERENCES `categories` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+    ADD CONSTRAINT `member_1` FOREIGN KEY (`Member_ID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+    ADD CONSTRAINT `users_comments` FOREIGN KEY (`user_id`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
+    ADD CONSTRAINT `items_comments` FOREIGN KEY (`item_id`) REFERENCES `items` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
