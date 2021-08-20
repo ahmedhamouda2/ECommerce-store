@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2021 at 06:45 PM
+-- Generation Time: Aug 20, 2021 at 09:32 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -105,16 +105,16 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`Item_ID`, `Name`, `Description`, `Price`, `Add_Date`, `Country_Made`, `Image`, `Status`, `Approve`, `Cat_ID`, `Member_ID`, `tags`) VALUES
-(10, 'Laptop', 'Very Good laptop', '700', '2021-08-10', 'China', 'Laptop.png', '1', 1, 7, 1, 'device , electronic , smart '),
-(11, 'Magic Mouse', 'Apple Mouse', '20', '2021-08-10', 'USA', 'Magic_mouse.jpg', '1', 1, 7, 2, 'professional , great mouse , For gaming , Ergonomic , discount'),
-(12, 'iPhone 12', 'apple mobile', '1500', '2021-08-10', 'japan', 'iPhone_12.jpg', '1', 1, 8, 3, 'discount , smart , phone , apple'),
-(13, 'TP-Link Archer', 'the best', '70', '2021-08-10', 'china', 'TP_Link_Archer.jpg', '1', 1, 7, 3, 'Ergonomic , router, electrician , device'),
+(10, 'Laptop', 'Very Good laptop', '700', '2021-08-10', 'China', 'Laptop.webp', '1', 1, 7, 1, 'device , electronic , smart '),
+(11, 'Magic Mouse', 'Apple Mouse', '20', '2021-08-10', 'USA', 'Magic_mouse.webp', '1', 1, 7, 2, 'professional , great mouse , For gaming , Ergonomic , discount'),
+(12, 'iPhone 12', 'apple mobile', '1500', '2021-08-10', 'japan', 'iPhone_12.webp', '1', 1, 8, 3, 'discount , smart , phone , apple'),
+(13, 'TP-Link Archer', 'the best', '70', '2021-08-10', 'china', 'TP_Link_Archer.webp', '1', 1, 7, 3, 'Ergonomic , router, electrician , device'),
 (14, 'Bluetooth Speaker', 'very good speaker ', '125', '2021-08-10', 'USA', 'Bluetooth_Speakeri_Wireless.webp', '1', 1, 7, 2, 'discount , speaker , music'),
-(15, 'Remote', 'This is testing remote', '20', '2021-08-12', 'USA', 'Remote.jpg', '1', 1, 7, 19, 'discount'),
-(19, 'Wooden Game', 'A Good Wooden game', '45', '2021-08-14', 'Palestine', 'Wooden_game_.jpg', '3', 1, 6, 23, 'homemade , discount , wood , gaming'),
-(20, 'Network Cable', 'Cat 9 Network Cable', '100', '2021-08-14', 'USA', 'Network_cable.jpg', '4', 1, 10, 17, ' electronic , cable , network'),
-(21, 'Air conditioner', 'To cool the air, very practical', '200', '2021-08-14', 'Korea', 'air-conditioning.jpg', '3', 1, 10, 21, 'discount , electrician , cooling , chilled , machine'),
-(22, 'PlayStation 5', 'Good Playstation 5 Game', '120', '2021-08-14', 'Finland', 'PlayStation_5.jpg', '2', 1, 10, 3, 'discount , gaming , video game'),
+(15, 'Remote', 'This is testing remote', '20', '2021-08-12', 'USA', 'Remote.webp', '1', 1, 7, 19, 'discount'),
+(19, 'Wooden Game', 'A Good Wooden game', '45', '2021-08-14', 'Palestine', 'Wooden_game_.webp', '3', 1, 6, 23, 'homemade , discount , wood , gaming'),
+(20, 'Network Cable', 'Cat 9 Network Cable', '100', '2021-08-14', 'USA', 'Network_cable.webp', '4', 1, 10, 17, ' electronic , cable , network'),
+(21, 'Air conditioner', 'To cool the air, very practical', '200', '2021-08-14', 'Korea', 'air-conditioning.webp', '3', 1, 10, 21, 'discount , electrician , cooling , chilled , machine'),
+(22, 'PlayStation 5', 'Good Playstation 5 Game', '120', '2021-08-14', 'Finland', 'PlayStation_5.webp', '2', 1, 10, 3, 'discount , gaming , video game'),
 (23, 'Washing Machine', 'kg1400 Washing Machine White', '450', '2021-08-14', 'Italia', 'Washing_machine.webp', '2', 1, 10, 22, 'discount , electical devices , machine'),
 (24, 'embroidery robe', 'hand made works', '40', '2021-08-17', 'Palestine', 'embroidery_robe.webp', '1', 1, 6, 20, 'discount , handmade , heritage , legacy , tradition ,clothing'),
 (25, 'T-shirt sport', 'T-shirt for playing sport', '50', '2021-08-19', 'spain', 'sports-t-shirt.webp', '1', 1, 9, 22, 'discount , sport ,clothing , football');
@@ -144,13 +144,13 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `FullName`, `GroupID`, `RegStatus`, `Date`, `Avatar`) VALUES
 (1, 'ahmedadel97', '601f1889667efaebb33b8c12572835da3f027f78', 'ahmedhamouda9797@gmail.com', 'ahmed adel hamouda', 1, 1, '2021-08-10', ''),
 (2, 'mohammed', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'mohammed@gmail.com', 'mohammed adel', 0, 0, '2021-08-10', ''),
-(3, 'Yazan alsharif', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Yazan@gmail.com', 'Yazan mohammed', 0, 1, '2021-08-10', '259942_EYVxlOSXsAExOpX.jpg'),
-(17, 'mahmoud', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'mahmoud@gmail.com', 'Mahmoud Ahmed', 0, 0, '2021-08-12', '259942_EYVxlOSXsAExOpX.jpg'),
+(3, 'Yazan alsharif', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Yazan@gmail.com', 'Yazan mohammed', 0, 1, '2021-08-10', '259942_EYVxlOSXsAExOpX.webp'),
+(17, 'mahmoud', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'mahmoud@gmail.com', 'Mahmoud Ahmed', 0, 0, '2021-08-12', '259942_EYVxlOSXsAExOpX.webp'),
 (18, 'ahmed', '601f1889667efaebb33b8c12572835da3f027f78', 'ahmed@gmail.com', 'Ahmed Khalid', 0, 0, '2021-08-12', ''),
 (19, 'alia', '601f1889667efaebb33b8c12572835da3f027f78', 'alia0@gmail.com', 'Alia Abdulhadi', 0, 0, '2021-08-12', ''),
 (20, 'alaa', '601f1889667efaebb33b8c12572835da3f027f78', 'alaa@gmail.com', 'Alaa Hamouda', 0, 1, '2021-08-12', ''),
 (21, 'ahmed mohammed', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ahmedmohammed@gmail.com', 'ahmed mohammed', 0, 1, '2021-08-18', ''),
-(22, 'husam abu odah02', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'husam@gmail.com', 'husam abu odah', 0, 1, '2021-08-18', '259942_EYVxlOSXsAExOpX.jpg'),
+(22, 'husam abu odah02', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'husam@gmail.com', 'husam abu odah', 0, 1, '2021-08-18', '259942_EYVxlOSXsAExOpX.webp'),
 (23, 'Rola', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'rolaali@gmail.com', 'Rola ahmed', 0, 1, '2021-08-18', '');
 
 --
