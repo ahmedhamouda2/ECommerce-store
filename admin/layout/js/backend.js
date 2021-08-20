@@ -17,13 +17,12 @@ $('input').each(function () {
 
 
 // Convert Password Field To Text Field On Hover
-let inputpass = document.querySelector('.password')
-function showPassword(){
-    inputpass.type ='text'; 
-}
-function hidePassword(){
-    inputpass.type ='password';
-}
+var passField = $('.password');
+$('.show-pass').hover(function () {
+    passField.attr('type', 'text');
+}, function () {
+    passField.attr('type', 'password');
+});
 
 
 // Confirmation Message On Button
