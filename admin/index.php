@@ -41,16 +41,16 @@
     <form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <h3 class="heading-login"><?php echo lang('Admin_Login') ?></h3>
         <div class="custom-input">
-            <input class="form-control" type="text" name="user" autocomplete="off">
-            <label>Username</label>
+            <input id="Username" class="form-control" type="text" name="user" autocomplete="off">
+            <label for="Username">Username</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="password" name="pass" autocomplete="new-password">
-            <label>Password</label>
+            <input id="Password" class="form-control" type="password" name="pass" autocomplete="new-password">
+            <label for="Password">Password</label>
         </div>
         <input class="btn btn-primary btn-block" type="submit" value="Login" />
         <div class="help text-center mt-2">
-            <a href="#">Need help?</a>
+            <a href="#" role="button">Need help?</a>
         </div>
     </form>
 </div>

@@ -57,11 +57,11 @@
                                     echo'<td>' . $item['catogry_name'] . '</td>';
                                     echo'<td>' . $item['Username'] . '</td>';
                                     echo'<td>
-                                            <a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                            <a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '" class="btn btn-success" role="button"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
                                             
-                                            <a href="Items.php?do=Delete&itemid=' . $item['Item_ID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                            <a href="Items.php?do=Delete&itemid=' . $item['Item_ID'] . '" class="btn btn-danger confirm" role="button"><i class="fas fa-times" aria-hidden="true"></i> Delete</a>';
                                             if($item['Approve'] == 0){
-                                                echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approval</a>';
+                                                echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve" role="button"><i class="fas fa-check" aria-hidden="true"></i> Approval</a>';
                                             }
                                         echo '</td>';
                                 echo '</tr>';
@@ -70,13 +70,13 @@
 
                     </table>
                 </div>
-                <a href="Items.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Item</a>
+                <a href="Items.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> New Item</a>
             </div>
 
         <?php } else {
             echo '<div class="container">';
-                echo '<div class="alert alert-info">There\'s No items to show</div>';
-                echo '<a href="Items.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Item</a>';
+                echo '<div class="alert alert-info" role="alert">There\'s No items to show</div>';
+                echo '<a href="Items.php?do=Add" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus" aria-hidden="true"></i> New Item</a>';
             echo '</div>';
         } ?>
 
@@ -90,7 +90,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item">
+                            <input type="text" name="name" class="form-control" autocomplete="off" required aria-required="true" placeholder="Name of Item" aria-label="Name of Item">
                         </div>
                     </div>
                     <!-- End Name field -->
@@ -98,7 +98,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item">
+                            <input type="text" name="description" class="form-control" autocomplete="off" required aria-required="true" placeholder="Describe the Item" aria-label="Describe the Item">
                         </div>
                     </div>
                     <!-- End Description field -->
@@ -106,7 +106,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Price</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item">
+                            <input type="text" name="price" class="form-control" autocomplete="off" required aria-required="true" placeholder="Price the Item" aria-label="Price the Item">
                         </div>
                     </div>
                     <!-- End price field -->
@@ -114,7 +114,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
+                            <input type="text" name="country" class="form-control" autocomplete="off" required aria-required="true" placeholder="Country of Made" aria-label="Country of Made">
                         </div>
                     </div>
                     <!-- End country field -->
@@ -122,7 +122,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Status</label>
                         <div class="col-sm-10 col-md-6">
-                            <select name="status">
+                            <select name="status" aria-label="itemStatus">
                                 <option value="0">...</option>
                                 <option value="1">New</option>
                                 <option value="2">Like New</option>
@@ -136,7 +136,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Member</label>
                         <div class="col-sm-10 col-md-6">
-                            <select name="member">
+                            <select name="member" aria-label="members">
                                 <option value="0">...</option>
                                 <?php
                                     $allmembers = getAllFrom("*" ,"users" ,"" , "" ,  "UserID");
@@ -152,7 +152,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Category</label>
                         <div class="col-sm-10 col-md-6">
-                            <select name="category">
+                            <select name="category" aria-label="categories">
                                 <option value="0">...</option>
                                 <?php
                                     $allCats = getAllFrom("*" ,"categories" ,"WHERE parent = 0" , "" ,  "ID");
@@ -172,7 +172,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Tags</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )">
+                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )" aria-label="separator tags with comma ( , )">
                         </div>
                     </div>
                     <!-- End Tags field -->
@@ -274,7 +274,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="name" class="form-control" autocomplete="off" required placeholder="Name of Item" value="<?php echo $item['Name'] ?>">
+                            <input type="text" name="name" class="form-control" autocomplete="off" required aria-required="true" placeholder="Name of Item" aria-label="Name of Item" value="<?php echo $item['Name'] ?>">
                         </div>
                     </div>
                     <!-- End Name field -->
@@ -282,7 +282,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="description" class="form-control" autocomplete="off" required placeholder="Describe the Item" value="<?php echo $item['Description'] ?>">
+                            <input type="text" name="description" class="form-control" autocomplete="off" required aria-required="true" placeholder="Describe the Item" aria-label="Describe the Item" value="<?php echo $item['Description'] ?>">
                         </div>
                     </div>
                     <!-- End Description field -->
@@ -290,7 +290,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Price</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="price" class="form-control" autocomplete="off" required placeholder="Price the Item" value="<?php echo $item['Price'] ?>">
+                            <input type="text" name="price" class="form-control" autocomplete="off" required aria-required="true" placeholder="Price the Item" aria-label="Price the Item" value="<?php echo $item['Price'] ?>">
                         </div>
                     </div>
                     <!-- End price field -->
@@ -298,7 +298,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Country</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made" value="<?php echo ucfirst($item['Country_Made']) ?>">
+                            <input type="text" name="country" class="form-control" autocomplete="off" required aria-required="true" placeholder="Country of Made" aria-label="Country of Made" value="<?php echo ucfirst($item['Country_Made']) ?>">
                         </div>
                     </div>
                     <!-- End country field -->
@@ -353,7 +353,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Tags</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )" value="<?php echo $item['tags'] ?>">
+                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )" aria-label="separator tags with comma ( , )" value="<?php echo $item['tags'] ?>">
                         </div>
                     </div>
                     <!-- End Tags field -->
@@ -399,10 +399,10 @@
                                             echo'<td>' . $row['Username'] . '</td>';
                                             echo'<td>' . $row['comment_date'] . '</td>';
                                             echo'<td>
-                                                    <a href="comments.php?do=Edit&commentid=' . $row['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a href="comments.php?do=Delete&commentid=' . $row['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                                    <a href="comments.php?do=Edit&commentid=' . $row['c_id'] . '" class="btn btn-success" role="button"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                                                    <a href="comments.php?do=Delete&commentid=' . $row['c_id'] . '" class="btn btn-danger confirm" role="button"><i class="fas fa-times" aria-hidden="true"></i> Delete</a>';
                                                     if($row['status'] == 0){
-                                                        echo '<a href="comments.php?do=Approve&commentid=' . $row['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
+                                                        echo '<a href="comments.php?do=Approve&commentid=' . $row['c_id'] . '" class="btn btn-info approve" role="button"><i class="fas fa-check" aria-hidden="true"></i> Approve</a>';
                                                     }
                                                 echo '</td>';
                                         echo '</tr>';

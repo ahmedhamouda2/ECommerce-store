@@ -16,7 +16,7 @@
                                 echo '<span class="price">$' . $item['Price'] . '</span>';
                                 echo '<img class="card-img-top img-fluid img-thumbnail" src="layout/assets/' . $item["Image"] . '" alt="Card image">';
                                 echo '<div class="card-body">';
-                                    echo '<h4 class="card-title">' . $item['Name'] . '</h4>';
+                                    echo '<h3 class="card-title">' . $item['Name'] . '</h3>';
                                     echo '<p class="card-text">' . $item['Description'] . '</p>';
                                     echo '<div class="d-flex justify-content-between">';
                                         echo '<span class="date text-left">' . ucfirst($item['Country_Made']) . '</span>';

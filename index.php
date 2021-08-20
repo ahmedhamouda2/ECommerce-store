@@ -10,7 +10,7 @@
                 foreach($allItems as $item){
                     echo '<div class="col-sm-6 col-md-4 col-lg-3">';
                         echo '<div class="card mt-3">';
-                            echo '<a class="custom-item" href="items.php?itemid=' . $item['Item_ID'] . '">';
+                            echo '<a class="custom-item" href="items.php?itemid=' . $item['Item_ID'] . '" role="button">';
                                 echo '<span class="price">$' . $item['Price'] . '</span>';
                                 echo '<img class="card-img-top img-fluid img-thumbnail" src="layout/assets/' . $item["Image"] . '" alt="Card image">';
                                 echo '<div class="card-body">';

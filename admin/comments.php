@@ -57,10 +57,10 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td>' . $comment['Username'] . '</td>';
                                     echo'<td>' . $comment['comment_date'] . '</td>';
                                     echo'<td>
-                                            <a href="comments.php?do=Edit&commentid=' . $comment['c_id'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-                                            <a href="comments.php?do=Delete&commentid=' . $comment['c_id'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                            <a href="comments.php?do=Edit&commentid=' . $comment['c_id'] . '" class="btn btn-success" role="button"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                                            <a href="comments.php?do=Delete&commentid=' . $comment['c_id'] . '" class="btn btn-danger confirm" role="button"><i class="fas fa-times" aria-hidden="true"></i> Delete</a>';
                                             if($comment['status'] == 0){
-                                                echo '<a href="comments.php?do=Approve&commentid=' . $comment['c_id'] . '" class="btn btn-info approve"><i class="fas fa-check"></i> Approve</a>';
+                                                echo '<a href="comments.php?do=Approve&commentid=' . $comment['c_id'] . '" class="btn btn-info approve" role="button" ><i class="fas fa-check" aria-hidden="true"></i> Approve</a>';
                                             }
                                         echo '</td>';
                                 echo '</tr>';
@@ -71,7 +71,7 @@ if (isset($_SESSION['Username'])) {
             </div>
         <?php } else {
                 echo '<div class="container">';
-                    echo '<div class="alert alert-info">There\'s No Comments to show</div>';
+                    echo '<div class="alert alert-info" role="alert">There\'s No Comments to show</div>';
                 echo '</div>';
         } ?>
 

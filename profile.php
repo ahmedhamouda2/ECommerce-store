@@ -32,7 +32,7 @@
                         <p>email : <?php echo $info['Email'] ?></p>
                     </div>
                     <div class="date-join">
-                        <i class="fas fa-clock fa-fw "></i>
+                        <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
                         <span>Joined <?php echo $info['Date'] ?></span>
                     </div>
                 </div>

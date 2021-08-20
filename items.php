@@ -62,10 +62,10 @@
         <?php if(isset($_SESSION['user'])) {?>
             <div class="row">
                 <div class="offset-md-4 add-comment">
-                    <h4>Add Your Comment</h4>
+                    <h3>Add Your Comment</h3>
                     <form action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $item['Item_ID']  ?>" method="POST">
-                        <textarea class="form-control" name="comment" cols="50" rows="5" required></textarea>
-                        <input class="btn btn-primary" type="submit" value="Add Comment">
+                        <textarea class="form-control" name="comment" cols="50" rows="5" required aria-required="true" aria-label="comment"></textarea>
+                        <input class="btn btn-primary" type="submit" value="Add Comment" role="button">
                     </form>
                     <?php
                         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -82,7 +82,7 @@
                                     'zuserid' => $userid,
                                 ));
                                 if($stmt){
-                                    echo '<div class="alert alert-success mt-2">Comment Added</div>';
+                                    echo '<div class="alert alert-success mt-2" role="alert">Comment Added</div>';
                                 }
                             }
                         }
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <?php } else {
-                echo 'Please <a href="login.php">Login</a> or <a href="login.php">Register</a> to add a comment';
+                echo 'Please <a href="login.php" role="button">Login</a> or <a href="login.php">Register</a> to add a comment';
             } ?> 
         <hr>
         <!-- End add comment section -->

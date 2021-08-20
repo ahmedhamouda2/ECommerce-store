@@ -68,41 +68,41 @@
                                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="main-form">
                                     <!-- start Name field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Name</label>
+                                        <label for="name" class="col-sm-3 col-form-label d-flex justify-content-sm-end">Name</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <input type="text" pattern=".{4,}" title="Require at least 4 characters" name="name" class="form-control live" autocomplete="off" required placeholder="Name of Item" data-class=".live-title">
+                                            <input id="name" type="text" pattern=".{4,}" title="Require at least 4 characters" aria-describedby="Name-length-error" aria-invalid="true" name="name" class="form-control live" autocomplete="off" required aria-required="true" placeholder="Name of Item" aria-label="Name of Item" data-class=".live-title">
                                         </div>
                                     </div>
                                     <!-- End Name field -->
                                     <!-- start Description field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Description</label>
+                                        <label for="description" class="col-sm-3 col-form-label d-flex justify-content-sm-end">Description</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <input type="text" pattern=".{10,}" title="Require at least 10 characters" name="description" class="form-control live" autocomplete="off" required placeholder="Describe the Item" data-class=".live-desc">
+                                            <input id="description" type="text" pattern=".{10,}" aria-describedby="Description-length-error" aria-invalid="true" title="Require at least 10 characters" name="description" class="form-control live" autocomplete="off" required aria-required="true" placeholder="Describe the Item" aria-label="Describe the Item" data-class=".live-desc">
                                         </div>
                                     </div>
                                     <!-- End Description field -->
                                     <!-- start price field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Price</label>
+                                        <label for="price" class="col-sm-3 col-form-label d-flex justify-content-sm-end">Price</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <input type="text" name="price" class="form-control live" autocomplete="off" required placeholder="Price the Item" data-class=".live-price">
+                                            <input id="price" type="text" name="price" class="form-control live" autocomplete="off" required aria-required="true" placeholder="Price the Item" aria-label="Price the Item" data-class=".live-price">
                                         </div>
                                     </div>
                                     <!-- End price field -->
                                     <!-- start country field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Country</label>
+                                        <label for="country" class="col-sm-3 col-form-label d-flex justify-content-sm-end">Country</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <input type="text" name="country" class="form-control" autocomplete="off" required placeholder="Country of Made">
+                                            <input id="country" type="text" name="country" class="form-control" autocomplete="off" required aria-required="true" placeholder="Country of Made" aria-label="Country of Made">
                                         </div>
                                     </div>
                                     <!-- End country field -->
                                     <!-- start status field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Status</label>
+                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end" for="Status">Status</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <select name="status" required>
+                                            <select name="status" required aria-required="true" aria-label="Status" id="Status">
                                                 <option value="">...</option>
                                                 <option value="1">New</option>
                                                 <option value="2">Like New</option>
@@ -114,9 +114,9 @@
                                     <!-- End status field -->
                                     <!-- start categories field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Category</label>
+                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end" for="Category">Category</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <select name="category" required>
+                                            <select name="category" required aria-label="Category" id="Category" aria-required="true">
                                                 <option value="">...</option>
                                                 <?php
                                                 $cats = getAllFrom('*','categories','','', 'ID');
@@ -130,16 +130,16 @@
                                     <!-- End categories field -->
                                     <!-- start Tags field -->
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label d-flex justify-content-sm-end">Tags</label>
+                                        <label for="tags" class="col-sm-3 col-form-label d-flex justify-content-sm-end">Tags</label>
                                         <div class="col-sm-10 col-md-9">
-                                            <input type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )">
+                                            <input id="tags" type="text" name="tags" class="form-control" placeholder="separator tags with comma ( , )" aria-label="separator tags with comma ( , )">
                                         </div>
                                     </div>
                                     <!-- End Tags field -->
                                     <!-- start submit -->
                                     <div class="form-group row">
                                         <div class="offset-sm-3 col-sm-9">
-                                            <input type="submit" value="Add Item" class="btn btn-primary btn-sm">
+                                            <input type="submit" value="Add Item" class="btn btn-primary btn-sm" role="button">
                                         </div>
                                     </div>
                                     <!-- end submit -->
@@ -160,11 +160,11 @@
                         <?php
                             if(!empty($formErrors)){
                                 foreach($formErrors as $error) {
-                                    echo '<div class="alert alert-danger">' . $error . '</div>';
+                                    echo '<div class="alert alert-danger" role="alert">' . $error . '</div>';
                                 }
                             }
                             if(isset($successMsg)){
-                                echo '<div class="alert alert-success">' . $successMsg . '</div>';
+                                echo '<div class="alert alert-success" role="alert">' . $successMsg . '</div>';
                             }
                         ?>
                         <!-- end looping through errors -->

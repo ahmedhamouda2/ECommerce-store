@@ -15,46 +15,46 @@
             <h2>Dashbord</h2>
             <div class="row">
                 <div class="col-md-3">
-                    <a href="members.php">
+                    <a href="members.php" role="button">
                         <div class="stat stat-member d-flex flex-row justify-content-around">
                             <div>
                                 Total Members 
                                 <span><?php echo countItems('UserID', 'users') ?></span>
                             </div>
-                            <div><i class="fas fa-users fa-5x  fa-fw"></i></div>
+                            <div><i class="fas fa-users fa-5x  fa-fw" aria-hidden="true"></i></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="members.php?do=Manage&page=Pending">
+                    <a href="members.php?do=Manage&page=Pending" role="button">
                         <div class="stat stat-pending d-flex flex-row justify-content-around">
                             <div>
                                 Pending Members 
                                 <span><?php echo checkItem('RegStatus', 'users', 0) ?></span>
                             </div>
-                            <div><i class="fas fa-user-clock fa-5x fa-fw"></i></i></div>
+                            <div><i class="fas fa-user-clock fa-5x fa-fw" aria-hidden="true"></i></i></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="Items.php">
+                    <a href="Items.php" role="button">
                         <div class="stat stat-items d-flex flex-row justify-content-around">
                             <div>
                                 Total Items 
                                 <span><?php echo countItems('Item_ID', 'items') ?></span>
                             </div>
-                            <div><i class="fas fa-tags fa-5x fa-fw"></i></div>
+                            <div><i class="fas fa-tags fa-5x fa-fw" aria-hidden="true"></i></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="comments.php">
+                    <a href="comments.php" role="button">
                         <div class="stat stat-comments d-flex flex-row justify-content-around">
                             <div>
                                 Total Comments 
                                 <span><?php echo countItems('c_id', 'comments') ?></span>
                             </div>
-                            <div><i class="fas fa-comments fa-5x fa-fw"></i></div>
+                            <div><i class="fas fa-comments fa-5x fa-fw" aria-hidden="true"></i></div>
                         </div>
                     </a>
                 </div>
@@ -66,9 +66,9 @@
                 <div class="col-sm-6">
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-users fa-fw color-icon"></i> Latest <?php echo $latestNumUsers ?> Registered Users 
+                            <i class="fa fa-users fa-fw color-icon" aria-hidden="true"></i> Latest <?php echo $latestNumUsers ?> Registered Users 
                             <span class="float-right toggle-info">
-                                <i class="fa fa-plus fa-fw"></i>
+                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
                             </span>
                         </div>
                         <div class="card-body">
@@ -83,11 +83,11 @@
                                                     echo '<img class="rounded-circle" src="uploads/avatars/' . $user['Avatar'] . '" alt = "avatar image">';
                                                 }
                                                 echo $user['Username'];
-                                                echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '">';
+                                                echo '<a href="members.php?do=Edit&userid=' . $user['UserID'] . '" role="button">';
                                                     echo '<span class="btn btn-success float-right">';
-                                                        echo '<i class="fa fa-edit  fa-fw"></i> Edit';
+                                                        echo '<i class="fa fa-edit fa-fw" aria-hidden="true"></i> Edit';
                                                         if($user['RegStatus'] == 0){
-                                                            echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right"><i class="fas fa-user-check  fa-fw"></i> Activate</a>';
+                                                            echo '<a href="members.php?do=Activate&userid=' . $user['UserID'] . '" class="btn btn-info activate float-right" role="button"><i class="fas fa-user-check fa-fw" aria-hidden="true"></i> Activate</a>';
                                                         }
                                                     echo '</span>';
                                                 echo '</a>';
@@ -104,9 +104,9 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-tag fa-fw color-icon"></i> Latest Items
+                            <i class="fa fa-tag fa-fw color-icon" aria-hidden="true"></i> Latest Items
                             <span class="float-right toggle-info">
-                                <i class="fa fa-plus fa-fw"></i>
+                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
                             </span>
                         </div>
                         <div class="card-body">
@@ -117,10 +117,10 @@
                                             echo '<li>';
                                                 echo $item['Name'];
                                                 echo '<a href="Items.php?do=Edit&itemid=' . $item['Item_ID'] . '">';
-                                                    echo '<span class="btn btn-success float-right">';
-                                                        echo '<i class="fa fa-edit fa-fw"></i> Edit';
+                                                    echo '<span class="btn btn-success float-right" role="button">';
+                                                        echo '<i class="fa fa-edit fa-fw" aria-hidden="true"></i> Edit';
                                                         if($item['Approve'] == 0){
-                                                            echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right"><i class="fas fa-check fa-fw"></i> Approve</a>';
+                                                            echo '<a href="Items.php?do=Approve&itemid=' . $item['Item_ID'] . '" class="btn btn-info approve float-right" role="button"><i class="fas fa-check fa-fw" aria-hidden="true"></i> Approve</a>';
                                                         }
                                                     echo '</span>';
                                                 echo '</a>';
@@ -140,9 +140,9 @@
                 <div class="col-sm-6">
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-comments fa-fw color-icon"></i> Latest Comments 
+                            <i class="fa fa-comments fa-fw color-icon" aria-hidden="true"></i> Latest Comments 
                             <span class="float-right toggle-info">
-                                <i class="fa fa-plus fa-fw"></i>
+                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
                             </span>
                         </div>
                         <div class="card-body">

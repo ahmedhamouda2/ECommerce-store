@@ -56,11 +56,11 @@ if (isset($_SESSION['Username'])) {
                                     echo'<td>' . $row['FullName'] . '</td>';
                                     echo'<td>' . $row['Date'] . '</td>';
                                     echo'<td>
-                                            <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+                                            <a href="members.php?do=Edit&userid=' . $row['UserID'] . '" class="btn btn-success" role="button"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
                                             
-                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm"><i class="fas fa-times"></i> Delete</a>';
+                                            <a href="members.php?do=Delete&userid=' . $row['UserID'] . '" class="btn btn-danger confirm" role="button"><i class="fas fa-times" aria-hidden="true"></i> Delete</a>';
                                             if($row['RegStatus'] == 0){
-                                                echo '<a href="members.php?do=Activate&userid=' . $row['UserID'] . '" class="btn btn-info activate"><i class="fas fa-user-check"></i> Activate</a>';
+                                                echo '<a href="members.php?do=Activate&userid=' . $row['UserID'] . '" class="btn btn-info activate" role="button"><i class="fas fa-user-check" aria-hidden="true"></i> Activate</a>';
                                             }
 
                                         echo '</td>';
@@ -70,12 +70,12 @@ if (isset($_SESSION['Username'])) {
 
                     </table>
                 </div>
-                <a href="members.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Mebmer</a>
+                <a href="members.php?do=Add" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus" aria-hidden="true"></i> New Mebmer</a>
             </div>
             <?php } else {
                 echo '<div class="container">';
-                    echo '<div class="alert alert-info">There\'s No Mebmer to show</div>';
-                    echo '<a href="members.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New Mebmer</a>';
+                    echo '<div class="alert alert-info" role="alert">There\'s No Mebmer to show</div>';
+                    echo '<a href="members.php?do=Add" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus" aria-hidden="true"></i> New Mebmer</a>';
                 echo '</div>';
         } ?>
     <?php } elseif ($do == 'Add') { 
@@ -86,9 +86,9 @@ if (isset($_SESSION['Username'])) {
                 <form action="?do=Insert" method="POST" enctype="multipart/form-data">
                     <!-- start username field -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="username">Username</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="username" class="form-control" autocomplete="off" required  placeholder="Username to login into Shop">
+                            <input id="username" type="text" name="username" class="form-control" autocomplete="off" required aria-required="true"  placeholder="Username to login into Shop" aria-label="Username to login into Shop">
                         </div>
                     </div>
                     <!-- End username field -->
@@ -96,39 +96,39 @@ if (isset($_SESSION['Username'])) {
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="password" name="password" class="password form-control" autocomplete="new-password" required placeholder="Password must be Hard & Complex">
-                            <i class="show-pass fas fa-eye fa-2x" onmouseover="showPassword()" onmouseout="hidePassword()"></i>
+                            <input type="password" name="password" class="password form-control" autocomplete="new-password" required aria-required="true" placeholder="Password must be Hard & Complex" aria-label="Password must be Hard & Complex">
+                            <i class="show-pass fas fa-eye fa-2x" aria-hidden="true"></i>
                         </div>
                     </div>
                     <!-- end password field -->
                     <!-- start Email field -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="email">Email</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="email" name="email" class="form-control" required  placeholder="Email must be valid">
+                            <input id="email" type="email" name="email" class="form-control" autocomplete="email" required aria-required="true" placeholder="Email must be valid" aria-label="Email must be valid">
                         </div>
                     </div>
                     <!-- end Email field -->
                     <!-- start fullname field -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="Fullname">Full Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="full" class="form-control" required  placeholder="Full name Appear in your profile page">
+                            <input id="Fullname" type="text" name="full" class="form-control" required aria-required="true" placeholder="Full name Appear in your profile page" aria-label="Full name Appear in your profile page">
                         </div>
                     </div>
                     <!-- end fullname field -->
                     <!-- start avatar field -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">User Avatar</label>
+                        <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="avatar">User Avatar</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="file" name="avatar">
+                            <input id="avatar" type="file" name="avatar">
                         </div>
                     </div>
                     <!-- end avatar field -->
                     <!-- start submit -->
                     <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" value="Add Member" class="btn btn-primary btn-sm">
+                            <input type="submit" value="Add Member" class="btn btn-primary btn-sm" role="button">
                         </div>
                     </div>
                     <!-- end submit -->
@@ -244,9 +244,9 @@ if (isset($_SESSION['Username'])) {
                         <input type="hidden" name="userid" value="<?php echo $userid ?>">
                         <!-- start username field -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Username</label>
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="username">Username</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="text" name="username" class="form-control" value="<?php echo $row['Username'] ?>" autocomplete="off" required>
+                                <input id="username" type="text" name="username" class="form-control" value="<?php echo $row['Username'] ?>" autocomplete="off" required aria-required="true">
                             </div>
                         </div>
                         <!-- End username field -->
@@ -255,30 +255,30 @@ if (isset($_SESSION['Username'])) {
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Password</label>
                             <div class="col-sm-10 col-md-6">
                                 <input type="hidden" name="oldpassword" value="<?php echo $row['Password'] ?>">
-                                <input type="password" name="newpassword" class="form-control" autocomplete="new-password" placeholder="Leave Blank If You Don't Want To Change">
+                                <input type="password" name="newpassword" class="form-control" autocomplete="new-password" placeholder="Leave Blank If You Don't Want To Change" aria-label="Leave Blank If You Don't Want To Change">
                             </div>
                         </div>
                         <!-- end password field -->
                         <!-- start Email field -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Email</label>
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="email">Email</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="email" name="email" class="form-control" value="<?php echo $row['Email'] ?>" required>
+                                <input id="email" type="email" name="email" class="form-control" autocomplete="email" value="<?php echo $row['Email'] ?>" required aria-required="true">
                             </div>
                         </div>
                         <!-- end Email field -->
                         <!-- start fullname field -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Full Name</label>
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="Fullname">Full Name</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="text" name="full" class="form-control"  value="<?php echo $row['FullName'] ?>" required>
+                                <input id="Fullname" type="text" name="full" class="form-control"  value="<?php echo $row['FullName'] ?>" required aria-required="true">
                             </div>
                         </div>
                         <!-- end fullname field -->
                         <!-- start submit -->
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <input type="submit" value="save" class="btn btn-primary btn-sm">
+                                <input type="submit" value="save" class="btn btn-primary btn-sm" role="button">
                             </div>
                         </div>
                         <!-- end submit -->

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html dir="<?php echo lang('DIRECTION'); ?>">
+<html dir="<?php echo lang('DIRECTION'); ?>" lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Ecommerce-store">
         <title><?php echo getTitle(); ?></title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,17 +36,17 @@
                             ?>
                             <span class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"> <?php echo $sessionUser?> </span>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw"></i><?php echo lang('Profile'); ?></a></li>
-                                <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw"></i><?php echo lang('New_Item'); ?></a></li>
-                                <li><a class="dropdown-item" href="profile.php#my-ads"><i class="fas fa-tags fa-fw"></i><?php echo lang('My_Items'); ?></a></li>
-                                <li><a class="dropdown-item special-dropdown" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i><?php echo lang('LOGOUT'); ?></a></li>
+                                <li><a class="dropdown-item" href="profile.php"><i class="fas fa-user fa-fw" aria-hidden="true"></i><?php echo lang('Profile'); ?></a></li>
+                                <li><a class="dropdown-item" href="newads.php"><i class="fas fa-plus-square fa-fw" aria-hidden="true"></i><?php echo lang('New_Item'); ?></a></li>
+                                <li><a class="dropdown-item" href="profile.php#my-ads"><i class="fas fa-tags fa-fw" aria-hidden="true"></i><?php echo lang('My_Items'); ?></a></li>
+                                <li><a class="dropdown-item special-dropdown" href="logout.php"><i class="fas fa-sign-out-alt fa-fw" aria-hidden="true"></i><?php echo lang('LOGOUT'); ?></a></li>
                             </ul>
                         </div>
                 <?php
                     } else {
                 ?>
                 <a href="login.php">
-                    <div class="text-right button-login">Login/Singup</div>
+                    <div class="text-right button-login" role="button">Login/Singup</div>
                 </a>
                 <?php } ?>
             </div>
@@ -62,7 +63,7 @@
                         <?php
                             $allCats = getAllFrom("*","categories","WHERE parent = 0" , "" , "ID" , "ASC");
                             foreach($allCats as $cat) {
-                                echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '">' . lang($cat['Name']) . '</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link" href="categories.php?pageid=' . $cat['ID'] . '" role="button">' . lang($cat['Name']) . '</a></li>';
                             }
                         ?>
                     </ul>

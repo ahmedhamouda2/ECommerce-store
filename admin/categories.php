@@ -26,12 +26,12 @@
                 <div class="container categories">
                     <div class="card">
                         <div class="card-header">
-                        <i class="fa fa-edit"></i> Manage Categories
+                        <i class="fa fa-edit" aria-hidden="true"></i> Manage Categories
                             <div class="option float-right">
-                                <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC"><i class="fas fa-sort-alpha-down fa-lg"></i></a> :
-                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC"><i class="fas fa-sort-alpha-down-alt fa-lg"></i></a> |
-                                <span class="active" data-view="full"><i class="fas fa-eye"></i></span> :
-                                <span data-view="classic"><i class="fas fa-eye-slash"></i></span>
+                                <a class="<?php if($sort == 'ASC'){echo 'active';} ?>" href="?sort=ASC" role="button" aria-label="ASC"><i class="fas fa-sort-alpha-down fa-lg" aria-hidden="true"></i></a> :
+                                <a class="<?php if($sort == 'DESC'){echo 'active';} ?>"  href="?sort=DESC" role="button" aria-label="DESC"><i class="fas fa-sort-alpha-down-alt fa-lg" aria-hidden="true"></i></a> |
+                                <span class="active" data-view="full"><i class="fas fa-eye" aria-hidden="true"></i></span> :
+                                <span data-view="classic"><i class="fas fa-eye-slash" aria-hidden="true"></i></span>
                             </div>
                         </div>
                         <div class="card-body">
@@ -39,21 +39,21 @@
                                 foreach($cats as $cat) {
                                     echo '<div class="cat">';
                                         echo "<div class='hidden-buttons'>";
-                                            echo "<a href='categories.php?do=Edit&catid=" . $cat['ID'] . "' class='btn btn-xs btn-primary'><i class='fa fa-edit'></i> Edit</a>";
-                                            echo "<a href='categories.php?do=Delete&catid=" . $cat['ID'] . "'  class='confirm btn btn-xs btn-danger'><i class='fa fa-times'></i> Delete</a>";
+                                            echo "<a href='categories.php?do=Edit&catid=" . $cat['ID'] . "' class='btn btn-xs btn-primary' role='button'><i class='fa fa-edit' aria-hidden='true'></i> Edit</a>";
+                                            echo "<a href='categories.php?do=Delete&catid=" . $cat['ID'] . "'  class='confirm btn btn-xs btn-danger' role='button'><i class='fa fa-times' aria-hidden='true'></i> Delete</a>";
                                         echo "</div>";
 
                                         echo '<h3>' . $cat['Name'] . '</h3>';
                                         echo '<div class="full-view">';
                                             echo "<p>"; if($cat['Description'] == '') { echo 'This category has no description'; } else { echo $cat['Description']; } echo "</p>";
-                                            if($cat['Visibility'] == 1) { echo '<span class="visibility cat-span"><i class="fa fa-eye"></i> Hidden</span>'; }
-                                            if($cat['Allow_comment'] == 1) { echo '<span class="commenting cat-span"><i class="fa fa-times"></i> Comment Disabled</span>'; }
-                                            if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times"></i> Ads Disabled</span>';}
+                                            if($cat['Visibility'] == 1) { echo '<span class="visibility cat-span"><i class="fa fa-eye" aria-hidden="true"></i> Hidden</span>'; }
+                                            if($cat['Allow_comment'] == 1) { echo '<span class="commenting cat-span"><i class="fa fa-times" aria-hidden="true"></i> Comment Disabled</span>'; }
+                                            if($cat['Allow_Ads'] == 1) { echo '<span class="advertises cat-span"><i class="fa fa-times" aria-hidden="true"></i> Ads Disabled</span>';}
                                             // get child categories
                                             $childCats = getAllFrom("*","categories","WHERE parent = {$cat['ID']}" , "" , "ID" , "ASC");
                                             if(!empty($childCats)) {
-                                                echo '<h6 class="child-head">Child Categories</h6>';
-                                                echo '<ul class="list-unstyled child-cats">';
+                                                echo '<h4 class="child-head" id="childHead">Child Categories</h4>';
+                                                echo '<ul class="list-unstyled child-cats" aria-labelledby="childHead">';
                                                     foreach($childCats as $c) {
                                                         echo "<li class='child-link'>
                                                                 <a href='categories.php?do=Edit&catid=" . $c['ID'] . "'>" . $c['Name'] . "</a>
@@ -69,12 +69,12 @@
                             ?>
                         </div>
                     </div>
-                    <a href="categories.php?do=Add" class="btn btn-primary btn-sm add-category"><i class="fa fa-plus"></i> New Category</a>
+                    <a href="categories.php?do=Add" class="btn btn-primary btn-sm add-category" role="button"><i class="fa fa-plus" aria-hidden="true"></i> New Category</a>
                 </div>
             <?php } else {
                         echo '<div class="container">';
-                            echo '<div class="alert alert-info">There\'s No categories to show</div>';
-                            echo '<a href="categories.php?do=Add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> New catgory</a>';
+                            echo '<div class="alert alert-info" role="alert">There\'s No categories to show</div>';
+                            echo '<a href="categories.php?do=Add" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus" aria-hidden="true"></i> New catgory</a>';
                         echo '</div>';
             } ?>
         <?php
@@ -87,7 +87,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="name" class="form-control" autocomplete="off" required  placeholder="Name of category">
+                            <input type="text" name="name" class="form-control" autocomplete="off" required aria-required="true"  placeholder="Name of category" aria-label="Name of category">
                         </div>
                     </div>
                     <!-- End Name field -->
@@ -95,7 +95,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                         <div class="col-sm-10 col-md-6">
-                            <textarea name="description" class="form-control" placeholder="Describe the category"></textarea>
+                            <textarea name="description" class="form-control" placeholder="Describe the category" aria-label="Describe the category"></textarea>
                         </div>
                     </div>
                     <!-- end Description field -->
@@ -103,7 +103,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Parent Catgory ?</label>
                         <div class="col-sm-10 col-md-6">
-                            <select name="parent">
+                            <select name="parent" aria-label="parentCatgory">
                                 <option value="0">None</option>
                                 <?php $allcats = getAllFrom("*" , "categories" ,"WHERE parent= 0" , "" ,  "ID" , "ASC");
                                     foreach($allcats as $cat) {
@@ -119,7 +119,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Ordering</label>
                         <div class="col-sm-10 col-md-6">
-                            <input type="text" name="ordering" class="form-control" placeholder="Number to Arrange the categories">
+                            <input type="text" name="ordering" class="form-control" placeholder="Number to Arrange the categories" aria-label="Number to Arrange the categories">
                         </div>
                     </div>
                     <!-- end Ordering field -->
@@ -217,7 +217,7 @@
 
         } else {
             echo "<div class='container'>";
-            $theMsg = '<div class="alert alert-danger">Sorry You Cant Browse This Page Directly</div>';
+            $theMsg = '<div class="alert alert-danger" role="alert">Sorry You Cant Browse This Page Directly</div>';
             redirectHome($theMsg, 'back');
             echo "</div>";
         }
@@ -241,7 +241,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Name</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="text" name="name" class="form-control" required  placeholder="Name of category" value="<?php echo $cat['Name'] ?>">
+                                <input type="text" name="name" class="form-control" required aria-required="true" placeholder="Name of category" aria-label="Name of category" value="<?php echo $cat['Name'] ?>">
                             </div>
                         </div>
                         <!-- End Name field -->
@@ -249,7 +249,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Description</label>
                             <div class="col-sm-10 col-md-6">
-                                <textarea name="description" class="form-control" placeholder="Describe the category"><?php echo $cat['Description'] ?></textarea>
+                                <textarea name="description" class="form-control" placeholder="Describe the category" aria-label="Describe the category"><?php echo $cat['Description'] ?></textarea>
                             </div>
                         </div>
                         <!-- end Description field -->
@@ -257,15 +257,15 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Ordering</label>
                             <div class="col-sm-10 col-md-6">
-                                <input type="text" name="ordering" class="form-control" placeholder="Number to Arrange the categories" value="<?php echo $cat['Ordering'] ?>">
+                                <input type="text" name="ordering" class="form-control" placeholder="Number to Arrange the categories" aria-label="Number to Arrange the categories" value="<?php echo $cat['Ordering'] ?>">
                             </div>
                         </div>
                         <!-- end Ordering field -->
                         <!-- start category type -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end">Parent Catgory ?</label>
+                            <label class="col-sm-2 col-form-label d-flex justify-content-sm-end" for="parentCatgory">Parent Catgory ?</label>
                             <div class="col-sm-10 col-md-6">
-                                <select name="parent">
+                                <select name="parent" aria-label="parentCatgory" id="parentCatgory">
                                     <option value="0">None</option>
                                     <?php $allcats = getAllFrom("*" , "categories" ,"WHERE parent= 0" , "" ,  "ID" , "ASC");
                                         foreach($allcats as $c) {

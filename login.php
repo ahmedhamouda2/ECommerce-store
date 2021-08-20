@@ -81,14 +81,14 @@
     <!-- start login form -->
     <form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <div class="custom-input">
-            <input class="form-control" type="text" name="username" autocomplete="off" required>
-            <label>Type your username</label>
+            <input id="username" class="form-control" type="text" name="username" autocomplete="off" required aria-required="true">
+            <label for="username">Type your username</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="password" name="password" autocomplete="new-password" required>
-            <label>Type your password</label>
+            <input id="password" class="form-control" type="password" name="password" autocomplete="new-password" required aria-required="true">
+            <label for="password">Type your password</label>
         </div>
-        <input class="btn btn-primary btn-block" type="submit" name="login" value="login">
+        <input class="btn btn-primary btn-block" type="submit" name="login" value="login" role="button">
         <div class="divider"></div>
         <div class="copyright text-center">
             <span>© 2021, Ahmed Hamouda , All rights reserved.</span>
@@ -99,22 +99,22 @@
     <!-- start signup form -->
     <form class="signup" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <div class="custom-input">
-            <input class="form-control" type="text" name="username" autocomplete="off" required pattern=".{4,}" title="Username must be 4 chars or more">
-            <label>Type your username</label>
+            <input class="form-control" type="text" name="username" autocomplete="off" required aria-required="true" pattern=".{4,}" title="Username must be 4 chars or more" aria-describedby="username-length-error" aria-invalid="true">
+            <label for="">Type your username</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="password" name="password" autocomplete="new-password" required minlength="4">
-            <label>Type a complex password</label>
+            <input id="password" class="form-control" type="password" name="password" autocomplete="new-password" required aria-required="true" minlength="4">
+            <label for="password">Type a complex password</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="password" name="password2" autocomplete="new-password" required minlength="4">
-            <label>Type a password again</label>
+            <input id="password2" class="form-control" type="password" name="password2" autocomplete="new-password" required aria-required="true" minlength="4">
+            <label for="password2">Type a password again</label>
         </div>
         <div class="custom-input">
-            <input class="form-control" type="email" name="email" required>
-            <label>Type valid email</label>
+            <input id="email" class="form-control" type="email" name="email" required aria-required="true">
+            <label for="email">Type valid email</label>
         </div>
-        <input class="btn btn-success btn-block" type="submit" name="Signup" value="Signup">
+        <input class="btn btn-success btn-block" type="submit" name="Signup" value="Signup" role="button">
         <div class="divider"></div>
         <div class="copyright text-center">
             <span>© 2021, Ahmed Hamouda , All rights reserved.</span>
@@ -125,11 +125,11 @@
         <?php
             if(!empty($formErrors)){
                 foreach($formErrors as $error){
-                    echo '<div class="alert alert-danger">' . $error . '</div>';
+                    echo '<div class="alert alert-danger" role="alert">' . $error . '</div>';
                 }
             }
             if(isset($successMsg)){
-                echo '<div class="alert alert-success">' . $successMsg . '</div>';
+                echo '<div class="alert alert-success" role="alert">' . $successMsg . '</div>';
             }
         ?>
     </div>
